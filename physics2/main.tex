@@ -3,14 +3,281 @@
 
 \title{Fisica 2 - Appunti}
 \author{Davide Bagnoli}
-\date{Spring 2025}
+\date{1 semestre 2024/2025}
+
+
+
 
 \begin{document}
 \maketitle
 \tableofcontents
 \newpage
 
-\section{Introduction}
+\section{Analisi vettoriale}
+\subsection{Note}
+\begin{proposition}
+    \begin{equation}
+    \div(\curl \vb{A})= 0
+    \end{equation}
+\end{proposition}
+\begin{proof}
+$
+\grad_{x}\vdot(\curl{\vb{A}})_{x}=\pdv{x}(\pdv{A_z}{y}-\pdv{A_y}{z})$
+se $\vb{A}$ è $\mathcal{C}^{2}$ le derivate si scambiano e si elidono con gli altri termini.
+\end{proof}
+
+\begin{proposition}
+    \begin{equation}
+    \curl(\grad \Psi)=0
+    \end{equation}
+\end{proposition}
+
+\begin{proof}
+ $(\curl(\grad\Psi))_{x} = \vu{x}\left( \pdv{\Psi}{y}{z} -\pdv{\Psi}{z}{y}\right)=0$ se $\vb{A}$ è $\mathcal{C}^{2}$   
+\end{proof}
+
+\begin{theorem}
+    $\forall$p $\div \vb{A}(p)= 0 \implies \exists\vb{C} $ campo vettoriale t.c. $\vb{A} = \curl \vb{C}$
+\end{theorem}
+
+\begin{theorem}
+    $\forall$p $\curl \vb{A}(p)= 0 \implies \exists\Psi $ campo scalare t.c. $\vb{A} = \grad \Psi$
+\end{theorem}
+
+\newtheorem*{TS}{Teorema di Strokes}
+\begin{TS}
+    \begin{equation}
+    \oint_{\Gamma}\vb{C}\cdot \dd{\vb{s}}= \int_{\Sigma}(\curl \vb{C})\cdot \vu{n} \dd{\Sigma}
+    \end{equation}
+\end{TS}
+
+\begin{proof}
+    Divido la superficie in quadrati abbastanza piccoli da considerarsi piani
+    $\oint_{\Gamma}\vb{C}\cdot \dd{\vb{s}}= \sum_{i=1}\oint_{\Gamma_{i}}\vb{C}\cdot \dd{\vb{s}}$\\
+    $\oint_{\Gamma_{i}}\vb{C}\cdot \dd{\vb{s}}= C_{x}(1)\delta x +C_{y}(2)\delta y -C_{x}(3)\delta x -C_{x}(4)\delta y $ dove $C_{x}$ e $C_{y}$ sono costanti.
+    \\$[C_{x}(1)-C_{x}(3)]\delta x = [C_{x}(1)-C_{x}(1)-\pdv{C_x}{y}\delta y]\delta x \simeq -\pdv{C_x}{y}\delta y\delta x$
+    \\$[C_{y}(2)-C_{y}(4)]\delta x = [C_{y}(2)-C_{y}(2)-\left( -\pdv{C_y}{x} \right)\delta x]\delta y \simeq +\pdv{C_y}{x}\delta x\delta y$
+    \\$ \sum_{i=1}\oint_{\Gamma_{i}}\vb{C}\cdot \dd{\vb{s}}= \sum_{i=1}\left( +\pdv{C_y}{x} -\pdv{C_x}{y}\right) \delta y_{i}\delta x_{i}
+    = \int_{\Sigma}\left( +\pdv{C_y}{x} -\pdv{C_x}{y}\right) \dd{\Sigma} =  \int_{\Sigma}\left( \curl \vb{C}\right) \dd{\Sigma}  $
+\end{proof}
+
+\newtheorem*{TG}{Teorema di Gauss}
+\begin{TG}
+    \begin{equation}
+        \oint_{\Sigma} \vb{C}\cdot\vu{n}\dd{\Sigma}= \int_{V}\left( \div\vb{C} \right) \dd{\tau}
+    \end{equation}
+\end{TG}
+\begin{proof}
+    Posso dividere il volume della superficie in tanti piccoli cubetti
+    \\ $\oint_{\Sigma} \vb{C}\cdot\vu{n}\dd{\Sigma}= \sum_{i=1} \oint_{\Sigma_{i}} \vb{C}\cdot\vu{n} \dd{\Sigma_{i}}$ 
+    \\$\Phi(1) = -\int C_{y}\dd{x}\dd{z} =- C_{y}(1)\delta x \delta z$ \quad
+    $\Phi(2) =  C_{y}(2)\delta x \delta z$
+    \\$\Phi(1+2)= \delta x \delta z\left[ - C_{y}(1) + C_{y}(1)+ \pdv{C_y}{y}\delta y\right]= \pdv{C_y}{y}\delta x \delta y \delta z = \pdv{C_y}{y} \delta \tau $
+    \\ Il flusso totale sull'elemento $\delta\Sigma_i$ è $\delta\Phi_i= \left( \pdv{C_x}{x}+\pdv{C_y}{y} +\pdv{C_z}{z}\right)\delta\tau_i= (\div \vb{C})\delta\tau_i$
+    \\ $\sum_{i=1}\oint_{\delta\Sigma_i}\vb{C}\cdot\vu{n}\dd{\Sigma_i} = \sum_i \left( \div \vb{C} \right) \delta\tau_i = 
+    \int_\tau \left( \div \vb{C} \right)\dd{\tau}$
+\end{proof}
+
+\section{Elettrostatica}
+\subsection{Legge di Gauss }
+Poniamo una sfera con centro nell'origine insieme a una carica $q$:
+\begin{equation}
+    \Phi(\vb{E})= \oint_\Sigma \vb{E}\cdot \vu{n} \; \dd{\Sigma} = \oint_\Sigma \frac{1}{4\pi\epsilon_0}\frac{q}{r_0^2}\vu{n}\cdot\vu{n}\dd{\Sigma}= 
+    \frac{q}{4\pi\epsilon_0r_0^2}\oint_\Sigma \dd{\Sigma} = \frac{q}{\epsilon_0}
+\end{equation}
+
+Questo risultato si può generalizzare a una superficie qualsiasi con una carica all'interno.
+\begin{equation}
+    \delta\Phi(\vb{E})= \vb{E}\cdot\vu{n} \delta \Sigma = \frac{q}{4\pi\epsilon_0r_0^2}\vu{E}\cdot\vu{n} \delta\Sigma= 
+     \frac{q}{4\pi\epsilon_0r_0^2}\cos \theta \delta\Sigma=  \frac{q}{4\pi\epsilon_0} \delta\Omega
+\end{equation}
+\begin{equation}
+    \Phi(\vb{E})= \oint \dd{\Phi}(\vb{E})=\frac{q}{4\pi\epsilon_0} \oint\dd{\Omega} = \frac{q}{\epsilon_0}
+\end{equation}
+Se la carica è all'esterno della superficie il cono $\delta\Omega$ intercetta a coppie la superficie. 
+\begin{equation}
+    \delta\Phi(\vb{E}_2)= \vb{E}_2 \cdot\vu{n}_2 \delta\Sigma_2 =  \frac{q}{4\pi\epsilon_0} \delta\Omega
+    \quad \quad \delta\Phi(\vb{E}_1)= \vb{E}_1 \cdot\vu{n}_1 \delta\Sigma_1 =  - \frac{q}{4\pi\epsilon_0} \delta\Omega
+\end{equation}
+\begin{equation}
+    \delta\Phi(\Omega)= 0 \implies \Phi(\vb{E})= \oint \dd{\Phi}=0
+\end{equation}
+
+Nel caso generale con $n$ particelle interne e $m$ particelle esterne
+\begin{equation}
+    \vb{E}(p)= \sum_{k=1}^{n} \frac{q_k}{4\pi\epsilon_0} \frac{\vb{r}-\vb{r}_k}{\abs{\vb{r}-\vb{r}_k}^3} +
+    \sum_{j=1}^{m} \frac{q_j}{4\pi\epsilon_0} \frac{\vb{r}-\vb{r}_j}{\abs{\vb{r}-\vb{r}_j}^3} 
+\end{equation}
+\begin{equation}
+    \Phi(\vb{E})= \oint_\Sigma \vb{E}(p)\cdot\vu{n} \dd{\Sigma} = \oint_\Sigma \left[ \sum_k \dots + \sum_j \dots  \right]\cdot\vu{n} \dd{\Sigma} 
+\end{equation}
+\begin{equation}
+    =\sum_{k=1}^{n} \oint_\Sigma\frac{q_k}{4\pi\epsilon_0} \frac{\vb{r}-\vb{r}_k}{\abs{\vb{r}-\vb{r}_k}^3} \cdot\vu{n}\dd{\Sigma} +
+    \sum_{j=1}^{m} \oint_\Sigma\frac{q_j}{4\pi\epsilon_0} \frac{\vb{r}-\vb{r}_j}{\abs{\vb{r}-\vb{r}_j}^3}\cdot\vu{n} \dd{\Sigma} 
+    = \sum_{k=1}^{n} \frac{q_k}{\epsilon_0} + 0 = \frac{Q_{interna}}{\epsilon_0}
+\end{equation}
+
+Consideriamo la densità di carica data da $\delta q = \rho(\vb{r})\delta\tau$
+\begin{equation}
+    \Phi(\vb{E})= \oint_\Sigma \vb{E}\cdot\vu{n} \dd{\Sigma}  \overset{T. di\, Gauss}{=} \int_\tau\left( \div \vb{E} \right) \dd{\tau}
+    \overset{L. di\, Gauss}{=}\frac{1}{\epsilon_0}\int_\tau\rho \dd{\tau}
+\end{equation}
+\begin{equation}
+    \implies \int_\tau \left( \div \vb{E}-\frac{\rho}{\epsilon_0} \right) \dd{\tau} = 0 \overset{\forall \tau}{\implies } \div \vb{E} = \frac{\rho}{\epsilon_0}
+\end{equation}
+
+
+
+
+\subsection{Forza Conservativa}
+La forza di Coulomb è centrale.
+\begin{definition}
+    Un campo è di forze centrali $\vb{C}(\vb{r})$ con $O$ centro se $\exists O $ punto t.c. \\$\vb{C}(\vb{r})= C(r)\vu{r}\quad r = \abs{\overline{OP}}$
+\end{definition}
+
+\begin{definition}
+    Un campo è conservativo se $\oint_\Gamma \vb{C}\cdot \dd{\vb{s}}= 0 \quad\forall\Gamma\leftrightarrow\int_{A}^{B}\vb{C}\cdot \dd{\vb{s}}= \Psi(B)-\Psi(A)$
+\end{definition}
+\begin{proof}
+    $\Gamma= \Gamma_1\bigcup\Gamma_2$   \quad \quad         $0 = \oint_\Gamma \vb{C}\cdot \dd{\vb{s}}=\int_{A,\Gamma_1}^{B}\vb{C}\cdot \dd{\vb{s}}+\int_{B,\Gamma_2}^{A}\vb{C}\cdot \dd{\vb{s}}$
+    \\$\implies \int_{A,\Gamma_1}^{B}\vb{C}\cdot \dd{\vb{s}}= \int_{A,\Gamma_2}^{B}\vb{C}\cdot \dd{\vb{s}}$
+\end{proof}
+
+\begin{proposition}
+    Un campo centrale è conservativo 
+\end{proposition}
+\begin{proof}
+    $\int_{A}^{B}\vb{C}(\vb{r})\cdot \dd{\vb{s}}=\int_{A}^{B}C(r)\vu{r}\cdot \dd{\vb{s}}\int_{r_A}^{r_B}C(r)\;dr= \Psi(r_B)-\Psi(r_A)$
+\end{proof}
+Per molteplici cariche il campo elettrico $\vb{E}(p)= \sum_{i=1}^{N} \vb{E}_i(p) $ non è centrale
+\begin{equation}
+    = \sum_{i=1}^{N}\frac{q_i}{4\pi\epsilon_0}\frac{(\vb{r}-\vb{r}_i)}{\abs{\vb{r}-\vb{r}_i}^3}\implies\int_{A,\Gamma}^{B}\vb{E}(p)\cdot \dd{\vb{s}}
+    =\sum_{i=1}^{N}\left( \Psi_i(\vb{r}_B)-\Psi_i(\vb{r}_A) \right) 
+\end{equation}
+$\vb{E}$ è conservativo per quantità arbitrarie di cariche
+\begin{equation}
+    \oint_\Gamma \vb{E}\cdot \dd{\vb{s}} \overset{T.di\,Stokes}{=}\int_{\Sigma} \left( \curl \vb{E} \right)\cdot \vu{n}\dd{\Sigma}
+    \overset{\forall\Sigma}{\implies}\curl\vb{E}=0
+\end{equation}
+Il campo elettrico in condizioni statiche è irrotazionale
+\begin{definition}
+    $\curl\vb{E}=0\implies \exists V | \vb{E}=- \grad V$ chiamato potenziale elettrostatico
+\end{definition}
+
+\subsection{Superfici equipotenziali}
+\begin{definition}
+    L'insieme dei punti dello spazio in cui il potenziale elettrostatico $V$ assume lo stesso valore
+    è detto superficie equipotenziale.   
+\end{definition}
+
+\begin{proposition}
+    Il campo $\vb{E}$ è ortogonale alle sue superfici equipotenziali
+\end{proposition}
+\begin{proof}
+    $\Sigma$ equipotenziale $\implies\left[ \forall \vb{x} \in\Sigma \implies V(\vb{x}) \text{costante} \right]$
+    \\$V(\vb{x}+\Delta\vb{x})-V(\vb{x})\simeq0=\pdv{V}{x}\Delta x+\pdv{V}{y}\Delta y+\pdv{V}{z}\Delta z= (\grad V)\cdot\Delta\vb{x}= - \vb{E}\cdot\Delta\vb{x}$
+    \\$\implies-\vb{E}\cdot\Delta\vb{x}=0\implies\vb{E}\perp\Sigma$
+\end{proof}
+
+\newtheorem*{EP}{Equazione di Poisson}
+\begin{EP}
+    \begin{equation}
+        \div \vb{E}= \frac{\rho}{\epsilon_0}\implies \laplacian V = -\frac{\rho}{\epsilon_0}
+    \end{equation}
+\end{EP}
+
+\newtheorem*{EL}{Equazione di Laplace}
+\begin{EL}
+    \begin{equation}
+        \laplacian V = 0
+    \end{equation}
+\end{EL}
+
+
+%condizioni di contorno e soluzioni separabili
+%da fare
+
+
+
+Studiamo l'equazione di Laplace in una dimensione
+\begin{equation}
+    \dv[2]{\Phi}{x}=0 \implies\Phi(x) = mx + q \quad \text{Noto:} \quad\Phi(x) = \frac{\Phi(x+\Delta x)+\Phi(x-\Delta x)}{2}
+\end{equation}
+Posso estendere questo risultato a tre dimensioni
+\begin{theorem}
+    (Valore Medio)
+    \begin{equation}
+        \Phi(p)= \frac{1}{4\pi R^2}\oint_{\Sigma, Sfera} \Phi \;\dd{\Sigma}
+    \end{equation}
+\end{theorem}
+
+\begin{proposition}
+    Si stabilisce che in elettrostatica non si può verificare la condizione di equilibrio.
+\end{proposition}
+\begin{proof}
+    Ipotizzo di avere un punto privo di carica in cui cercare $\vb{E}=0 \leftrightarrow$ equilibrio statico.
+    Se è minimo, deve esserci una sfera $\Sigma$ intorno al punto con un potenziale t.c. $\forall\vb{x}\in\Sigma, V(\vb{x})>V(p)$;
+    ma ciò è assurdo per il teorema del valore medio.
+\end{proof}
+
+\subsection{Esperimento di Rutherford}
+%da fare
+
+\subsection{Dipolo Elettrico}
+Si tratta di due cariche opposte $+ q$ e $-q$ a una breve distanza $a$
+\begin{equation}
+    V(p)= \frac{q}{4\pi\epsilon_0}\left( \frac{1}{r_+}-\frac{1}{r_-} \right)= \frac{q}{4\pi\epsilon_0}\left( \frac{r_--r_+}{r_+r_-}\right)
+\end{equation}
+Se $r>>a$(far field) allora $r_+r_-\simeq r^2$, $r_--r_+\simeq a \cos \theta$
+\begin{equation}
+    \implies V(p)=  \frac{q}{4\pi\epsilon_0}\frac{a \cos \theta}{r^2}= \frac{1}{4\pi\epsilon_0}\frac{\vb{p}\cdot\vu{r}}{r^2}
+\end{equation}
+
+\begin{definition}
+    $\vb{p}$ è detto momento del dipolo, è il vettore di modulo $aq$, diretto lungo l'asse del dipolo con verso dal negativo al positivo.
+
+\end{definition}
+
+\begin{equation}
+    \vb{E}_r=E_r\vu{r}=-\pdv{V}{r}\vu{r}= \frac{2 p \cos \theta}{4\pi\epsilon_0r^3}\vu{r}
+\end{equation}
+\begin{equation}
+    \vb{E}_\theta = -\frac{1}{r}\pdv{V}{\theta}\vu{\theta}= \frac{p \sin \theta}{4\pi\epsilon_0r^3}\vu{\theta}
+\end{equation}
+In generale $\vb{E}(p)=\vb{E}_r+\vb{E}_\theta$:
+\begin{equation}
+    \vb{E}(p)=\frac{3\vu{t}\left( \vb{p}\cdot\vu{t} \right)-\vb{p}}{4\pi\epsilon_0\abs{\vb{r}-\vb{r}'}^3} \quad \quad 
+    \vu{t} = \frac{\vb{r}-\vb{r}'}{\abs{\vb{r}-\vb{r}'}}
+\end{equation}
+
+Se immergo un dipolo in un campo elettrico uniforme:
+\begin{equation}
+    \vb{F}_{tot} = \vb{F}_+ +\vb{F}_-= q\vb{E}-q\vb{E}=0  \quad \quad \implies \text{Baricentro fisso}
+\end{equation}
+\begin{equation}
+    \vb{M}_{tot}= \vb{r}_+\times\vb{F}_+ + \vb{r}_-\times\vb{F}_-=\left( \vb{r}_++\vb{r}_- \right) \times\vb{F}=
+     q\left( \vb{r}_++\vb{r}_- \right) \times\vb{E}= \vb{p}\times\vb{E}
+\end{equation}
+\begin{equation}
+    U_{el}= -\vb{p}\cdot\vb{E}
+\end{equation}
+Se ho un campo dipendente da $x$:
+\begin{equation}
+    \vb{F}_{tot} = \vb{E}_+ +\vb{E}_-\simeq q\left( \vb{E}_- + \pdv{E}{x}a\vu{x} \right)-q\vb{E}_-= \vb{p}\pdv{E}{x}
+\end{equation}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 \end{document}
