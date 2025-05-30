@@ -265,15 +265,118 @@ Se ho un campo dipendente da $x$:
 \begin{equation}
     \vb{F}_{tot} = \vb{E}_+ +\vb{E}_-\simeq q\left( \vb{E}_- + \pdv{E}{x}a\vu{x} \right)-q\vb{E}_-= \vb{p}\pdv{E}{x}
 \end{equation}
+\subsubsection{Espansione Multipolo}
+Possiamo immaginare un qualsiasi corpo come un insieme di cariche puntuali distribuite in una regione limitata di spazio.
+Il potenziale attorno a questo corpo è approssimabile da:
+\begin{equation}
+    V(p)= \frac{Q_{tot}}{4\pi\epsilon_0 r}+ \frac{\vb{p}\cdot\vu{r}}{4\pi\epsilon_0r^2}+ \frac{1}{4\pi\epsilon_0r^3}
+    \sum_{i=1}^{N} q_i r_i^2\frac{(3 \cos\theta_i-1)}{2} + o(r^{-4})
+\end{equation}
+\begin{proof}
+    \begin{equation}
+        V(p)= \sum_{i=1}^{N} \frac{q_i}{4\pi\epsilon_0\abs{\vb{r}-\vb{r}_i}} 
+        \quad \quad t_i^2= (\vb{r}-\vb{r}_i)^2= r^2+r_i^2-2rr_i\cos \theta_i
+    \end{equation}
+    Applicando approssimazione al far field $(r>>a)$
+    \begin{equation}
+        \frac{1}{t_i}= \frac{1}{\sqrt{r^2+r_i^2-2rr_i\cos \theta_i}}= \frac{1}{r}\frac{1}{\sqrt{1-2\frac{r_i}{r}\cos \theta_i + \frac{r_i^2}{r^2}}}
+        \simeq\frac{1}{r}\left( 1+ \frac{r_i}{r}\cos \theta_i +o(\frac{r_i^2}{r^2})\right)
+    \end{equation}
+    \begin{equation}
+        \implies V(p)= \frac{1}{4\pi\epsilon_0}\sum_{i=1}^{N} \frac{q_i}{t_i}= \frac{1}{4\pi\epsilon_0} \left[ \frac{\sum q_i}{r}+\frac{\sum q_ir_i \cos \theta_i}{r^2} + o(\frac{1}{r^3})\right]
+    \end{equation}
+\end{proof}
 
+\subsection{Conduttori e dielettrici}
+\begin{definition}
+    Se un materiale ha cariche che riescono a muoversi se sottoposte a un campo elettrico, si dice conduttore. Altrimenti, è detto dielettrico.
+\end{definition}
 
+\subsubsection{Conduttori in equilibrio statico}
+Se il conduttore è in equilibrio statico, allora: $\vb{E}=0$; altrimenti le cariche interne che sono libere, lo seguirebbero.
+Posso spostare cariche esterne, ma subito dopo la perturbazione viene ripristinato l'equilibrio interno nell'ordine di picosecondi.
+\\
+$\vb{E}=0 \implies Q_{int} = 0\implies \forall\Sigma$ interna non può contenere carica, la carica si trova solo sui primi stati atomici
+$\sigma= \frac{\dd{q}}{\dd{\Sigma}}$.
+\\
+$\vb{E}=0 \implies  V = $ costante, il campo è ortogonale alla superficie del conduttore. 
+\\Se considero un elemento infinitesimo $\dd{\Sigma}$ della superficie del conduttore, sulla parte interna non c'è campo elettrico e su quella esterna:
+\begin{equation}
+    \Phi(\vb{E})= \frac{Q_{int}}{\epsilon_0}= \frac{\dd{Q}}{\epsilon_0}= \frac{\sigma}{\epsilon_0}\dd{\Sigma}= E\dd{\Sigma}\implies E = \frac{\sigma}{\epsilon_0}
+\end{equation}
+Se ho un foglio carico ho una situazione simile:
+\begin{equation}
+    \Phi(\vb{E}) = E \cdot 2\dd{\Sigma}= \frac{\sigma}{\epsilon_0}\dd{\Sigma}\implies E = \frac{\sigma}{2\epsilon_0}
+\end{equation}
 
+Consideriamo ora una cavità vuota all'interno del conduttore, una superficie $\Sigma $ che contiene la cavità  e un circuito $\Gamma$ che attravera la cavità e il conduttore:
+\\$\Phi_\Sigma(\vb{E})= 0 \implies Q_{int} = 0 $ la carica totale nella cavità è zero.
+\\$\Gamma(E)= 0 = \int_{\Gamma,int}0 \cdot\dd{\vb{s}}+\int_{\Gamma,cav}\vb{E}_{cav}\cdot\dd{\vb{s}}\implies E_{cav}= 0, \quad
+\sigma_{cav}=0$
 
+Se la cavità all'interno della cavità ho una carica $q$, sulla superficie interna del conduttore avrò una carica $-q$.
 
+Variazioni all'interno della cavità non avranno conseguenze esterne e viceversa, una gabbia conduttrice, detta \textit{gabbia di Faraday},
+permette di isolare sistemi elettrostatici.
 
+\subsubsection{Carica immagine}
+Date due cariche opposte a una certa distanza, consideriamo una superficie equipotenziale $\Sigma$ con $V(\vb{r})= V_A$ e prendiamo un foglio 
+uguale a $\Sigma$. Se manteniamo il potenziale del conduttore $V = V_A$ allora potrò metterlo su $\Sigma$ senza cambiare la situazione, da quel
+punto sarà irrilevante la presenza della carica interna: posso lavorare solo con il conduttore cavo o pieno.
+\begin{proposition}
+    Posso sostituire a una carica un conduttore congruente a una sua superficie equipotenziale e viceversa.
+\end{proposition}
 
+In generale se ho un sistema con $N$ conduttori questi avranno una certa carica $Q_k$ e un certo potenziale $V_k$ che dipendono uno dall'altro
+\begin{equation}
+    V_k = \sum_{i=1}^{N} a_{ki}Q_i \quad \quad Q_k = \sum_{i=1}^{N} C_{ki}V_i
+\end{equation}
 
+I $C_{ki}$ sono detti \textit{coefficienti d'induzione}, $C_{kk}$ è detta \textit{capacità}.
 
+\subsection{Condensatori}
+\begin{definition}
+    Un \textit{condensatore} è un sistema formato da coppie di armature conduttrici
+\end{definition}
+
+\subsubsection{Gusci sferici}
+Consideriamo due gusci sferici concentrici il primo con carica $+q$ e raggio $R_1$ e il secondo con carica $-q$ e raggio $R_2 > R_1$:
+\begin{equation}
+    E(r<R_1)=0\qquad E(r>R_2)=0\qquad E(r \in [R_1,R_2])= \frac{q}{4\pi\epsilon_0r^2}
+\end{equation}
+\begin{equation}
+    \Delta V = V_1-V_2= \int_{2}^{1}-\vb{E}\cdot\dd{\vb{s}}= \int_{1}^{2}\vb{E}\cdot\dd{\vb{s}}= 
+    \int_{1}^{2}\frac{q}{4\pi\epsilon_0}\frac{\vu{r}}{r^2}\cdot\dd{\vb{s}} = \int_{R_1}^{R_2}\frac{q}{4\pi\epsilon_0}\frac{\dd{r}}{r^2}
+\end{equation}
+\begin{equation}
+    \implies V = \frac{q}{4\pi\epsilon_0}\eval{\frac{1}{r}}_{R_1}^{R_2}= \frac{q}{4\pi\epsilon_0}\left( \frac{1}{R_1}-\frac{1}{R_2} \right)
+    = \frac{q}{4\pi\epsilon_0}\frac{R_2-R_1}{R_1R_2}
+\end{equation}
+\begin{equation}
+    C = 4\pi\epsilon_0\frac{R_1R_2}{R_2-R_1}
+\end{equation}
+
+\subsubsection{Condensatori piani}
+Consideriamo due armature piane di superficie $\Sigma$ e carica opposta $+q$ e $-q$ poste a una distanza $h<<\Sigma$, trascurando gli effetti di bordo si ottiene:
+\begin{equation}
+    E(\text{tra le armature})= \frac{\sigma}{\epsilon_0}\implies V = \frac{\sigma}{\epsilon_0}h = \frac{q}{\epsilon_0\Sigma}h 
+    \implies C = \epsilon_0\frac{\Sigma}{h}
+\end{equation}
+\subsubsection{Serie e parallelo}
+Consideriamo due condensatori $C_1$ e $C_2$ collegati in parallelo, la caduta di potenziale $\Delta V$ è la stessa ai due condensatori.
+La capacità $C_{eq}$ di un singolo condensatore equivalente al nostro caso, si ottiene:
+\begin{equation}
+    Q_1= C_1\Delta V\qquad Q_2 = C_2 \Delta V \qquad C_{eq}\Delta V = Q_1 +Q_2 \implies C_{eq}= C_1 + C_2
+\end{equation}
+
+Consideriamo ora due condensatori $C_1$ e $C_2$ collegati in serie, la carica $Q$ è la stessa per i due condensatori:
+\begin{equation}
+    Q = C_1 \Delta V_1\qquad Q= C_2 \Delta V_2 \implies \Delta V = \Delta V_1 + \Delta V_2 = \frac{Q}{C_1} + \frac{Q}{C_2}= 
+    Q\left( \frac{1}{C_1}+\frac{1}{C_2} \right)
+\end{equation}
+\begin{equation}
+    \Delta V = Q\left( \frac{1}{C_1}+\frac{1}{C_2} \right) = \frac{Q}{C_{eq}} \implies C_{eq} = \left( \frac{1}{C_1}+ \frac{1}{C_2} \right)^{-1}
+\end{equation}
 
 
 
