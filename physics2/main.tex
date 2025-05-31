@@ -16,9 +16,9 @@
 \section{Analisi vettoriale}
 \subsection{Note}
 \begin{proposition}
-    \begin{equation}
+    \begin{equation*}
     \div(\curl \vb{A})= 0
-    \end{equation}
+    \end{equation*}
 \end{proposition}
 \begin{proof}
 $
@@ -27,9 +27,9 @@ se $\vb{A}$ è $\mathcal{C}^{2}$ le derivate si scambiano e si elidono con gli a
 \end{proof}
 
 \begin{proposition}
-    \begin{equation}
+    \begin{equation*}
     \curl(\grad \Psi)=0
-    \end{equation}
+    \end{equation*}
 \end{proposition}
 
 \begin{proof}
@@ -46,9 +46,9 @@ se $\vb{A}$ è $\mathcal{C}^{2}$ le derivate si scambiano e si elidono con gli a
 
 \newtheorem*{TS}{Teorema di Strokes}
 \begin{TS}
-    \begin{equation}
+    \begin{equation*}
     \oint_{\Gamma}\vb{C}\cdot \dd{\vb{s}}= \int_{\Sigma}(\curl \vb{C})\cdot \vu{n} \dd{\Sigma}
-    \end{equation}
+    \end{equation*}
 \end{TS}
 
 \begin{proof}
@@ -63,9 +63,9 @@ se $\vb{A}$ è $\mathcal{C}^{2}$ le derivate si scambiano e si elidono con gli a
 
 \newtheorem*{TG}{Teorema di Gauss}
 \begin{TG}
-    \begin{equation}
+    \begin{equation*}
         \oint_{\Sigma} \vb{C}\cdot\vu{n}\dd{\Sigma}= \int_{V}\left( \div\vb{C} \right) \dd{\tau}
-    \end{equation}
+    \end{equation*}
 \end{TG}
 \begin{proof}
     Posso dividere il volume della superficie in tanti piccoli cubetti
@@ -81,50 +81,50 @@ se $\vb{A}$ è $\mathcal{C}^{2}$ le derivate si scambiano e si elidono con gli a
 \section{Elettrostatica}
 \subsection{Legge di Gauss }
 Poniamo una sfera con centro nell'origine insieme a una carica $q$:
-\begin{equation}
+\begin{equation*}
     \Phi(\vb{E})= \oint_\Sigma \vb{E}\cdot \vu{n} \; \dd{\Sigma} = \oint_\Sigma \frac{1}{4\pi\epsilon_0}\frac{q}{r_0^2}\vu{n}\cdot\vu{n}\dd{\Sigma}= 
     \frac{q}{4\pi\epsilon_0r_0^2}\oint_\Sigma \dd{\Sigma} = \frac{q}{\epsilon_0}
-\end{equation}
+\end{equation*}
 
 Questo risultato si può generalizzare a una superficie qualsiasi con una carica all'interno.
-\begin{equation}
+\begin{equation*}
     \delta\Phi(\vb{E})= \vb{E}\cdot\vu{n} \delta \Sigma = \frac{q}{4\pi\epsilon_0r_0^2}\vu{E}\cdot\vu{n} \delta\Sigma= 
      \frac{q}{4\pi\epsilon_0r_0^2}\cos \theta \delta\Sigma=  \frac{q}{4\pi\epsilon_0} \delta\Omega
-\end{equation}
-\begin{equation}
+\end{equation*}
+\begin{equation*}
     \Phi(\vb{E})= \oint \dd{\Phi}(\vb{E})=\frac{q}{4\pi\epsilon_0} \oint\dd{\Omega} = \frac{q}{\epsilon_0}
-\end{equation}
+\end{equation*}
 Se la carica è all'esterno della superficie il cono $\delta\Omega$ intercetta a coppie la superficie. 
-\begin{equation}
+\begin{equation*}
     \delta\Phi(\vb{E}_2)= \vb{E}_2 \cdot\vu{n}_2 \delta\Sigma_2 =  \frac{q}{4\pi\epsilon_0} \delta\Omega
     \quad \quad \delta\Phi(\vb{E}_1)= \vb{E}_1 \cdot\vu{n}_1 \delta\Sigma_1 =  - \frac{q}{4\pi\epsilon_0} \delta\Omega
-\end{equation}
-\begin{equation}
+\end{equation*}
+\begin{equation*}
     \delta\Phi(\Omega)= 0 \implies \Phi(\vb{E})= \oint \dd{\Phi}=0
-\end{equation}
+\end{equation*}
 
 Nel caso generale con $n$ particelle interne e $m$ particelle esterne
-\begin{equation}
+\begin{equation*}
     \vb{E}(p)= \sum_{k=1}^{n} \frac{q_k}{4\pi\epsilon_0} \frac{\vb{r}-\vb{r}_k}{\abs{\vb{r}-\vb{r}_k}^3} +
     \sum_{j=1}^{m} \frac{q_j}{4\pi\epsilon_0} \frac{\vb{r}-\vb{r}_j}{\abs{\vb{r}-\vb{r}_j}^3} 
-\end{equation}
-\begin{equation}
+\end{equation*}
+\begin{equation*}
     \Phi(\vb{E})= \oint_\Sigma \vb{E}(p)\cdot\vu{n} \dd{\Sigma} = \oint_\Sigma \left[ \sum_k \dots + \sum_j \dots  \right]\cdot\vu{n} \dd{\Sigma} 
-\end{equation}
-\begin{equation}
+\end{equation*}
+\begin{equation*}
     =\sum_{k=1}^{n} \oint_\Sigma\frac{q_k}{4\pi\epsilon_0} \frac{\vb{r}-\vb{r}_k}{\abs{\vb{r}-\vb{r}_k}^3} \cdot\vu{n}\dd{\Sigma} +
     \sum_{j=1}^{m} \oint_\Sigma\frac{q_j}{4\pi\epsilon_0} \frac{\vb{r}-\vb{r}_j}{\abs{\vb{r}-\vb{r}_j}^3}\cdot\vu{n} \dd{\Sigma} 
     = \sum_{k=1}^{n} \frac{q_k}{\epsilon_0} + 0 = \frac{Q_{interna}}{\epsilon_0}
-\end{equation}
+\end{equation*}
 
 Consideriamo la densità di carica data da $\delta q = \rho(\vb{r})\delta\tau$
-\begin{equation}
+\begin{equation*}
     \Phi(\vb{E})= \oint_\Sigma \vb{E}\cdot\vu{n} \dd{\Sigma}  \overset{T. di\, Gauss}{=} \int_\tau\left( \div \vb{E} \right) \dd{\tau}
     \overset{L. di\, Gauss}{=}\frac{1}{\epsilon_0}\int_\tau\rho \dd{\tau}
-\end{equation}
-\begin{equation}
+\end{equation*}
+\begin{equation*}
     \implies \int_\tau \left( \div \vb{E}-\frac{\rho}{\epsilon_0} \right) \dd{\tau} = 0 \overset{\forall \tau}{\implies } \div \vb{E} = \frac{\rho}{\epsilon_0}
-\end{equation}
+\end{equation*}
 
 
 
@@ -150,15 +150,15 @@ La forza di Coulomb è centrale.
     $\int_{A}^{B}\vb{C}(\vb{r})\cdot \dd{\vb{s}}=\int_{A}^{B}C(r)\vu{r}\cdot \dd{\vb{s}}\int_{r_A}^{r_B}C(r)\;dr= \Psi(r_B)-\Psi(r_A)$
 \end{proof}
 Per molteplici cariche il campo elettrico $\vb{E}(p)= \sum_{i=1}^{N} \vb{E}_i(p) $ non è centrale
-\begin{equation}
+\begin{equation*}
     = \sum_{i=1}^{N}\frac{q_i}{4\pi\epsilon_0}\frac{(\vb{r}-\vb{r}_i)}{\abs{\vb{r}-\vb{r}_i}^3}\implies\int_{A,\Gamma}^{B}\vb{E}(p)\cdot \dd{\vb{s}}
     =\sum_{i=1}^{N}\left( \Psi_i(\vb{r}_B)-\Psi_i(\vb{r}_A) \right) 
-\end{equation}
+\end{equation*}
 $\vb{E}$ è conservativo per quantità arbitrarie di cariche
-\begin{equation}
+\begin{equation*}
     \oint_\Gamma \vb{E}\cdot \dd{\vb{s}} \overset{T.di\,Stokes}{=}\int_{\Sigma} \left( \curl \vb{E} \right)\cdot \vu{n}\dd{\Sigma}
     \overset{\forall\Sigma}{\implies}\curl\vb{E}=0
-\end{equation}
+\end{equation*}
 Il campo elettrico in condizioni statiche è irrotazionale
 \begin{definition}
     $\curl\vb{E}=0\implies \exists V | \vb{E}=- \grad V$ chiamato potenziale elettrostatico
@@ -181,16 +181,16 @@ Il campo elettrico in condizioni statiche è irrotazionale
 
 \newtheorem*{EP}{Equazione di Poisson}
 \begin{EP}
-    \begin{equation}
+    \begin{equation*}
         \div \vb{E}= \frac{\rho}{\epsilon_0}\implies \laplacian V = -\frac{\rho}{\epsilon_0}
-    \end{equation}
+    \end{equation*}
 \end{EP}
 
 \newtheorem*{EL}{Equazione di Laplace}
 \begin{EL}
-    \begin{equation}
+    \begin{equation*}
         \laplacian V = 0
-    \end{equation}
+    \end{equation*}
 \end{EL}
 
 
@@ -200,15 +200,15 @@ Il campo elettrico in condizioni statiche è irrotazionale
 
 
 Studiamo l'equazione di Laplace in una dimensione
-\begin{equation}
+\begin{equation*}
     \dv[2]{\Phi}{x}=0 \implies\Phi(x) = mx + q \quad \text{Noto:} \quad\Phi(x) = \frac{\Phi(x+\Delta x)+\Phi(x-\Delta x)}{2}
-\end{equation}
+\end{equation*}
 Posso estendere questo risultato a tre dimensioni
 \begin{theorem}
     (Valore Medio)
-    \begin{equation}
+    \begin{equation*}
         \Phi(p)= \frac{1}{4\pi R^2}\oint_{\Sigma, Sfera} \Phi \;\dd{\Sigma}
-    \end{equation}
+    \end{equation*}
 \end{theorem}
 
 \begin{proposition}
@@ -225,69 +225,69 @@ Posso estendere questo risultato a tre dimensioni
 
 \subsection{Dipolo Elettrico}
 Si tratta di due cariche opposte $+ q$ e $-q$ a una breve distanza $a$
-\begin{equation}
+\begin{equation*}
     V(p)= \frac{q}{4\pi\epsilon_0}\left( \frac{1}{r_+}-\frac{1}{r_-} \right)= \frac{q}{4\pi\epsilon_0}\left( \frac{r_--r_+}{r_+r_-}\right)
-\end{equation}
+\end{equation*}
 Se $r>>a$(far field) allora $r_+r_-\simeq r^2$, $r_--r_+\simeq a \cos \theta$
-\begin{equation}
+\begin{equation*}
     \implies V(p)=  \frac{q}{4\pi\epsilon_0}\frac{a \cos \theta}{r^2}= \frac{1}{4\pi\epsilon_0}\frac{\vb{p}\cdot\vu{r}}{r^2}
-\end{equation}
+\end{equation*}
 
 \begin{definition}
     $\vb{p}$ è detto momento del dipolo, è il vettore di modulo $aq$, diretto lungo l'asse del dipolo con verso dal negativo al positivo.
 
 \end{definition}
 
-\begin{equation}
+\begin{equation*}
     \vb{E}_r=E_r\vu{r}=-\pdv{V}{r}\vu{r}= \frac{2 p \cos \theta}{4\pi\epsilon_0r^3}\vu{r}
-\end{equation}
-\begin{equation}
+\end{equation*}
+\begin{equation*}
     \vb{E}_\theta = -\frac{1}{r}\pdv{V}{\theta}\vu{\theta}= \frac{p \sin \theta}{4\pi\epsilon_0r^3}\vu{\theta}
-\end{equation}
+\end{equation*}
 In generale $\vb{E}(p)=\vb{E}_r+\vb{E}_\theta$:
-\begin{equation}
+\begin{equation*}
     \vb{E}(p)=\frac{3\vu{t}\left( \vb{p}\cdot\vu{t} \right)-\vb{p}}{4\pi\epsilon_0\abs{\vb{r}-\vb{r}'}^3} \quad \quad 
     \vu{t} = \frac{\vb{r}-\vb{r}'}{\abs{\vb{r}-\vb{r}'}}
-\end{equation}
+\end{equation*}
 
 Se immergo un dipolo in un campo elettrico uniforme:
-\begin{equation}
+\begin{equation*}
     \vb{F}_{tot} = \vb{F}_+ +\vb{F}_-= q\vb{E}-q\vb{E}=0  \quad \quad \implies \text{Baricentro fisso}
-\end{equation}
-\begin{equation}
+\end{equation*}
+\begin{equation*}
     \vb{M}_{tot}= \vb{r}_+\times\vb{F}_+ + \vb{r}_-\times\vb{F}_-=\left( \vb{r}_++\vb{r}_- \right) \times\vb{F}=
      q\left( \vb{r}_++\vb{r}_- \right) \times\vb{E}= \vb{p}\times\vb{E}
-\end{equation}
-\begin{equation}
+\end{equation*}
+\begin{equation*}
     U_{el}= -\vb{p}\cdot\vb{E}
-\end{equation}
+\end{equation*}
 Se ho un campo dipendente da $x$:
-\begin{equation}
+\begin{equation*}
     \vb{F}_{tot} = \vb{E}_+ +\vb{E}_-\simeq q\left( \vb{E}_- + \pdv{E}{x}a\vu{x} \right)-q\vb{E}_-= \vb{p}\pdv{E}{x}
-\end{equation}
+\end{equation*}
 \subsubsection{Espansione Multipolo}
 Possiamo immaginare un qualsiasi corpo come un insieme di cariche puntuali distribuite in una regione limitata di spazio.
 Il potenziale attorno a questo corpo è approssimabile da:
-\begin{equation}
+\begin{equation*}
     V(p)= \frac{Q_{tot}}{4\pi\epsilon_0 r}+ \frac{\vb{p}\cdot\vu{r}}{4\pi\epsilon_0r^2}+ \frac{1}{4\pi\epsilon_0r^3}
     \sum_{i=1}^{N} q_i r_i^2\frac{(3 \cos\theta_i-1)}{2} + o(r^{-4})
-\end{equation}
+\end{equation*}
 \begin{proof}
-    \begin{equation}
+    \begin{equation*}
         V(p)= \sum_{i=1}^{N} \frac{q_i}{4\pi\epsilon_0\abs{\vb{r}-\vb{r}_i}} 
         \quad \quad t_i^2= (\vb{r}-\vb{r}_i)^2= r^2+r_i^2-2rr_i\cos \theta_i
-    \end{equation}
+    \end{equation*}
     Applicando approssimazione al far field $(r>>a)$
-    \begin{equation}
+    \begin{equation*}
         \frac{1}{t_i}= \frac{1}{\sqrt{r^2+r_i^2-2rr_i\cos \theta_i}}= \frac{1}{r}\frac{1}{\sqrt{1-2\frac{r_i}{r}\cos \theta_i + \frac{r_i^2}{r^2}}}
         \simeq\frac{1}{r}\left( 1+ \frac{r_i}{r}\cos \theta_i +o(\frac{r_i^2}{r^2})\right)
-    \end{equation}
-    \begin{equation}
+    \end{equation*}
+    \begin{equation*}
         \implies V(p)= \frac{1}{4\pi\epsilon_0}\sum_{i=1}^{N} \frac{q_i}{t_i}= \frac{1}{4\pi\epsilon_0} \left[ \frac{\sum q_i}{r}+\frac{\sum q_ir_i \cos \theta_i}{r^2} + o(\frac{1}{r^3})\right]
-    \end{equation}
+    \end{equation*}
 \end{proof}
 
-\subsection{Conduttori e dielettrici}
+\subsection{Conduttori}
 \begin{definition}
     Se un materiale ha cariche che riescono a muoversi se sottoposte a un campo elettrico, si dice conduttore. Altrimenti, è detto dielettrico.
 \end{definition}
@@ -301,13 +301,13 @@ $\sigma= \frac{\dd{q}}{\dd{\Sigma}}$.
 \\
 $\vb{E}=0 \implies  V = $ costante, il campo è ortogonale alla superficie del conduttore. 
 \\Se considero un elemento infinitesimo $\dd{\Sigma}$ della superficie del conduttore, sulla parte interna non c'è campo elettrico e su quella esterna:
-\begin{equation}
+\begin{equation*}
     \Phi(\vb{E})= \frac{Q_{int}}{\epsilon_0}= \frac{\dd{Q}}{\epsilon_0}= \frac{\sigma}{\epsilon_0}\dd{\Sigma}= E\dd{\Sigma}\implies E = \frac{\sigma}{\epsilon_0}
-\end{equation}
+\end{equation*}
 Se ho un foglio carico ho una situazione simile:
-\begin{equation}
+\begin{equation*}
     \Phi(\vb{E}) = E \cdot 2\dd{\Sigma}= \frac{\sigma}{\epsilon_0}\dd{\Sigma}\implies E = \frac{\sigma}{2\epsilon_0}
-\end{equation}
+\end{equation*}
 
 Consideriamo ora una cavità vuota all'interno del conduttore, una superficie $\Sigma $ che contiene la cavità  e un circuito $\Gamma$ che attravera la cavità e il conduttore:
 \\$\Phi_\Sigma(\vb{E})= 0 \implies Q_{int} = 0 $ la carica totale nella cavità è zero.
@@ -328,9 +328,9 @@ punto sarà irrilevante la presenza della carica interna: posso lavorare solo co
 \end{proposition}
 
 In generale se ho un sistema con $N$ conduttori questi avranno una certa carica $Q_k$ e un certo potenziale $V_k$ che dipendono uno dall'altro
-\begin{equation}
+\begin{equation*}
     V_k = \sum_{i=1}^{N} a_{ki}Q_i \quad \quad Q_k = \sum_{i=1}^{N} C_{ki}V_i
-\end{equation}
+\end{equation*}
 
 I $C_{ki}$ sono detti \textit{coefficienti d'induzione}, $C_{kk}$ è detta \textit{capacità}.
 
@@ -341,42 +341,312 @@ I $C_{ki}$ sono detti \textit{coefficienti d'induzione}, $C_{kk}$ è detta \text
 
 \subsubsection{Gusci sferici}
 Consideriamo due gusci sferici concentrici il primo con carica $+q$ e raggio $R_1$ e il secondo con carica $-q$ e raggio $R_2 > R_1$:
-\begin{equation}
+\begin{equation*}
     E(r<R_1)=0\qquad E(r>R_2)=0\qquad E(r \in [R_1,R_2])= \frac{q}{4\pi\epsilon_0r^2}
-\end{equation}
-\begin{equation}
+\end{equation*}
+\begin{equation*}
     \Delta V = V_1-V_2= \int_{2}^{1}-\vb{E}\cdot\dd{\vb{s}}= \int_{1}^{2}\vb{E}\cdot\dd{\vb{s}}= 
     \int_{1}^{2}\frac{q}{4\pi\epsilon_0}\frac{\vu{r}}{r^2}\cdot\dd{\vb{s}} = \int_{R_1}^{R_2}\frac{q}{4\pi\epsilon_0}\frac{\dd{r}}{r^2}
-\end{equation}
-\begin{equation}
+\end{equation*}
+\begin{equation*}
     \implies V = \frac{q}{4\pi\epsilon_0}\eval{\frac{1}{r}}_{R_1}^{R_2}= \frac{q}{4\pi\epsilon_0}\left( \frac{1}{R_1}-\frac{1}{R_2} \right)
     = \frac{q}{4\pi\epsilon_0}\frac{R_2-R_1}{R_1R_2}
-\end{equation}
-\begin{equation}
+\end{equation*}
+\begin{equation*}
     C = 4\pi\epsilon_0\frac{R_1R_2}{R_2-R_1}
-\end{equation}
+\end{equation*}
 
 \subsubsection{Condensatori piani}
-Consideriamo due armature piane di superficie $\Sigma$ e carica opposta $+q$ e $-q$ poste a una distanza $h<<\Sigma$, trascurando gli effetti di bordo si ottiene:
-\begin{equation}
-    E(\text{tra le armature})= \frac{\sigma}{\epsilon_0}\implies V = \frac{\sigma}{\epsilon_0}h = \frac{q}{\epsilon_0\Sigma}h 
-    \implies C = \epsilon_0\frac{\Sigma}{h}
-\end{equation}
+Consideriamo due armature piane di superficie $\Sigma$ e carica opposta $+q$ e $-q$ poste a una distanza $d<<\Sigma$, trascurando gli effetti di bordo si ottiene:
+\begin{equation*}
+    E(\text{tra le armature})= \frac{\sigma}{\epsilon_0}\implies V = \frac{\sigma}{\epsilon_0}d = \frac{q}{\epsilon_0\Sigma}d 
+    \implies C = \epsilon_0\frac{\Sigma}{d}
+\end{equation*}
 \subsubsection{Serie e parallelo}
 Consideriamo due condensatori $C_1$ e $C_2$ collegati in parallelo, la caduta di potenziale $\Delta V$ è la stessa ai due condensatori.
 La capacità $C_{eq}$ di un singolo condensatore equivalente al nostro caso, si ottiene:
-\begin{equation}
+\begin{equation*}
     Q_1= C_1\Delta V\qquad Q_2 = C_2 \Delta V \qquad C_{eq}\Delta V = Q_1 +Q_2 \implies C_{eq}= C_1 + C_2
-\end{equation}
+\end{equation*}
 
 Consideriamo ora due condensatori $C_1$ e $C_2$ collegati in serie, la carica $Q$ è la stessa per i due condensatori:
-\begin{equation}
+\begin{equation*}
     Q = C_1 \Delta V_1\qquad Q= C_2 \Delta V_2 \implies \Delta V = \Delta V_1 + \Delta V_2 = \frac{Q}{C_1} + \frac{Q}{C_2}= 
     Q\left( \frac{1}{C_1}+\frac{1}{C_2} \right)
-\end{equation}
-\begin{equation}
+\end{equation*}
+\begin{equation*}
     \Delta V = Q\left( \frac{1}{C_1}+\frac{1}{C_2} \right) = \frac{Q}{C_{eq}} \implies C_{eq} = \left( \frac{1}{C_1}+ \frac{1}{C_2} \right)^{-1}
-\end{equation}
+\end{equation*}
+
+\subsubsection{Energia elettrostatica}
+Consideriamo il condensatore inizialmente scarico, lo si carica portando le cariche da un lato all'altro utilizzando un circuito. 
+Dopo aver portato una carica sarà più difficile spostare un altra carica nello stesso modo essendo aumentato il potenziale.
+\begin{equation*}
+    \dd{W} = \dd{q} \Delta V(q) = \dd{q} \frac{q}{C} \implies W = \int_{0}^{Q} \dd{q} \frac{q}{C}= \frac{1}{2}\frac{Q^2}{C}= \frac{1}{2}CV^2
+\end{equation*}
+\begin{equation*}
+    U_{E} = \frac{1}{2}\frac{Q^2}{C}= \frac{1}{2}CV^2 = \frac{1}{2}QV \qquad\text{Energia potenziale elettrostatica}
+\end{equation*}
+\begin{equation*}
+    \overset{piano}{=} \frac{1}{2}\epsilon_0\frac{\Sigma}{d}V^2= \frac{1}{2}\epsilon_0\Sigma d \frac{V^2}{d^2}= \frac{1}{2} \epsilon_0\tau E^2
+    \implies \mu_E = \frac{1}{2}\epsilon_0E^2
+\end{equation*}
+Abbiamo ricavato un'espressione della \textit{densità energetica del campo elettrico}, cerchiamo di dimostrarla formalmente:
+\begin{proof}
+    Partiamo dalla nota $U_{E}= \frac{1}{4\pi\epsilon_0}\frac{1}{2}\sum_{i\neq j}\frac{q_iq_j}{\abs{\vb{r}_i-\vb{r}_j}} $ passando alla sua forma continua:
+    \begin{equation*}
+        U_E= \frac{1}{2}\frac{1}{4\pi\epsilon_0}\int_\tau\int_\tau\frac{\rho(\vb{r})\rho(\vb{r}')}{\abs{\vb{r}-\vb{r}'}}\dd{\tau}\dd{\tau'}\implies
+        U_E= \frac{1}{2}\int_\tau V(\vb{r})\rho(\vb{r}) \dd{\tau}
+    \end{equation*}
+    Utilizzando l'equazione di Poisson:
+    \begin{equation*}
+        \laplacian V = -\frac{\rho}{\epsilon_0}\implies U_E = -\frac{1}{2}\epsilon_0\int_\tau V \left( \laplacian{V} \right)\dd{\tau}
+    \end{equation*}
+    \begin{equation*}
+        V \laplacian{V}= V \left(\sum_{i=1}^{3} \pdv[2]{V}{x_i}\right)= \sum_{i=1}^{3}\pdv{}{x_i}\left( V \pdv{V}{x_i} \right)- \left( \pdv{V}{x_i} \right)\left( \pdv{V}{x_i} \right)
+        = \div \left( V \grad{V} \right)- \left( \grad{V} \right)\left( \grad{V} \right) 
+    \end{equation*}
+    \begin{equation*}
+       \implies U_E = \frac{1}{2} \epsilon_0\int_\tau(\grad{v})(\grad{V}) \dd{\tau}-\frac{1}{2}\epsilon_0\int_\tau\div(V\grad{V})\dd{\tau}
+    \end{equation*}
+    Concentriamoci sul secondo pezzo dell'equazione:
+    \begin{equation*}
+        \int_\tau\div(V\grad{V})\dd{\tau} \overset{Gauss}{=} \int_\Sigma\left( V\grad{V} \right)\cdot\vu{n}\dd{\Sigma}
+    \end{equation*}
+    Prendo come volume $\tau$ una sfera molto grande $(R\rightarrow+\infty)$:
+    \begin{equation*}
+        V \sim \frac{1}{R}  \quad\grad{V}= \frac{1}{R^2}\implies \int_\Sigma \left( V\grad{V} \right)\cdot\vu{n}\dd{\Sigma}
+        \sim \frac{1}{R}\frac{1}{R^2}4\pi R^2 \sim \frac{1}{R}\rightarrow 0 
+    \end{equation*}
+    \begin{equation*}
+        U_E = \frac{1}{2}\epsilon_0\int_{\tau}\left( \grad{V} \right)\left( \grad{V} \right)\dd{\tau}= \frac{1}{2}\epsilon_0\int_{\tau}
+        E^2 \dd{\tau}= \int_\tau  \mu_E \dd{\tau}
+    \end{equation*}
+\end{proof}
+
+\subsection{Dielettrici e polarizzazione}
+Nei dielettrici le cariche non sono libere, se inserisco un materiale dielettrico all'interno di un condesantore 
+il potenziale diminuisce di una certa costante $\kappa_e$ detta \textit{costante dielettrica relativa}.
+
+Per capire perché succede consideriamo innanzitutto una molecola o atomo non polare in mezzo alle piastre del condensatore,
+sottoponendolo a un campo elettrico induco nella molecola un momento di dipolo, questo fenomeno si dice \textit{polarizzazione elettronica}.
+\\Se prendo invece una molecola polare inizialmente il dipolo naturale sarà orientato casualmente, introducendolo in un campo elettrico
+il dipolo si orienterà di conseguenza, (\textit{polarizzazione per orientamento})
+
+
+In un dielettrico abbiamo molti di questi dipoli $\vb{p}_E$, per ogni elemento infinitesimo di volume $\dd{\tau}$ abbiamo $\dd{\vb{p}}= n \vb{p}_E\dd{\tau}$.
+Possiamo così definire il \textit{vettore polarizzazione} $\vb{P}=\dv{\vb{p}}{\tau}$
+\\Per i materiali non ferromagnetici la polarizzazione è funzione del campo elettrico $\vb{P}= \vb{P}(\vb{E})$. Per $E$ abbastanza piccoli
+si può suppore una relazione lineare tra le due:
+\begin{equation*}
+    \vb{P}= \epsilon_0\chi_E\vb{E}
+\end{equation*}
+$\chi_E$ si chiama \textit{suscettività dielettrica}, in generale è un tensore ma se ci limitiamo a materiali isotropi è uno scalare.
+Inoltre, considereremo solo materiali omogenei in cui $\chi_E$ non dipende dalla posizione.
+
+Il modulo di $\vb{P}$ è uguale alla densità di carica indotta sulle superfici del dielettrico $\sigma_{pol}$
+\begin{equation*}
+    p_{tot}= Q_{pol}d= \sigma_{pol}\Sigma d= \sigma_{pol}\tau \implies \sigma_{pol}= \frac{p_{tot}}{\tau}= P
+\end{equation*}
+
+Quanto vale $\vb{E}$ all'interno del dielettrico?
+\begin{equation*}
+    E_0= \frac{\sigma_{free}}{\epsilon_0}\qquad E = \frac{\sigma_{free}-\sigma_{pol}}{\epsilon_0}=\frac{\sigma_{free}-\vb{P}}{\epsilon_0}
+    = \frac{\sigma_{free}}{\epsilon_0}-\chi_EE 
+\end{equation*}
+\begin{equation*}
+    \implies E(1+ \chi_E)= \frac{\sigma_{free}}{\epsilon_0}= E_0 \implies E = \frac{E_0}{1+ \chi_E}\qquad \kappa_E= 1+ \chi_E
+\end{equation*}
+
+Consideriamo il campo di polarizzazione $\vb{P}(\vb{r})$. La carica totale legata all'interno di un volume $\tau$ è data da:
+
+\begin{equation*}
+    Q_{pol} = -\oint_{\Sigma} \vb{P} \cdot \dd{\vb{\Sigma}} \overset{Gauss}{=} -\int_{\tau} \div \vb{P} \dd{\tau}
+\end{equation*}
+Per definizione \( Q_{pol} = \int_{V} \rho_{\text{pol}} \dd{\tau} \), quindi:
+\begin{equation*}
+    \int_{V} \rho_{pol} \dd{\tau} = -\int_{V} \div \vb{P} \dd{\tau}
+    \implies \rho_{pol} = -\div \vb{P}
+\end{equation*}
+Notiamo che:
+\begin{equation*}
+    \div\vb{E}=\frac{\rho}{\epsilon_0}= \left( \rho_{free} +\rho_{pol} \right) \frac{1}{\epsilon_0}\implies \div(\vb{E}+\frac{\vb{P}}{\epsilon_0})= \frac{\rho_{free}}{\epsilon_0}
+\end{equation*}
+Possiamo definire il \textit{vettore spostamento} $\vb{D}$ tale che:
+\begin{equation*}
+    \vb{D}= \epsilon_0\vb{E} + \vb{P} \implies \div \vb{D} = \rho_{free}
+\end{equation*}
+
+\subsubsection{Campi elettrici nelle zone di interfaccia}
+Consideriamo una superficie in cui due dielettrici differenti $(\kappa_1, \kappa_2)$ si incontrano, detta interfaccia. 
+Si consideri un circuito rettangolare $\Gamma$ lungo l'interfaccia largo $l$:
+\begin{equation*}
+    \int_\Gamma \vb{E}\cdot\dd{\vb{s}}= \int_\Gamma \vb{E}_\parallel\cdot\dd{\vb{s}}= 0 = E_{1,\parallel}l-E_{2,\parallel}l \implies \vb{E}_{1,\parallel}= \vb{E}_{2,\parallel}
+\end{equation*}
+Si consideri ora un cilindretto di superficie $\Delta\Sigma$:
+\begin{equation*}
+    \Phi(\vb{D})= D_{2,\perp}\Delta\Sigma-D_{1,\perp}\Delta\Sigma = Q_{free}\implies K_2E_{2,\perp} -K_1E_{\,\perp}= \frac{\sigma_{free}}{\epsilon_0}
+\end{equation*}
+
+\subsubsection[Stima di chi]{Stima di $\chi_E$}
+Consideriamo un material poco denso, come un gas rarefatto, in cui le interazioni tra i vari atomi sono trascurabili. 
+Il momento di dipolo di ogni singolo atomo possiamo ipotizzare segua un andamento lineare al campo elettrico
+\begin{equation*}
+    \vb{p}_{atomo}\simeq\vb{E}\epsilon_0\alpha_E
+\end{equation*}
+Dove definiamo $\alpha_E$ \textit{polarizzabilità atomica} ed è legata alle caratteristiche dell'atomo
+\begin{equation*}
+    \vb{P}= \frac{\dd{p}}{\dd{\tau}}= n\vb{p}= n\epsilon_0\alpha_E\vb{E}\implies \chi_E = n\alpha_E 
+\end{equation*}
+dove $n$ è il numero di atomi per unità di volume.
+gli effetti del campo locale, cioè il campo effettivamente sentito da ciascun atomo, che differisce dal campo macroscopico applicato. In questo caso si ottiene la relazione di Clausius-Mossotti.
+
+\begin{proposition}
+(Relazione di Clausius-Mossotti)
+\[
+\frac{\kappa_E - 1}{\kappa_E + 2} = \frac{n \alpha_E}{3}
+\]
+dove $\kappa_E = 1 + \chi_E$ è la costante dielettrica relativa, $n$ la densità numerica e $\alpha_E$ la polarizzabilità atomica.
+\end{proposition}
+\begin{proof}
+Consideriamo un dielettrico isotropo costituito da atomi non interagenti immersi in un campo elettrico esterno $\vb{E}_0$. 
+L'atomo si trova in una cavità sferica all'interno del materiale. Il campo locale $\vb{E}_{loc}$ sentito dall'atomo è dato da:
+\[
+\vb{E}_{loc} = \vb{E}_0 + \frac{\vb{P}}{3\epsilon_0}
+\]
+dove $\vb{P}$ è il vettore polarizzazione macroscopico.
+
+La polarizzazione indotta su ciascun atomo è:
+\[
+\vb{p} = \epsilon_0 \alpha_E \vb{E}_{loc}
+\]
+La polarizzazione totale è:
+\[
+\vb{P} = n \vb{p} = n \epsilon_0 \alpha_E \vb{E}_{loc}
+= n \epsilon_0 \alpha_E \left( \vb{E}_0 + \frac{\vb{P}}{3\epsilon_0} \right)
+\]
+\[
+\vb{P} = \frac{n \epsilon_0 \alpha_E}{1 - \frac{n \alpha_E}{3}} \vb{E}_0
+\]
+Ma per definizione $\vb{P} = \epsilon_0 \chi_E \vb{E}_0$, quindi:
+
+\[
+\chi_E = \frac{n \alpha_E}{1 - \frac{n \alpha_E}{3}}
+\]
+Ricordando che $\kappa_E = 1 + \chi_E$:
+\[
+\implies \frac{\kappa_E - 1}{\kappa_E + 2} = \frac{n \alpha_E}{3}
+\]
+\end{proof}
+
+
+\subsection{Esperimento di Millikan}
+% da fare
+
+
+
+
+
+
+\section{Elettrodinamica}
+
+\begin{definition}
+    Densità di corrente $\vb{j}$
+    \begin{equation*}
+        \vb{j}\cdot\dd{\Sigma}= \dv{q}{t}
+    \end{equation*}
+\end{definition}
+Prendendo in esame un volume cilindrico:
+\begin{equation*}
+    \delta q = \rho\,\delta\Sigma\,\delta s \text{  oppure  } =  n q \,\delta\Sigma\,\delta s
+\end{equation*}
+Derivando nel tempo otteniamo:
+\begin{equation*}
+    \vb{j}= \rho\vb{v} \text{  oppure  } \vb{j}= nq\vb{v}
+\end{equation*}
+\begin{definition}
+    Intensità di corrente
+    \begin{equation*}
+        I = \int_\Sigma \vb{j}\cdot\dd{\Sigma}
+    \end{equation*}
+\end{definition}
+
+\begin{theorem}
+    Principio di conservazione della carica
+    \begin{equation*}
+        \div(\vb{j})+\pdv{\rho}{t}=0
+    \end{equation*}
+\end{theorem}
+\begin{proof}
+    Si consideri una superficie chiusa intorno a un volume $\tau$ fisso:
+    \begin{equation*}
+        q_{int}= \int_\tau\rho\dd{\tau} \quad \dv{q_{int}}{t}= \dv{}{t}\int_\tau \rho\dd{\tau} = \int_\tau \pdv{\rho}{t}\dd{\tau}
+    \end{equation*}
+    \begin{equation*}
+        \dv{q_{int}}{t}= - \oint_\Sigma \vb{j}\cdot\dd{\Sigma}\overset{Gauss}{=}-\int_\tau \div(\vb{j})\dd{\tau}\implies
+        \int_\tau \pdv{\rho}{t} + \div(\vb{j}) \dd{\tau}= 0
+    \end{equation*}
+    \begin{equation*}
+        \overset{\forall\tau}{\implies} \div(\vb{j})+ \pdv{\rho}{t}=0
+    \end{equation*}
+
+\end{proof}
+
+
+\subsection{Generatori di tensione}
+I generatori di tensione permettono di mantenere un circuito a tensione costante.
+La circuitazione del campo elettrico lungo il circuito, in tal caso, è diverso da 0
+\begin{equation*}
+    \oint_\Gamma \vb{E}\cdot\dd{s}= V(\textit{fine})-V(\text{inizio}) = \mathcal{E}\quad \textit{      Forza ElettroMotrice FEM}
+\end{equation*} 
+
+
+
+\section{Magnetostatica}
+Studiamo ora i fenomeni di magnetismo. Le forze magnetiche apparentemente indipendenti dai fenomeni elettrici agiscono su cariche in movimento.
+Oersted scopre che la corrente produce un campo magnetico.
+Si nota che le linee del campo magnetico sono tutte chiuse:
+\begin{equation*}
+    \oint_\Sigma \vb{B}\cdot\dd{\Sigma} = 0 \overset{Gauss}{=} \int_\tau \div(\vb{B}) \dd{\tau} \overset{\forall \tau}{\implies} \div(\vb{B})= 0
+\end{equation*}
+$\vb{B}$ è un campo solenoidale.
+
+\newtheorem*{FL}{Forza di Lorentz}
+\begin{FL}
+    \begin{equation*}
+        \vb{F}= q \left( \vb{E} \vb{v}\times \vb{B} \right)
+    \end{equation*}
+\end{FL}
+
+Da questo si ricava:
+\begin{equation*}
+    \dd{W}= \vb{F}\cdot\dd{\vb{s}}= q\left( \vb{v}\times \right) \cdot \dd{t} = 0
+\end{equation*}
+La forza magnetica non compie lavoro, mantiene la velocità costante.
+Una velocità perpendicolare a $\vb{B}$ genera un moto circolare uniforme.
+\begin{equation*}
+    m\dv{\vb{v}}{t}= q\vb{v}\times \vb{B}\qquad\qquad \vb{v}= \left( v_x,\,v_y,\,0 \right)\quad \vb{B}= \left( 0,\,0,\,B \right)
+\end{equation*}
+
+\begin{equation*}
+    m\dv{v_x}{t}=qv_y\vb{B}; \quad m\dv{v_y}{t}= -qv_xB; \quad\tilde{v}= v_x + iv_y \implies m\dv{\tilde{v}}{t}= -iqB\tilde{v}
+\end{equation*}
+\begin{equation*}
+    \tilde{v}= v_0e^{-i\left( \frac{qB}{m}t+\varphi \right)} \qquad \omega= \frac{qB}{m}\quad \textit{ pulsazione ciclotrone}
+\end{equation*}
+Se la componente di $\vb{v}$ parallela a $\vb{B}$ non è uguale a 0, sovrapponendo i moti ottengo un moto elicoidale.
+
+\subsection{Effetto Hall}
+
+
+
+
+
+
+
+
+
+
 
 
 
