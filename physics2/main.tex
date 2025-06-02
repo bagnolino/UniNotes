@@ -802,12 +802,124 @@ Nelle zone di interfaccia tra due materiali diversi analogamente al campo elettr
 
 \section{Elettromagnetismo}
 
+Faraday scopre interazioni tra circuiti elettrici e magneti. Osserva:
+\newtheorem*{FNL}{Legge di Farady-Neumann-Lenz}
+\begin{FNL}
+    \begin{equation*}
+        \mathcal{E}= - \dv{\Phi(\vb{B})}{t}
+    \end{equation*}
+\end{FNL}
+Il meno giustifica che la corrente indotta abbia verso tale da creare un campo magnetico opposto in verso all'induttore
+Se consideriamo ora la superficie $\Sigma$ attraverso la quale il flusso varia:
+\begin{equation*}
+    \mathcal{E}= - \pdv{}{t}\int_\Sigma\vb{B}\vdot\dd{\vb{\Sigma}}\qquad \mathcal{E}= \oint_\Gamma 
+    \vb{E}_{ind}\vdot \dd{\vb{s}}\overset{Strokes}{=} \int_\Sigma\left( \curl{\vb{E}_{ind}} \right)\vdot\dd{\vb{\Sigma}}
+\end{equation*}
+\begin{equation*}
+    \implies \int_\Sigma\left[ \left( \curl{\vb{E}_{ind}} \right)+\pdv{\vb{B}}{t} \right]\vdot\dd{\vb{\Sigma}}= 0
+    \overset{\forall\Sigma}{\implies} \curl{\vb{E}}= -\pdv{\vb{B}}{t}
+\end{equation*}
+Dato che la corrente genera campo magnetico è possibile calcolare il flusso della corrente di un circuito sul circuito stesso:
+\begin{equation*}
+    \Phi_L(\vb{B})= \int_\Sigma\vb{B}\vdot\dd{\vb{\Sigma}}= \int_\Sigma\frac{\mu_0I}{4\pi}
+    \left( \oint_\Gamma \dd{\vb{s}}\cp \frac{\vu{\boldscriptr}}{\scriptr^2} \right)\vdot \dd{\vb{\Sigma}}= IL
+\end{equation*}
+Dove abbiamo definito \textit{l'autoinduttanza} $L$:
+\begin{equation*}
+    \mathcal{E}_L= - \dv{\Phi_L(\vb{B})}{t}= -L\dv{I}{t} \qquad \text{ con } L = \frac{\mu_0}{4\pi}\int_\Sigma\oint_\Gamma\dd{\vb{s}}\cp\frac{\vu{\boldscriptr}}{\scriptr^2}\vdot \dd{\vb{\Sigma}}
+\end{equation*}
+
+Dallo studio del solenoide noto che l'energia contenuta in un solenoide è:
+\begin{equation*}
+    U_L = \frac{1}{2}LI^2= \frac{1}{2}\frac{B^2}{mu_0}\tau\implies \mu_M= \frac{B^2}{2\mu_0}
+\end{equation*}
+Dimostriamo questo risultato formalmente:
+\begin{proof}
+    \begin{equation*}
+        U_M = \frac{1}{2}LI^2= \frac{1}{2}\mathcal{E}I= \frac{1}{2}I\int_\Sigma\vb{B}\vdot\dd{\vb{\Sigma}}= 
+    \frac{1}{2}I\int_\Sigma\left( \curl{\vb{A}} \right)\vdot\dd{\vb{\Sigma}}\overset{Stokes}{=}\frac{1}{2}I\oint_\Gamma\vb{A}\vdot\dd{\vb{s}}
+    \end{equation*}
+    Ricordando che $I\dd{\vb{s}}= \vb{j}\dd{\tau'}$:
+    \begin{equation*}
+        \implies U_M = \frac{1}{2}\int_\tau\vb{A}\vdot\vb{j}\dd{\tau'} = 
+        \frac{1}{2}\int_\tau\vb{A}\vdot\frac{\left( \curl{\vb{B}} \right)}{\mu_0}\dd{\tau'}
+    \end{equation*}
+    Data l'identità vettoriale $\div(\vb{A}\cp\vb{B})=\left( \curl{\vb{A}} \right)\vdot\vb{B}-\vb{A}\vdot\left( \curl{\vb{B}} \right)$:
+    \begin{equation*}
+        =\frac{1}{2}\left[ \int_\tau \left( \curl{\vb{A}} \right)\vdot\vb{B}\dd{\tau}-\int_\tau\div(\vb{A}\vdot\vb{B})\dd{\tau} \right]
+    \end{equation*}
+    Consideriamo prima il secondo termine:
+    \begin{equation*}
+        \int_\tau\div(\vb{A}\vdot\vb{B})\dd{\tau}\overset{Gauss}{=} \oint_\Sigma\left(\vb{A}\cp\vb{B}\right)\vdot\dd{\vb{\Sigma}}
+    \end{equation*}
+    Se prendo una $\Sigma$ sufficientemente ampia considerando $\vb{m}\simeq I\Sigma_0$:
+    \begin{equation*}
+        B \sim\frac{m}{r^3}\qquad A \sim\frac{m}{r^2} \implies\oint_\Sigma\left( \vb{A}\cp\vb{B} \right)\vdot\dd{\vb{\Sigma}}\simeq
+        \oint_\Sigma\frac{m^2}{r^5}\dd{\Sigma}\sim \frac{m^2}{r^3}\rightarrow0
+    \end{equation*}
+    \begin{equation*}
+        \implies U_M= \frac{1}{2\mu_0}\int_\tau\left( \curl{\vb{A}} \right)\vdot \vb{B}\dd{\tau}= \frac{1}{2\mu_0}\int_\tau B^2\dd{\tau}.
+    \end{equation*}
+\end{proof}
+
+Se ho due spire si influenzeranno una con l'altra:
+\begin{equation*}
+    \Phi_{1,2}=\int_{\Sigma_2}\vb{B}_1\vdot\dd{\vb{\Sigma}_2}= I_1 \frac{\mu_0}{4\pi}\int_{\Sigma_2}
+    \left( \oint_{\Gamma_1} \frac{\dd{\vb{s}_1}\cp\vu{\boldscriptr}}{\scriptr^2}\right)\vdot\dd{\vb{\Sigma}_2}= I_1M_{1,2}
+\end{equation*}
+Dove abbiamo definito il \textit{coefficiente di mutua induzione} $M$
+\begin{equation*}
+    M_{1,2}= \frac{\mu_0}{4\pi}\int_{\Sigma_2}\left( \oint_{\Gamma_1} \frac{\dd{\vb{s}_1}\cp\vu{\boldscriptr}}{\scriptr^2}\right)
+    \vdot\dd{\vb{\Sigma}_2}= M_{2,1}\equiv M 
+\end{equation*}
 
 
+\subsection{Circuiti RLC}
+\subsection{Equazioni di Maxwell}
+Lavoriamo sulla generalizzazione della legge di Ampere che nel caso statico: $\curl{\vb{B}}= \mu_0\vb{j}$ implica $\div{\vb{j}}=0$.
+Nel caso statico: $\curl{\vb{B}}= \mu_0\vb{j}$ implica $\div{\vb{j}}=0$, ma se $\vb{E}$ varia nel tempo questo non è più vero. Per risolvere questa incoerenza Maxwell introdusse il termine di \textit{corrente di spostamento} e la legge diventa:
+\begin{equation*}
+    \curl{\vb{B}} = \mu_0 \vb{j} + \mu_0 \epsilon_0 \pdv{\vb{E}}{t}
+\end{equation*}
+
+Verifichiamo che questa forma sia compatibile con la conservazione della carica. Prendendo la divergenza:
+\begin{equation*}
+    \div(\curl{\vb{B}}) = \mu_0 \div{\vb{j}} + \mu_0 \epsilon_0 \div\left( \pdv{\vb{E}}{t} \right)
+\end{equation*}
+\begin{equation*}
+    0 = \mu_0 \left( \div{\vb{j}} + \epsilon_0 \pdv{ }{t} \left(\div{\vb{E}}\right) \right)
+\end{equation*}
+Dalla legge di Gauss $\div{\vb{E}} = \frac{\rho}{\epsilon_0}$, quindi:
+\begin{equation*}
+    \pdv{ }{t} \left(\div{\vb{E}}\right) = \frac{1}{\epsilon_0}\pdv{\rho}{t}
+\end{equation*}
+\begin{equation*}
+    \implies \div{\vb{j}} + \pdv{\rho}{t} = 0
+\end{equation*}
+che è proprio l'equazione di continuità. Quindi la legge di Ampère generalizzata è compatibile con la conservazione della carica anche in presenza di campi variabili nel tempo.
 
 
-
-
+Inoltre potrebbero essere presenti correnti dovute alla polarizzazione:
+\begin{equation*}
+    I_{pol}= - \dv{q_{pol}}{t} = - \dv{ }{t} \int_\tau \rho_{pol} \dd{\tau}= - \dv{ }{t} \int_\tau-\div{\vb{P}}\dd{\tau}
+    \overset{Gauss}{=} \dv{ }{t}\oint_\Sigma \vb{P}\vdot \dd{\Sigma}= \oint_\Sigma \pdv{\vb{P}}{t}\vdot\dd{\vb{\Sigma}}
+\end{equation*}
+\begin{equation*}
+    \implies \vb{j}_{pol} \pdv{\vb{P}}{t} 
+\end{equation*}
+Abbiamo così ottenuto le 4 leggi di Maxwell nella materia:
+\begin{equation*}
+    \div{\vb{D}}= \rho_L 
+\end{equation*}
+\begin{equation*}
+    \div{\vb{B}}= 0
+\end{equation*}
+\begin{equation*}
+    \curl{\vb{E}}= -\pdv{\vb{B}}{t}
+\end{equation*}
+\begin{equation*}
+    \curl{\vb{H}}= \vb{j}_{cond}+ \pdv{\vb{D}}{t}
+\end{equation*}
 
 
 
