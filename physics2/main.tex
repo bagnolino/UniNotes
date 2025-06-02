@@ -47,34 +47,34 @@ se $\vb{A}$ è $\mathcal{C}^{2}$ le derivate si scambiano e si elidono con gli a
 \newtheorem*{TS}{Teorema di Strokes}
 \begin{TS}
     \begin{equation*}
-    \oint_{\Gamma}\vb{C}\cdot \dd{\vb{s}}= \int_{\Sigma}(\curl \vb{C})\cdot \vu{n} \dd{\Sigma}
+    \oint_{\Gamma}\vb{C}\vdot \dd{\vb{s}}= \int_{\Sigma}(\curl \vb{C})\vdot \vu{n} \dd{\Sigma}
     \end{equation*}
 \end{TS}
 
 \begin{proof}
     Divido la superficie in quadrati abbastanza piccoli da considerarsi piani
-    $\oint_{\Gamma}\vb{C}\cdot \dd{\vb{s}}= \sum_{i=1}\oint_{\Gamma_{i}}\vb{C}\cdot \dd{\vb{s}}$\\
-    $\oint_{\Gamma_{i}}\vb{C}\cdot \dd{\vb{s}}= C_{x}(1)\delta x +C_{y}(2)\delta y -C_{x}(3)\delta x -C_{x}(4)\delta y $ dove $C_{x}$ e $C_{y}$ sono costanti.
+    $\oint_{\Gamma}\vb{C}\vdot \dd{\vb{s}}= \sum_{i=1}\oint_{\Gamma_{i}}\vb{C}\vdot \dd{\vb{s}}$\\
+    $\oint_{\Gamma_{i}}\vb{C}\vdot \dd{\vb{s}}= C_{x}(1)\delta x +C_{y}(2)\delta y -C_{x}(3)\delta x -C_{x}(4)\delta y $ dove $C_{x}$ e $C_{y}$ sono costanti.
     \\$[C_{x}(1)-C_{x}(3)]\delta x = [C_{x}(1)-C_{x}(1)-\pdv{C_x}{y}\delta y]\delta x \simeq -\pdv{C_x}{y}\delta y\delta x$
     \\$[C_{y}(2)-C_{y}(4)]\delta x = [C_{y}(2)-C_{y}(2)-\left( -\pdv{C_y}{x} \right)\delta x]\delta y \simeq +\pdv{C_y}{x}\delta x\delta y$
-    \\$ \sum_{i=1}\oint_{\Gamma_{i}}\vb{C}\cdot \dd{\vb{s}}= \sum_{i=1}\left( +\pdv{C_y}{x} -\pdv{C_x}{y}\right) \delta y_{i}\delta x_{i}
+    \\$ \sum_{i=1}\oint_{\Gamma_{i}}\vb{C}\vdot \dd{\vb{s}}= \sum_{i=1}\left( +\pdv{C_y}{x} -\pdv{C_x}{y}\right) \delta y_{i}\delta x_{i}
     = \int_{\Sigma}\left( +\pdv{C_y}{x} -\pdv{C_x}{y}\right) \dd{\Sigma} =  \int_{\Sigma}\left( \curl \vb{C}\right) \dd{\Sigma}  $
 \end{proof}
 
 \newtheorem*{TG}{Teorema di Gauss}
 \begin{TG}
     \begin{equation*}
-        \oint_{\Sigma} \vb{C}\cdot\vu{n}\dd{\Sigma}= \int_{V}\left( \div\vb{C} \right) \dd{\tau}
+        \oint_{\Sigma} \vb{C}\vdot\vu{n}\dd{\Sigma}= \int_{V}\left( \div\vb{C} \right) \dd{\tau}
     \end{equation*}
 \end{TG}
 \begin{proof}
     Posso dividere il volume della superficie in tanti piccoli cubetti
-    \\ $\oint_{\Sigma} \vb{C}\cdot\vu{n}\dd{\Sigma}= \sum_{i=1} \oint_{\Sigma_{i}} \vb{C}\cdot\vu{n} \dd{\Sigma_{i}}$ 
+    \\ $\oint_{\Sigma} \vb{C}\vdot\vu{n}\dd{\Sigma}= \sum_{i=1} \oint_{\Sigma_{i}} \vb{C}\vdot\vu{n} \dd{\Sigma_{i}}$ 
     \\$\Phi(1) = -\int C_{y}\dd{x}\dd{z} =- C_{y}(1)\delta x \delta z$ \quad
     $\Phi(2) =  C_{y}(2)\delta x \delta z$
     \\$\Phi(1+2)= \delta x \delta z\left[ - C_{y}(1) + C_{y}(1)+ \pdv{C_y}{y}\delta y\right]= \pdv{C_y}{y}\delta x \delta y \delta z = \pdv{C_y}{y} \delta \tau $
     \\ Il flusso totale sull'elemento $\delta\Sigma_i$ è $\delta\Phi_i= \left( \pdv{C_x}{x}+\pdv{C_y}{y} +\pdv{C_z}{z}\right)\delta\tau_i= (\div \vb{C})\delta\tau_i$
-    \\ $\sum_{i=1}\oint_{\delta\Sigma_i}\vb{C}\cdot\vu{n}\dd{\Sigma_i} = \sum_i \left( \div \vb{C} \right) \delta\tau_i = 
+    \\ $\sum_{i=1}\oint_{\delta\Sigma_i}\vb{C}\vdot\vu{n}\dd{\Sigma_i} = \sum_i \left( \div \vb{C} \right) \delta\tau_i = 
     \int_\tau \left( \div \vb{C} \right)\dd{\tau}$
 \end{proof}
 
@@ -82,13 +82,13 @@ se $\vb{A}$ è $\mathcal{C}^{2}$ le derivate si scambiano e si elidono con gli a
 \subsection{Legge di Gauss }
 Poniamo una sfera con centro nell'origine insieme a una carica $q$:
 \begin{equation*}
-    \Phi(\vb{E})= \oint_\Sigma \vb{E}\cdot \vu{n} \; \dd{\Sigma} = \oint_\Sigma \frac{1}{4\pi\epsilon_0}\frac{q}{r_0^2}\vu{n}\cdot\vu{n}\dd{\Sigma}= 
+    \Phi(\vb{E})= \oint_\Sigma \vb{E}\vdot \vu{n} \; \dd{\Sigma} = \oint_\Sigma \frac{1}{4\pi\epsilon_0}\frac{q}{r_0^2}\vu{n}\vdot\vu{n}\dd{\Sigma}= 
     \frac{q}{4\pi\epsilon_0r_0^2}\oint_\Sigma \dd{\Sigma} = \frac{q}{\epsilon_0}
 \end{equation*}
 
 Questo risultato si può generalizzare a una superficie qualsiasi con una carica all'interno.
 \begin{equation*}
-    \delta\Phi(\vb{E})= \vb{E}\cdot\vu{n} \delta \Sigma = \frac{q}{4\pi\epsilon_0r_0^2}\vu{E}\cdot\vu{n} \delta\Sigma= 
+    \delta\Phi(\vb{E})= \vb{E}\vdot\vu{n} \delta \Sigma = \frac{q}{4\pi\epsilon_0r_0^2}\vu{E}\vdot\vu{n} \delta\Sigma= 
      \frac{q}{4\pi\epsilon_0r_0^2}\cos \theta \delta\Sigma=  \frac{q}{4\pi\epsilon_0} \delta\Omega
 \end{equation*}
 \begin{equation*}
@@ -96,8 +96,8 @@ Questo risultato si può generalizzare a una superficie qualsiasi con una carica
 \end{equation*}
 Se la carica è all'esterno della superficie il cono $\delta\Omega$ intercetta a coppie la superficie. 
 \begin{equation*}
-    \delta\Phi(\vb{E}_2)= \vb{E}_2 \cdot\vu{n}_2 \delta\Sigma_2 =  \frac{q}{4\pi\epsilon_0} \delta\Omega
-    \quad \quad \delta\Phi(\vb{E}_1)= \vb{E}_1 \cdot\vu{n}_1 \delta\Sigma_1 =  - \frac{q}{4\pi\epsilon_0} \delta\Omega
+    \delta\Phi(\vb{E}_2)= \vb{E}_2 \vdot\vu{n}_2 \delta\Sigma_2 =  \frac{q}{4\pi\epsilon_0} \delta\Omega
+    \quad \quad \delta\Phi(\vb{E}_1)= \vb{E}_1 \vdot\vu{n}_1 \delta\Sigma_1 =  - \frac{q}{4\pi\epsilon_0} \delta\Omega
 \end{equation*}
 \begin{equation*}
     \delta\Phi(\Omega)= 0 \implies \Phi(\vb{E})= \oint \dd{\Phi}=0
@@ -109,17 +109,17 @@ Nel caso generale con $n$ particelle interne e $m$ particelle esterne
     \sum_{j=1}^{m} \frac{q_j}{4\pi\epsilon_0} \frac{\vb{r}-\vb{r}_j}{\abs{\vb{r}-\vb{r}_j}^3} 
 \end{equation*}
 \begin{equation*}
-    \Phi(\vb{E})= \oint_\Sigma \vb{E}(p)\cdot\vu{n} \dd{\Sigma} = \oint_\Sigma \left[ \sum_k \dots + \sum_j \dots  \right]\cdot\vu{n} \dd{\Sigma} 
+    \Phi(\vb{E})= \oint_\Sigma \vb{E}(p)\vdot\vu{n} \dd{\Sigma} = \oint_\Sigma \left[ \sum_k \dots + \sum_j \dots  \right]\vdot\vu{n} \dd{\Sigma} 
 \end{equation*}
 \begin{equation*}
-    =\sum_{k=1}^{n} \oint_\Sigma\frac{q_k}{4\pi\epsilon_0} \frac{\vb{r}-\vb{r}_k}{\abs{\vb{r}-\vb{r}_k}^3} \cdot\vu{n}\dd{\Sigma} +
-    \sum_{j=1}^{m} \oint_\Sigma\frac{q_j}{4\pi\epsilon_0} \frac{\vb{r}-\vb{r}_j}{\abs{\vb{r}-\vb{r}_j}^3}\cdot\vu{n} \dd{\Sigma} 
+    =\sum_{k=1}^{n} \oint_\Sigma\frac{q_k}{4\pi\epsilon_0} \frac{\vb{r}-\vb{r}_k}{\abs{\vb{r}-\vb{r}_k}^3} \vdot\vu{n}\dd{\Sigma} +
+    \sum_{j=1}^{m} \oint_\Sigma\frac{q_j}{4\pi\epsilon_0} \frac{\vb{r}-\vb{r}_j}{\abs{\vb{r}-\vb{r}_j}^3}\vdot\vu{n} \dd{\Sigma} 
     = \sum_{k=1}^{n} \frac{q_k}{\epsilon_0} + 0 = \frac{Q_{interna}}{\epsilon_0}
 \end{equation*}
 
 Consideriamo la densità di carica data da $\delta q = \rho(\vb{r})\delta\tau$
 \begin{equation*}
-    \Phi(\vb{E})= \oint_\Sigma \vb{E}\cdot\vu{n} \dd{\Sigma}  \overset{T. di\, Gauss}{=} \int_\tau\left( \div \vb{E} \right) \dd{\tau}
+    \Phi(\vb{E})= \oint_\Sigma \vb{E}\vdot\vu{n} \dd{\Sigma}  \overset{T. di\, Gauss}{=} \int_\tau\left( \div \vb{E} \right) \dd{\tau}
     \overset{L. di\, Gauss}{=}\frac{1}{\epsilon_0}\int_\tau\rho \dd{\tau}
 \end{equation*}
 \begin{equation*}
@@ -136,27 +136,27 @@ La forza di Coulomb è centrale.
 \end{definition}
 
 \begin{definition}
-    Un campo è conservativo se $\oint_\Gamma \vb{C}\cdot \dd{\vb{s}}= 0 \quad\forall\Gamma\leftrightarrow\int_{A}^{B}\vb{C}\cdot \dd{\vb{s}}= \Psi(B)-\Psi(A)$
+    Un campo è conservativo se $\oint_\Gamma \vb{C}\vdot \dd{\vb{s}}= 0 \quad\forall\Gamma\leftrightarrow\int_{A}^{B}\vb{C}\vdot \dd{\vb{s}}= \Psi(B)-\Psi(A)$
 \end{definition}
 \begin{proof}
-    $\Gamma= \Gamma_1\bigcup\Gamma_2$   \quad \quad         $0 = \oint_\Gamma \vb{C}\cdot \dd{\vb{s}}=\int_{A,\Gamma_1}^{B}\vb{C}\cdot \dd{\vb{s}}+\int_{B,\Gamma_2}^{A}\vb{C}\cdot \dd{\vb{s}}$
-    \\$\implies \int_{A,\Gamma_1}^{B}\vb{C}\cdot \dd{\vb{s}}= \int_{A,\Gamma_2}^{B}\vb{C}\cdot \dd{\vb{s}}$
+    $\Gamma= \Gamma_1\bigcup\Gamma_2$   \quad \quad         $0 = \oint_\Gamma \vb{C}\vdot \dd{\vb{s}}=\int_{A,\Gamma_1}^{B}\vb{C}\vdot \dd{\vb{s}}+\int_{B,\Gamma_2}^{A}\vb{C}\vdot \dd{\vb{s}}$
+    \\$\implies \int_{A,\Gamma_1}^{B}\vb{C}\vdot \dd{\vb{s}}= \int_{A,\Gamma_2}^{B}\vb{C}\vdot \dd{\vb{s}}$
 \end{proof}
 
 \begin{proposition}
     Un campo centrale è conservativo 
 \end{proposition}
 \begin{proof}
-    $\int_{A}^{B}\vb{C}(\vb{r})\cdot \dd{\vb{s}}=\int_{A}^{B}C(r)\vu{r}\cdot \dd{\vb{s}}\int_{r_A}^{r_B}C(r)\;dr= \Psi(r_B)-\Psi(r_A)$
+    $\int_{A}^{B}\vb{C}(\vb{r})\vdot \dd{\vb{s}}=\int_{A}^{B}C(r)\vu{r}\vdot \dd{\vb{s}}\int_{r_A}^{r_B}C(r)\;dr= \Psi(r_B)-\Psi(r_A)$
 \end{proof}
 Per molteplici cariche il campo elettrico $\vb{E}(p)= \sum_{i=1}^{N} \vb{E}_i(p) $ non è centrale
 \begin{equation*}
-    = \sum_{i=1}^{N}\frac{q_i}{4\pi\epsilon_0}\frac{(\vb{r}-\vb{r}_i)}{\abs{\vb{r}-\vb{r}_i}^3}\implies\int_{A,\Gamma}^{B}\vb{E}(p)\cdot \dd{\vb{s}}
+    = \sum_{i=1}^{N}\frac{q_i}{4\pi\epsilon_0}\frac{(\vb{r}-\vb{r}_i)}{\abs{\vb{r}-\vb{r}_i}^3}\implies\int_{A,\Gamma}^{B}\vb{E}(p)\vdot \dd{\vb{s}}
     =\sum_{i=1}^{N}\left( \Psi_i(\vb{r}_B)-\Psi_i(\vb{r}_A) \right) 
 \end{equation*}
 $\vb{E}$ è conservativo per quantità arbitrarie di cariche
 \begin{equation*}
-    \oint_\Gamma \vb{E}\cdot \dd{\vb{s}} \overset{T.di\,Stokes}{=}\int_{\Sigma} \left( \curl \vb{E} \right)\cdot \vu{n}\dd{\Sigma}
+    \oint_\Gamma \vb{E}\vdot \dd{\vb{s}} \overset{T.di\,Stokes}{=}\int_{\Sigma} \left( \curl \vb{E} \right)\vdot \vu{n}\dd{\Sigma}
     \overset{\forall\Sigma}{\implies}\curl\vb{E}=0
 \end{equation*}
 Il campo elettrico in condizioni statiche è irrotazionale
@@ -175,8 +175,8 @@ Il campo elettrico in condizioni statiche è irrotazionale
 \end{proposition}
 \begin{proof}
     $\Sigma$ equipotenziale $\implies\left[ \forall \vb{x} \in\Sigma \implies V(\vb{x}) \text{costante} \right]$
-    \\$V(\vb{x}+\Delta\vb{x})-V(\vb{x})\simeq0=\pdv{V}{x}\Delta x+\pdv{V}{y}\Delta y+\pdv{V}{z}\Delta z= (\grad V)\cdot\Delta\vb{x}= - \vb{E}\cdot\Delta\vb{x}$
-    \\$\implies-\vb{E}\cdot\Delta\vb{x}=0\implies\vb{E}\perp\Sigma$
+    \\$V(\vb{x}+\Delta\vb{x})-V(\vb{x})\simeq0=\pdv{V}{x}\Delta x+\pdv{V}{y}\Delta y+\pdv{V}{z}\Delta z= (\grad V)\vdot\Delta\vb{x}= - \vb{E}\vdot\Delta\vb{x}$
+    \\$\implies-\vb{E}\vdot\Delta\vb{x}=0\implies\vb{E}\perp\Sigma$
 \end{proof}
 
 \newtheorem*{EP}{Equazione di Poisson}
@@ -230,7 +230,7 @@ Si tratta di due cariche opposte $+ q$ e $-q$ a una breve distanza $a$
 \end{equation*}
 Se $r>>a$(far field) allora $r_+r_-\simeq r^2$, $r_--r_+\simeq a \cos \theta$
 \begin{equation*}
-    \implies V(p)=  \frac{q}{4\pi\epsilon_0}\frac{a \cos \theta}{r^2}= \frac{1}{4\pi\epsilon_0}\frac{\vb{p}\cdot\vu{r}}{r^2}
+    \implies V(p)=  \frac{q}{4\pi\epsilon_0}\frac{a \cos \theta}{r^2}= \frac{1}{4\pi\epsilon_0}\frac{\vb{p}\vdot\vu{r}}{r^2}
 \end{equation*}
 
 \begin{definition}
@@ -246,7 +246,7 @@ Se $r>>a$(far field) allora $r_+r_-\simeq r^2$, $r_--r_+\simeq a \cos \theta$
 \end{equation*}
 In generale $\vb{E}(p)=\vb{E}_r+\vb{E}_\theta$:
 \begin{equation*}
-    \vb{E}(p)=\frac{3\vu{t}\left( \vb{p}\cdot\vu{t} \right)-\vb{p}}{4\pi\epsilon_0\abs{\vb{r}-\vb{r}'}^3} \quad \quad 
+    \vb{E}(p)=\frac{3\vu{t}\left( \vb{p}\vdot\vu{t} \right)-\vb{p}}{4\pi\epsilon_0\abs{\vb{r}-\vb{r}'}^3} \quad \quad 
     \vu{t} = \frac{\vb{r}-\vb{r}'}{\abs{\vb{r}-\vb{r}'}}
 \end{equation*}
 
@@ -255,11 +255,11 @@ Se immergo un dipolo in un campo elettrico uniforme:
     \vb{F}_{tot} = \vb{F}_+ +\vb{F}_-= q\vb{E}-q\vb{E}=0  \quad \quad \implies \text{Baricentro fisso}
 \end{equation*}
 \begin{equation*}
-    \vb{M}_{tot}= \vb{r}_+\times\vb{F}_+ + \vb{r}_-\times\vb{F}_-=\left( \vb{r}_++\vb{r}_- \right) \times\vb{F}=
-     q\left( \vb{r}_++\vb{r}_- \right) \times\vb{E}= \vb{p}\times\vb{E}
+    \vb{M}_{tot}= \vb{r}_+\cp\vb{F}_+ + \vb{r}_-\cp\vb{F}_-=\left( \vb{r}_++\vb{r}_- \right) \cp\vb{F}=
+     q\left( \vb{r}_++\vb{r}_- \right) \cp\vb{E}= \vb{p}\cp\vb{E}
 \end{equation*}
 \begin{equation*}
-    U_{el}= -\vb{p}\cdot\vb{E}
+    U_{el}= -\vb{p}\vdot\vb{E}
 \end{equation*}
 Se ho un campo dipendente da $x$:
 \begin{equation*}
@@ -269,7 +269,7 @@ Se ho un campo dipendente da $x$:
 Possiamo immaginare un qualsiasi corpo come un insieme di cariche puntuali distribuite in una regione limitata di spazio.
 Il potenziale attorno a questo corpo è approssimabile da:
 \begin{equation*}
-    V(p)= \frac{Q_{tot}}{4\pi\epsilon_0 r}+ \frac{\vb{p}\cdot\vu{r}}{4\pi\epsilon_0r^2}+ \frac{1}{4\pi\epsilon_0r^3}
+    V(p)= \frac{Q_{tot}}{4\pi\epsilon_0 r}+ \frac{\vb{p}\vdot\vu{r}}{4\pi\epsilon_0r^2}+ \frac{1}{4\pi\epsilon_0r^3}
     \sum_{i=1}^{N} q_i r_i^2\frac{(3 \cos\theta_i-1)}{2} + o(r^{-4})
 \end{equation*}
 \begin{proof}
@@ -311,7 +311,7 @@ Se ho un foglio carico ho una situazione simile:
 
 Consideriamo ora una cavità vuota all'interno del conduttore, una superficie $\Sigma $ che contiene la cavità  e un circuito $\Gamma$ che attravera la cavità e il conduttore:
 \\$\Phi_\Sigma(\vb{E})= 0 \implies Q_{int} = 0 $ la carica totale nella cavità è zero.
-\\$\Gamma(E)= 0 = \int_{\Gamma,int}0 \cdot\dd{\vb{s}}+\int_{\Gamma,cav}\vb{E}_{cav}\cdot\dd{\vb{s}}\implies E_{cav}= 0, \quad
+\\$\Gamma(E)= 0 = \int_{\Gamma,int}0 \vdot\dd{\vb{s}}+\int_{\Gamma,cav}\vb{E}_{cav}\vdot\dd{\vb{s}}\implies E_{cav}= 0, \quad
 \sigma_{cav}=0$
 
 Se la cavità all'interno della cavità ho una carica $q$, sulla superficie interna del conduttore avrò una carica $-q$.
@@ -345,8 +345,8 @@ Consideriamo due gusci sferici concentrici il primo con carica $+q$ e raggio $R_
     E(r<R_1)=0\qquad E(r>R_2)=0\qquad E(r \in [R_1,R_2])= \frac{q}{4\pi\epsilon_0r^2}
 \end{equation*}
 \begin{equation*}
-    \Delta V = V_1-V_2= \int_{2}^{1}-\vb{E}\cdot\dd{\vb{s}}= \int_{1}^{2}\vb{E}\cdot\dd{\vb{s}}= 
-    \int_{1}^{2}\frac{q}{4\pi\epsilon_0}\frac{\vu{r}}{r^2}\cdot\dd{\vb{s}} = \int_{R_1}^{R_2}\frac{q}{4\pi\epsilon_0}\frac{\dd{r}}{r^2}
+    \Delta V = V_1-V_2= \int_{2}^{1}-\vb{E}\vdot\dd{\vb{s}}= \int_{1}^{2}\vb{E}\vdot\dd{\vb{s}}= 
+    \int_{1}^{2}\frac{q}{4\pi\epsilon_0}\frac{\vu{r}}{r^2}\vdot\dd{\vb{s}} = \int_{R_1}^{R_2}\frac{q}{4\pi\epsilon_0}\frac{\dd{r}}{r^2}
 \end{equation*}
 \begin{equation*}
     \implies V = \frac{q}{4\pi\epsilon_0}\eval{\frac{1}{r}}_{R_1}^{R_2}= \frac{q}{4\pi\epsilon_0}\left( \frac{1}{R_1}-\frac{1}{R_2} \right)
@@ -411,11 +411,11 @@ Abbiamo ricavato un'espressione della \textit{densità energetica del campo elet
     \end{equation*}
     Concentriamoci sul secondo pezzo dell'equazione:
     \begin{equation*}
-        \int_\tau\div(V\grad{V})\dd{\tau} \overset{Gauss}{=} \int_\Sigma\left( V\grad{V} \right)\cdot\vu{n}\dd{\Sigma}
+        \int_\tau\div(V\grad{V})\dd{\tau} \overset{Gauss}{=} \int_\Sigma\left( V\grad{V} \right)\vdot\vu{n}\dd{\Sigma}
     \end{equation*}
     Prendo come volume $\tau$ una sfera molto grande $(R\rightarrow+\infty)$:
     \begin{equation*}
-        V \sim \frac{1}{R}  \quad\grad{V}= \frac{1}{R^2}\implies \int_\Sigma \left( V\grad{V} \right)\cdot\vu{n}\dd{\Sigma}
+        V \sim \frac{1}{R}  \quad\grad{V}= \frac{1}{R^2}\implies \int_\Sigma \left( V\grad{V} \right)\vdot\vu{n}\dd{\Sigma}
         \sim \frac{1}{R}\frac{1}{R^2}4\pi R^2 \sim \frac{1}{R}\rightarrow 0 
     \end{equation*}
     \begin{equation*}
@@ -461,7 +461,7 @@ Quanto vale $\vb{E}$ all'interno del dielettrico?
 Consideriamo il campo di polarizzazione $\vb{P}(\vb{r})$. La carica totale legata all'interno di un volume $\tau$ è data da:
 
 \begin{equation*}
-    Q_{pol} = -\oint_{\Sigma} \vb{P} \cdot \dd{\vb{\Sigma}} \overset{Gauss}{=} -\int_{\tau} \div \vb{P} \dd{\tau}
+    Q_{pol} = -\oint_{\Sigma} \vb{P} \vdot \dd{\vb{\Sigma}} \overset{Gauss}{=} -\int_{\tau} \div \vb{P} \dd{\tau}
 \end{equation*}
 Per definizione \( Q_{pol} = \int_{V} \rho_{\text{pol}} \dd{\tau} \), quindi:
 \begin{equation*}
@@ -481,7 +481,7 @@ Possiamo definire il \textit{vettore spostamento} $\vb{D}$ tale che:
 Consideriamo una superficie in cui due dielettrici differenti $(\kappa_1, \kappa_2)$ si incontrano, detta interfaccia. 
 Si consideri un circuito rettangolare $\Gamma$ lungo l'interfaccia largo $l$:
 \begin{equation*}
-    \int_\Gamma \vb{E}\cdot\dd{\vb{s}}= \int_\Gamma \vb{E}_\parallel\cdot\dd{\vb{s}}= 0 = E_{1,\parallel}l-E_{2,\parallel}l \implies \vb{E}_{1,\parallel}= \vb{E}_{2,\parallel}
+    \int_\Gamma \vb{E}\vdot\dd{\vb{s}}= \int_\Gamma \vb{E}_\parallel\vdot\dd{\vb{s}}= 0 = E_{1,\parallel}l-E_{2,\parallel}l \implies \vb{E}_{1,\parallel}= \vb{E}_{2,\parallel}
 \end{equation*}
 Si consideri ora un cilindretto di superficie $\Delta\Sigma$:
 \begin{equation*}
@@ -553,7 +553,7 @@ Ricordando che $\kappa_E = 1 + \chi_E$:
 \begin{definition}
     Densità di corrente $\vb{j}$
     \begin{equation*}
-        \vb{j}\cdot\dd{\Sigma}= \dv{q}{t}
+        \vb{j}\vdot\dd{\vb{\Sigma}}= \dv{q}{t}
     \end{equation*}
 \end{definition}
 Prendendo in esame un volume cilindrico:
@@ -567,7 +567,7 @@ Derivando nel tempo otteniamo:
 \begin{definition}
     Intensità di corrente
     \begin{equation*}
-        I = \int_\Sigma \vb{j}\cdot\dd{\Sigma}
+        I = \int_\Sigma \vb{j}\vdot\dd{\vb{\Sigma}}
     \end{equation*}
 \end{definition}
 
@@ -583,7 +583,7 @@ Derivando nel tempo otteniamo:
         q_{int}= \int_\tau\rho\dd{\tau} \quad \dv{q_{int}}{t}= \dv{}{t}\int_\tau \rho\dd{\tau} = \int_\tau \pdv{\rho}{t}\dd{\tau}
     \end{equation*}
     \begin{equation*}
-        \dv{q_{int}}{t}= - \oint_\Sigma \vb{j}\cdot\dd{\Sigma}\overset{Gauss}{=}-\int_\tau \div(\vb{j})\dd{\tau}\implies
+        \dv{q_{int}}{t}= - \oint_\Sigma \vb{j}\vdot\dd{\vb{\Sigma}}\overset{Gauss}{=}-\int_\tau \div(\vb{j})\dd{\tau}\implies
         \int_\tau \pdv{\rho}{t} + \div(\vb{j}) \dd{\tau}= 0
     \end{equation*}
     \begin{equation*}
@@ -597,7 +597,7 @@ Derivando nel tempo otteniamo:
 I generatori di tensione permettono di mantenere un circuito a tensione costante.
 La circuitazione del campo elettrico lungo il circuito, in tal caso, è diverso da 0
 \begin{equation*}
-    \oint_\Gamma \vb{E}\cdot\dd{s}= V(\textit{fine})-V(\text{inizio}) = \mathcal{E}\quad \textit{      Forza ElettroMotrice FEM}
+    \oint_\Gamma \vb{E}\vdot\dd{s}= V(\textit{fine})-V(\text{inizio}) = \mathcal{E}\quad \textit{      Forza ElettroMotrice FEM}
 \end{equation*} 
 
 
@@ -607,29 +607,29 @@ Studiamo ora i fenomeni di magnetismo. Le forze magnetiche apparentemente indipe
 Oersted scopre che la corrente produce un campo magnetico.
 Si nota che le linee del campo magnetico sono tutte chiuse:
 \begin{equation*}
-    \oint_\Sigma \vb{B}\cdot\dd{\Sigma} = 0 \overset{Gauss}{=} \int_\tau \div(\vb{B}) \dd{\tau} \overset{\forall \tau}{\implies} \div(\vb{B})= 0
+    \oint_\Sigma \vb{B}\vdot\dd{\Sigma} = 0 \overset{Gauss}{=} \int_\tau \div(\vb{B}) \dd{\tau} \overset{\forall \tau}{\implies} \div(\vb{B})= 0
 \end{equation*}
 $\vb{B}$ è un campo solenoidale.
 
 \newtheorem*{FL}{Forza di Lorentz}
 \begin{FL}
     \begin{equation*}
-        \vb{F}= q \left( \vb{E} \vb{v}\times \vb{B} \right)
+        \vb{F}= q \left( \vb{E} \vb{v}\cp \vb{B} \right)
     \end{equation*}
 \end{FL}
 
 Da questo si ricava:
 \begin{equation*}
-    \dd{W}= \vb{F}\cdot\dd{\vb{s}}= q\left( \vb{v}\times \right) \cdot \dd{t} = 0
+    \dd{W}= \vb{F}\vdot\dd{\vb{s}}= q\left( \vb{v}\cp \vb{B}\right) \vdot \dd{t} = 0
 \end{equation*}
 La forza magnetica non compie lavoro, mantiene la velocità costante.
 Una velocità perpendicolare a $\vb{B}$ genera un moto circolare uniforme.
 \begin{equation*}
-    m\dv{\vb{v}}{t}= q\vb{v}\times \vb{B}\qquad\qquad \vb{v}= \left( v_x,\,v_y,\,0 \right)\quad \vb{B}= \left( 0,\,0,\,B \right)
+    m\dv{\vb{v}}{t}= q\vb{v}\cp \vb{B}\qquad\qquad \vb{v}= \left( v_x,\,v_y,\,0 \right)\quad \vb{B}= \left( 0,\,0,\,B \right)
 \end{equation*}
 
 \begin{equation*}
-    m\dv{v_x}{t}=qv_y\vb{B}; \quad m\dv{v_y}{t}= -qv_xB; \quad\tilde{v}= v_x + iv_y \implies m\dv{\tilde{v}}{t}= -iqB\tilde{v}
+    m\dv{v_x}{t}=qv_yB; \quad m\dv{v_y}{t}= -qv_xB; \quad\tilde{v}= v_x + iv_y \implies m\dv{\tilde{v}}{t}= -iqB\tilde{v}
 \end{equation*}
 \begin{equation*}
     \tilde{v}= v_0e^{-i\left( \frac{qB}{m}t+\varphi \right)} \qquad \omega= \frac{qB}{m}\quad \textit{ pulsazione ciclotrone}
@@ -637,6 +637,173 @@ Una velocità perpendicolare a $\vb{B}$ genera un moto circolare uniforme.
 Se la componente di $\vb{v}$ parallela a $\vb{B}$ non è uguale a 0, sovrapponendo i moti ottengo un moto elicoidale.
 
 \subsection{Effetto Hall}
+
+
+\subsection{Leggi del magnetismo}
+Consideriamo un conduttore percorso da corrente e calcoliamo la forza esercitata su un elemento di volume $\dd{\tau}$:
+\begin{equation*}
+    \dd{\vb{F}}=\text{ num portatori }\vdot \vb{F}_B= n \Sigma\dd{s}\,q\vb{v}\cp\vb{B}= \dd{\tau} \vb{j}\cp\vb{B} 
+    \implies \vb{F}= \int _\tau\vb{j}\cp \vb{B}\dd{\tau} 
+\end{equation*}
+Altrimenti:
+\begin{equation*}
+    \vb{j}\dd{\tau}= \vb{j}\Sigma\dd{s}= I \dd{\vb{s}} \implies \dd{\vb{F}}= I \dd{\vb{s}}\cp\vb{B} 
+\end{equation*}
+\begin{equation*}
+    \vb{F}= \int_{P}^{Q}\dd{\vb{F}}= \int_{P}^{Q}I\dd{\vb{s}}\cp\vb{B} \qquad \textit{Legge di Laplace}
+\end{equation*}
+
+Se $P\cong Q$, il conduttore è in percorso chiuso e rigido abbiamo $\vb{F}= 0$, è comunque possibile subisca un momento torcente.
+\\Consideriamo una spira rettangolare, di lati $a$ e $b$, percorsa da corrente e un campo magnetico che forma un angolo $\theta$ con la normale della spira:
+\begin{equation*}
+    M= IBab\sin\theta
+\end{equation*}
+Se definiamo il momento magnetico $\vb{m}$:
+\begin{equation*}
+    \vb{m}= Iab\vu{n}= I\Sigma\vu{n}\implies \vb{M}= \vb{m}\cp\vb{B}
+\end{equation*}
+La spira tenderà a disporsi con $\vb{m}$ e $\vb{B}$ paralleli e questo mi implica un'energia potenziale magnetica $U_{mag}= -\vb{m}\vdot\vb{B}$
+% LEgge di biot savart e ampere da fare
+
+
+\subsection{Esp. di Thompson}
+
+\subsection{Potenziale vettore}
+\'{E} possibile dimostrare le leggi magnetostatiche in una maniera alternativa partendo dall'equazione generica di $\vb{B}(\vb{r})$
+\begin{equation*}
+    \vb{B}(\vb{r})= \int_\tau\frac{\mu_0}{4\pi}\vb{j}(\vb{r}')\cp\frac{\vu{\boldscriptr}}{\scriptr^2}\dd{\tau'} \qquad\text{ con } 
+    \boldscriptr= \vb{r}-\vb{r}'
+\end{equation*}
+\begin{equation*}
+    \curl \frac{\vb{j}(\vb{r}')}{\scriptr}= -\vb{j}(\vb{r}')\cp\grad{\frac{1}{\scriptr}}= \vb{j}(\vb{r}')\cp\frac{\vu{\boldscriptr}}{\scriptr^2}
+\end{equation*}
+
+\begin{equation*}
+    \implies \vb{B}(\vb{r})= \int_\tau\frac{\mu_0}{4\pi}\curl(\frac{\vb{j}(\vb{r}')}{\scriptr})\dd{\tau'}= \curl(\int_\tau\frac{\mu_0}{4\pi}\frac{\vb{j}(\vb{r}')}{\scriptr}\dd{\tau'})
+\end{equation*}
+Definiamo dunque il \textit{potenziale vettore} $\vb{A}$ come:
+\begin{equation*}
+    \vb{A}(\vb{r}):=\frac{\mu_0}{4\pi}\int_\tau \frac{\vb{j}(\vb{r}')}{\scriptr}\implies\vb{B}(\vb{r})= \curl{\vb{A}(\vb{r})}
+\end{equation*}
+
+Ne segue:
+\begin{equation*}
+    \div\vb{B}= \div(\curl{\vb{A}})= 0
+\end{equation*}
+
+Verifichiamo ora la seconda legge $\curl{\vb{B}}= \mu_0\vb{j}$
+\begin{proof}
+    \begin{equation*}
+        \curl{\vb{B}}= \curl(\curl{\vb{A}})= \grad(\div \vb{A})-\laplacian{\vb{A}}=
+    \end{equation*}
+    \begin{equation*}
+        =\frac{\mu_0}{4\pi}\left[ \grad(\div{\int_\tau\frac{\vb{j}(\vb{r'})}{\scriptr}\dd{\tau'}})
+        -\laplacian{\int_\tau\frac{\vb{j}(\vb{r'})}{\scriptr}\dd{\tau'}} \right]=
+    \end{equation*}
+    \begin{equation*}
+        =\frac{\mu_0}{4\pi}\left[ \grad(\int_\tau\vb{j}(\vb{r'})\vdot\grad( \frac{1}{\scriptr})\dd{\tau'})
+        -\int_\tau\vb{j}(\vb{r'})\laplacian(\frac{1}{\scriptr})\dd{\tau'} \right]
+    \end{equation*}
+    Valgono:
+    \begin{equation*}
+        \laplacian(\frac{1}{\scriptr})= -4\pi\delta(\boldscriptr) \implies
+        -\int_\tau\vb{j}(\vb{r'})\laplacian(\frac{1}{\scriptr})\dd{\tau'} = 4\pi\vb{j}(\vb{r})
+    \end{equation*}
+    \begin{equation*}
+        \grad(\frac{1}{\scriptr}) = -\grad_{r'}\left( \frac{1}{\scriptr} \right)\implies \int_\tau\vb{j}(\vb{r'})\vdot\grad( \frac{1}{\scriptr})\dd{\tau'}
+        = - \int_\tau\vb{j}(\vb{r'})\vdot\grad_{r'}\left( \frac{1}{\scriptr}\right)\dd{\tau'} = (1)
+    \end{equation*}
+    \begin{equation*}
+        \grad_{r'}\vdot\left( \frac{\vb{j}(\vb{r}')}{\scriptr} \right)= \frac{\grad_{r'}\vdot\vb{j}(\vb{r}')}{\scriptr}+ \vb{j}(\vb{r}')\vdot\grad_{r'}\left( \frac{1}{\scriptr}\right)
+    \end{equation*}
+    \begin{equation*}
+        \implies (1)= - \int_\tau\grad_{r'}\vdot\left( \frac{\vb{j}(\vb{r}')}{\scriptr} \right)\dd{\tau'}+ \int_\tau\frac{\grad_{r'}\vdot\vb{j}(\vb{r}')}{\scriptr}\dd{\tau'}= (2)
+    \end{equation*}
+    \begin{equation*}
+        \frac{\rho}{t}= 0 \implies\div(\vb{j})= 0 \implies \grad_{r'}\vdot\vb{j}=0\implies
+        (2)=- \int_\tau\grad_{r'}\vdot\left( \frac{\vb{j}(\vb{r}')}{\scriptr} \right)\dd{\tau'}
+    \end{equation*}
+    Dunque, unendo il tutto:
+    \begin{equation*}
+        \curl{\vb{B}}= \frac{\mu_0}{4\pi}\left( \grad(- \int_\tau\grad_{r'}\vdot\left( \frac{\vb{j}(\vb{r}')}{\scriptr} \right)\dd{\tau'}) + 4\pi\vb{j}\right)
+        \overset{Gauss}{=} \frac{\mu_0}{4\pi}\left( \grad(-\oint_\Sigma \frac{\vb{j}(\vb{r}')}{\scriptr}\vdot \dd{\vb{\Sigma}'}) +4\pi\vb{j} \right)
+    \end{equation*}
+    Se considero una regione abbastanza grande da includere ogni corrente $\vb{j}(r')$:
+    \begin{equation*}
+        \oint_\Sigma \frac{\vb{j}(\vb{r}')}{\scriptr}\vdot \dd{\vb{\Sigma}'}= 0
+        \implies \curl{\vb{B}}= \frac{\mu_0}{4\pi} \vdot4\pi\vb{j}= \mu_0\vb{j}
+    \end{equation*}
+\end{proof}
+
+
+\newtheorem*{IG}{Invarianza di Gauge}
+\begin{IG}
+    Il potenziale vettore è definito a meno del gradiente di una funzione scalare $\Psi$
+    \begin{equation*}
+        \vb{B}= \curl{\vb{A}}= \curl{\vb{A}'} \qquad \text{ con } \vb{A}' = \vb{A}+\grad{\Psi}
+    \end{equation*}
+\end{IG}
+\begin{proof}
+    Dato che $\curl(\grad{\Psi})= 0$:
+    \begin{equation*}
+        \vb{B}= \curl{\vb{A}'}= \curl{\vb{A}+\grad{\Psi}} =  \curl{\vb{A}} + \curl(\grad{\Psi})=  \curl{\vb{A}}
+    \end{equation*}
+\end{proof}
+
+Dall'invarianza di Gauge possiamo sempre definire $\vb{A}'$ tsle che abbia delle proprietà a noi comode. Ad esempio definiamo
+la \textit{Gauge di Coulomb} tale che la divergenza di $\vb{A}$ sia nulla:
+\begin{equation*}
+    \div{\vb{A}}=0 \implies\laplacian{\vb{A}}= -\mu_0\vb{j}
+\end{equation*}
+Questa è analoga all'equazione di Poisson $\laplacian{V}= -\rho/\epsilon_0$
+
+\subsection{Materiali sottoposti a campo magnetico}
+Applicando un campo $\vb{B}$ induco nella materia dei momenti magnetici: $\vb{M} = n\vb{m}$ con $n$ densità dei momenti e $\vb{M}$ detta \textit{magnetizzazione}.
+Se considero un volumetto $\dd{\tau}$ ottengo:
+\begin{equation*}
+    \dd{\vb{m}}= \vb{M}\dd{\tau} = \vb{M}\dd{x}\dd{y}\dd{z}= \vb{M}\dd{z}\dd{\Sigma}= I_m\dd{\Sigma}
+\end{equation*}
+Dove abbiamo definito la \textit{corrente di magnetizzazione} $I_m= M\dd{z}$, come la corrente che circola sulle pareti del cubo. 
+Possiamo inoltre definire la densità lineare della 
+corrente di magnetizzazione come $\vb{j}_{sm}= \vb{M}\cp\vu{n}$ e dunque $I_m= \vb{j}_{sm}\vdot\vu{n}$ 
+Nel caso $\vb{M}$ non sia uniforme bisonga considerare come varia $\vb{M}$ tra le pareti del cubetto:
+\begin{equation*}
+    \dd{I_y}'= \dd{I_1}-\dd{I_2}= M_z(x)\dd{z}-M_z(x+\dd{x})\dd{z}\simeq-\pdv{M_z}{x}\dd{x}\dd{z}\qquad \quad 
+    \dd{I_y}'' = \dd{I_4}-\dd{I_3}\simeq \pdv{M_x}{z}\dd{z}\dd{x}
+\end{equation*}
+\begin{equation*}
+    \dd{I_y}\simeq \left( \pdv{M_x}{z}-\pdv{M_z}{x} \right)\dd{x}\dd{z}= \left( \curl{\vb{M}} \right)_y \dd{x}\dd{z}
+    \implies \vb{j}_m = \curl{\vb{M}}
+\end{equation*}
+Dove abbiamo definito la \textit{densità di corrente di magnetizzazione} $\vb{j}_m$.
+
+Possiamo dunque riscrivere la legge di Ampere come:
+\begin{equation*}
+    \curl{\vb{B}}= \mu_0\left( \vb{j}_{cond} +\vb{j}_{mag} \right)= \mu_0\left( \vb{j}_{cond} +\curl{\vb{M}} \right)
+    \implies \curl(\vb{B}-\mu_0\vb{M})= \mu_0\vb{j}_{cond}
+\end{equation*}
+Introduciamo dunque un nuovo campo, analogo al vettore spostamento $\vb{D}$, detto \textit{campo magnetizzante} $\vb{H}$:
+\begin{equation*}
+    \vb{H}= \frac{\vb{B}}{\mu_0}-\vb{M}\implies \curl{\vb{H}}= \vb{j}_{cond}
+\end{equation*}
+
+$\vb{M}$ deve dipendere da $\vb{B}$, è generalmente più facile descrivere la sua dipendenza da $\vb{H}$, anche per ragioni storiche.
+\\ Per materiali magnetici lineari $\vb{M}= \chi_M\vb{H}$ dove $\chi_M$ è un tensore, detto \textit{suscettibilità magnetica}, 
+se i materiali sono anche isotropi allora $\chi_M$ è uno scalare e se sono omogenei allora ha valore costante.
+
+Nelle zone di interfaccia tra due materiali diversi analogamente al campo elettrico otteniamo:
+\begin{equation*}
+    B_{1,\perp}= B_{2,\perp}\qquad\quad H_{1,\parallel}-H_{2,\parallel}= j_{sup}
+\end{equation*}
+
+\subsection{Magnetismo a livello atomico}
+
+
+
+\section{Elettromagnetismo}
+
+
+
 
 
 
