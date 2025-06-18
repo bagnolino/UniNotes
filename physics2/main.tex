@@ -921,8 +921,206 @@ Abbiamo così ottenuto le 4 leggi di Maxwell nella materia:
     \curl{\vb{H}}= \vb{j}_{cond}+ \pdv{\vb{D}}{t}
 \end{equation*}
 
+Nota queste equazioni includono la conservazione della carica:
+\begin{equation*}
+    \div(\curl{\vb{H}})=0 \implies 0 = \div{\vb{j}}+ \div{\pdv{\vb{D}}{t}}= \div{\vb{j}}+ \pdv{}{t}\left( \div{\vb{D}} \right)\implies
+    \div{\vb{j}}+ \pdv{\rho}{t}=0
+\end{equation*}
 
 
+
+
+
+
+\subsubsection{Equazioni con i potenziali}
+Dalle equzioni di Maxwell e dalla definzione di potenziale vettore $\vb{B}= \curl(\vb{A})$ otteniamo:
+\begin{equation*}
+    \curl{\vb{E}}= -\pdv{\vb{B}}{t}= -\pdv{}{t}\left( \curl{\vb{A}} \right)= -\curl{\pdv{\vb{A}}{t}}
+\end{equation*}
+\begin{equation*}
+    \implies\curl(\vb{E}+\pdv{\vb{A}}{t})=0\implies \exists\,V  \,|\, \vb{E}+\pdv{\vb{A}}{t}= -\grad{V}
+\end{equation*}
+
+\begin{equation*}
+    \curl{\vb{B}}= \mu_0\vb{j}_{tot}+ \mu_0\epsilon_0\pdv{\vb{E}}{t}= \mu_0\vb{j}_{tot}+ \mu_0\epsilon_0\pdv{}{t}\left( -\grad{V}-\pdv{\vb{A}}{t} \right)
+\end{equation*}
+Utilizzando:
+\begin{equation*}
+    \curl{\vb{B}}= \curl(\curl{\vb{A}}) = \grad(\div{\vb{A}})-\laplacian{\vb{A}}
+\end{equation*}
+\begin{equation*}
+    \implies -\laplacian{\vb{A}}+\mu_0\epsilon_0\pdv[2]{\vb{A}}{t}+\grad(\div{\vb{A}}+\mu_0\epsilon_0\pdv{V}{t})= \mu_0 \vb{j}_{tot}
+\end{equation*}
+
+Definiamo il potenziale vettore usando la Gauge di Lorentz: $\div{\vb{A}} + \mu_0\epsilon_0\pdv{V}{t}= 0$
+\begin{equation*}
+    \implies\left( \laplacian{}-\mu_0\epsilon_0\pdv[2]{}{t} \right)\vb{A}= -\mu_0\vb{j}_{tot}
+\end{equation*}
+\begin{equation*}
+    \vb{E}= -\grad{V}-\pdv{\vb{A}}{t}\implies\div{\vb{E}}= -\laplacian{V}-\pdv{}{t}\left( \div{\vb{A}} \right)\overset{G.L.}{=}
+    -\laplacian{V}+ \mu_0\epsilon_0\pdv[2]{V}{t}= \frac{\rho_{tot}}{\epsilon_0}
+\end{equation*}
+\begin{equation*}
+    \implies \left( \laplacian{}-\mu_0\epsilon_0\pdv[2]{}{t} \right)V = -\frac{\rho_{tot}}{\epsilon_0}
+\end{equation*}
+
+\section{Onde Elettromagnetiche}
+Nel vuoto le equazioni di Maxwell sono:
+\begin{equation*}
+    \div{\vb{E}}=0\qquad\div{\vb{B}}= 0\qquad\curl{\vb{E}}= -\pdv{\vb{B}}{t}\qquad\curl{\vb{B}}= \mu_0\epsilon_0\pdv{\vb{E}}{t}
+\end{equation*}
+\begin{equation*}
+    3\implies\curl(\curl{\vb{E}})= \curl(-\pdv{\vb{B}}{t})= -\pdv{}{t}\left( \curl{\vb{B}} \right)\overset{4}{=}-\pdv{}{t}\left(\mu_0\epsilon_0\pdv{\vb{E}}{t}\right)=-\mu_0\epsilon_0\pdv[2]{\vb{E}}{t}
+\end{equation*}
+\begin{equation*}
+    \curl(\curl{\vb{E}})= \grad(\div{\vb{E}})-\laplacian{\vb{E}}\overset{1}{=}-\laplacian{\vb{E}}
+\end{equation*}
+\begin{equation*}
+    \implies \left( \laplacian{}-\mu_0\epsilon_0\pdv[2]{}{t} \right)\vb{E}= 0 \text{  similmente  } \left( \laplacian{}-\mu_0\epsilon_0\pdv[2]{}{t} \right)\vb{B}= 0
+\end{equation*}
+
+
+Le onde hanno un'equazione della forma:
+\begin{equation*}
+    \left( \laplacian{}-\frac{1}{v^2}\pdv[2]{}{t} \right)\Psi(\vb{r},t) = 0 
+\end{equation*} 
+dove $v$ è la velocità di propagazione dell'onda. 
+\begin{equation*}
+    \frac{1}{v^2}= \mu_0\epsilon_0\implies v = \frac{1}{\sqrt{\epsilon_0\mu_0}}= c
+\end{equation*}
+La luce è un'onda elettromagnetica.
+
+\subsection{Equazione delle onde}
+Possiamo definire un'onda come una perturbazione che si propaga in un mezzo continuo con una forma fissata e una velocità costante.
+\\ Se ho il profilo $\Psi(x,t)$ all'istante $t$, avrò all'istante $0$ lo stesso profilo in $x-vt \implies \Psi(x,t)= \Psi(x-vt,0)$.
+Posso usare un solo argomento: $\Psi(x,t)= f(x-vt)$, dimostriamo l'equazione delle onde:
+\begin{equation*}
+    u= x-vt\qquad\pdv{\Psi}{x}= \pdv{f}{u}\pdv{u}{x}= \pdv{f}{u}\qquad\pdv[2]{\Psi}{x}= \pdv{}{x}\left( \pdv{f}{u} \right)\pdv[2]{f}{u}\pdv{u}{x}=\pdv[2]{f}{u}
+\end{equation*}
+\begin{equation*}
+    \pdv{\Psi}{t}= \pdv{f}{u}\pdv{u}{t}= -v\pdv{f}{u}\qquad\pdv[2]{\Psi}{t}= -v\pdv{}{t}\left( \pdv{f}{u} \right)= v^2\pdv[2]{f}{u}\implies \pdv[2]{\Psi}{x}= \pdv[2]{f}{u}= \frac{1}{v^2}\pdv[2]{\Psi}{t}
+\end{equation*}
+Avrei potuto usare alla stessa maniera $u = x+vt$ dunque in generale\[\Psi(x,t)= f(x-vt)+g(x+vt)\]
+dove la prima è un'onda progressiva e la seconda regressiva.
+
+
+Una soluzione possibile del caso monodimensionale è:
+\begin{equation*}
+    \Psi(x,t)= A\cos(k(x-vt)+\delta) \text{  Onda Armonica}
+\end{equation*}
+dove $A$ è l'\textit{ampiezza}, $\delta$ la \textit{fase iniziale}, $k$ \textit{numero d'onda} e $k(x-vt)+\delta$ è la \textit{fase}.
+\\La distanza tra due picchi è detta \textit{lunghezza d'onda} $\lambda$, mentre
+la distanza temporale tra due picchi è detta \textit{periodo}.
+\begin{equation*}
+    k= \frac{2\pi}{\lambda}\,;\qquad \lambda= vT\,;\qquad T=\frac{2\pi}{kv}\,;\qquad f = \frac{1}{T}= \frac{kv}{2\pi}\,;
+    \qquad \omega= kv\,;\qquad\lambda f= v 
+\end{equation*}
+
+Si può ed è utile utilizzare i numeri complessi per trattare le onde:
+\begin{equation*}
+    e^{ i\theta }= \cos(\theta)+ i\sin(\theta) \quad i = \sqrt{-1}
+\end{equation*}
+\begin{equation*}
+    \Psi(x,t) = \mathrm{Re}\left\{ A e^{ i\left( kx-\omega t +\delta \right) } \right\}\implies \tilde{\Psi}(x,t) = \tilde{A} e^{ i\left( kx-\omega t \right) }\quad \tilde{A}= Ae^{i\delta}
+\end{equation*}
+
+Questo risultato è possibile generallizarlo a tre dimensioni per un'onda piana:
+\begin{equation*}
+    \tilde{\Psi}(\vb{x},t)= \tilde{\Psi}_0 e^{i\left( \vb{k}\vdot\vb{x}-\omega t \right)} \qquad \vb{k}= \frac{2\pi}{\lambda}\vu{v}
+\end{equation*}
+
+Guardiamo ora il caso di onde sferiche in cui vale $\Psi(\vb{x},t)= \Psi(r,t)$:
+\begin{equation*}
+    \laplacian{\Psi}(r,t)= \frac{1}{r}\pdv[2]{}{r}\left[ r\Psi(r,t) \right]\implies
+    \frac{1}{r}\pdv[2]{}{r}\left( r\Psi(r,t) \right)-\frac{1}{v^2}\pdv[2]{}{t}\Psi(r,t)=0
+\end{equation*}
+\begin{equation*}
+    \pdv[2]{}{r}\left( r\Psi(r,t) \right)-\frac{1}{v^2}\pdv[2]{}{t}\left( r\Psi(r,t) \right)=0\implies
+    \Psi(r,t)=\frac{f(r-vt)+g(r+vt)}{r}
+\end{equation*}
+L'ampiezza dell'onda decresce come $\frac{1}{r}$
+\\Dunque le onde sferiche armoniche saranno descritte da: $\tilde{\Psi}(r,t)= \frac{\tilde{\Psi}_0}{r}e^{i\left( kr-\omega t \right)}$
+
+\subsection{Caratterizzazione delle onde elettromagnetiche}
+Le equazioni delle onde nel vuoto sono:
+\begin{equation*}
+    \left( \laplacian{}-\frac{1}{c^2}\pdv[2]{}{t} \right)\vb{E}=0 \qquad\left( \laplacian{}-\frac{1}{c^2}\pdv[2]{}{t} \right)\vb{B}=0
+\end{equation*}
+La soluzione per un'onda piana:
+\begin{equation*}
+    \vb{E}= \vb{E}_0e^{i(\vb{k}\vdot\vb{x}-\omega t)}\qquad \vb{B}= \vb{B}_0e^{i(\vb{k}\vdot\vb{x}-\omega t)}
+\end{equation*}
+Notiamo:
+\begin{equation*}
+    \div{\vb{E}}=0\implies\div[\vb{E}_0e^{i(\vb{k}\vdot\vb{x}-\omega t)}]= i \vb{k}\vdot\vb{E}_0e^{i(\vb{k}\vdot\vb{x}-\omega t)}= 0 
+    \implies \vb{k} \perp \vb{E}
+\end{equation*}
+\begin{equation*}
+    \div{\vb{B}}= 0 \implies \vb{k} \perp \vb{B}
+\end{equation*}
+\begin{equation*}
+    \curl{\vb{E}}= -\pdv{\vb{B}}{t}\implies\curl(\vb{E}_0e^{i(\vb{k}\vdot\vb{x}-\omega t)})= i\vb{k}\cp\vb{E}_0e^{i(\vb{k}\vdot\vb{x}-\omega t)}
+    = -\pdv{\vb{B}}{t}=+i \omega\vb{B}_0e^{i(\vb{k}\vdot\vb{x}-\omega t)}
+\end{equation*}
+\begin{equation*}
+    \implies\vb{k}\cp\vb{E}_0= \omega\vb{B}_0
+\end{equation*}
+\begin{equation*}
+    B_0= \left( \frac{k}{\omega} \right)E_0=\frac{2\pi/\lambda}{2\pi f}E_0= \frac{1}{f\lambda}E_0 \implies E_0= c B_0
+\end{equation*}
+
+Studiamo ora come si comporta l'angolo degli assi $\vb{E}$ e $\vb{B}$ rispetto a un sistema fisso:
+\begin{equation*}
+    E_y (x,t)= E_{0y}\cos(kx-\omega t); \qquad E_z(x,t) = E_{0z}\cos(kx-\omega t +\delta)
+\end{equation*}
+dove $\delta$ è la differenza di fase tra le componenti di $\vb{E}$. Se $\delta= 0,\pi$:
+\begin{equation*}
+    E_z (x,t)= \pm E_{0z}\cos(kx-\omega t)\implies\frac{E_z}{E_y}=\pm \frac{E_{0z}}{E_{0y}}=\tan \theta \implies \theta\text{ fisso} 
+\end{equation*}
+Se $\delta= \pm \frac{\pi}{2}\implies E_z (x,t)= \mp E_{0z}\sin(kx-\omega t) $:
+\begin{equation*}
+     \implies\left( \frac{E_y}{E_{0y}} \right)^2+\left( \frac{E_z}{E_{0z}} \right)^2= 
+     \cos[2](kx-\omega t)+ \sin[2](kx-\omega t)= 1
+\end{equation*}
+Otteniamo una polarizzazione elittica se inoltre $E_{0y}=E_{0z}$ abbiamo una polarizzazione circolare.
+\\Se $\delta$ varia casualmente nel tempo abbiamo della luce non polarizzata.
+\subsection{Energia elettromagnetica}
+Sappiamo che dove c'è ci sono campi elettrici o magnetici troviamo densità energetica:
+\begin{equation*}
+    \mu_{EM}= \mu_E + \mu_M = \frac{1}{2}\left( \epsilon_0E^2+ \frac{B^2}{\mu_0} \right)=
+     \frac{1}{2}\left( \epsilon_0 E^2 + \frac{E^2}{c^2\mu_0} \right)= \epsilon_0E^2
+\end{equation*}
+Posso ora calcolare l'energia passante nell'unità di superficie e di tempo:
+\begin{equation*}
+    \dd{U}_{EM}= \mu_{EM}\dd{\tau}= \epsilon_0 E^2\Sigma c \dd{t}\implies I_{EM}= \frac{P_{EM}}{\Sigma}= c\mu_{EM}
+\end{equation*}
+Più formalmente, definiamo il \textit{vettore di Poynting} $\vb{S}= \frac{1}{\mu_0}\vb{E}\cp\vb{B}$ parallelo a $\vu{v}$:
+\begin{equation*}
+    \vb{S}= \frac{1}{\mu_0}EB\vu{v}= \frac{1}{\mu_0 \,c}E^2\vu{v}= c \epsilon_0 E^2 \vu{v}= I_{EM}\vu{v}
+    \implies P_{EM } = \int_{\Sigma} \vb{S}\vdot\dd{\vb{\Sigma}}
+\end{equation*}
+
+\begin{equation*}
+    U_{EM}= \int_\tau\left( \frac{1}{2}\epsilon_0E^2 + \frac{B^2}{2\mu_0} \right)\dd{\tau'}
+\end{equation*}
+\begin{equation*}
+    \dv{U_{EM}}{t}= \dv{}{t}\int_\tau\left( ... \right)\dd{\tau'}\overset{\tau \text{ fisso}}{=}
+    \int_\tau\left( \epsilon_0 \vb{E}\vdot\pdv{\vb{E}}{t}+ \frac{1}{\mu_0}\vb{B}\vdot\pdv{\vb{B}}{t}\right)\dd{\tau'}
+\end{equation*}
+\begin{equation*}
+    =\int_\tau\left( \epsilon_0\vb{E}\vdot\left( \frac{\curl{\vb{B}}}{\epsilon_0\mu_0} -\frac{\vb{j}}{\epsilon_0} \right) + 
+    \frac{1}{\mu_0}\vb{B}\vdot\left( - \curl{\vb{E}} \right) \right)\dd{\tau'}
+\end{equation*}
+\begin{equation*}
+    = \int_\tau\left\{ \frac{1}{\mu_0}\vb{E}\vdot\left( \curl{\vb{B}} \right)-\frac{1}{\mu_0}\vb{B}\vdot\left( \curl{\vb{E}} \right)- \vb{j}\vdot\vb{E} \right\}\dd{\tau'}
+    = \int_\tau \left[ - \div(\frac{\vb{E}\cp\vb{B}}{\mu_0})-\vb{j}\vdot\vb{E} \right]\dd{\tau'}
+\end{equation*}
+\begin{equation*}
+    \implies\dv{U_{EM}}{t}= -\oint_\Sigma \vb{S}\vdot\dd{\vb{\Sigma}}-\int_\tau\vb{E}\vdot\vb{j}\dd{\tau}
+\end{equation*}
+In pratica il primo contributo è l'energia uscente per la radiazione, mentre il secondo è il contibuto dinamico delle correnti interne a $\tau$
+
+Definiamo l'intensità media come $\expval{I}= c\epsilon_0\expval{E^2}= c \epsilon_0\frac{E_0^2}{2}$
 
 
 
