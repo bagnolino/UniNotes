@@ -1124,6 +1124,77 @@ Definiamo l'intensità media come $\expval{I}= c\epsilon_0\expval{E^2}= c \epsil
 
 
 
+\subsection{Esperimento di Mertz}
+\subsection{Emissione di Dipolo}
+Una carica produce un campo elettrico, se ha moto uniforme produce campo magnetico. Produce onde se il suo moto è accelerato.
+Un generatore $I = I_0 \cos(\omega t)$ collegato a un'antenna in questo modo produce delle onde elettromagnetiche.
+\begin{equation*}
+    \vb{p}(t)=q(t)a\vu{z} = \frac{aI_0}{\omega}\sin(\omega t)\vu{z}  
+\end{equation*}
+\begin{equation*}
+    \implies \vb{S}= \frac{\vb{E}\cp\vb{B}}{\mu_0} = \frac{\sin[2](\theta)p_0^2\omega^4}{16\pi^2\epsilon_0r^2c^3}\sin[2](kr-\omega t)\vu{r}
+\end{equation*}
+L'emissione di radiazione non è isotropa dipende dall'angolo.
+\begin{equation*}
+    P= \oint_\Sigma \expval{\vb{S}}\vdot\dd{\vb{\Sigma}}= \frac{p_0^2\omega^4}{12\pi\epsilon_0c^3}
+\end{equation*}
+\subsection{Riflessione e trasmissione}
+Studiamo le onde piane, di intensità $I$ e frequenza $f$. Se mi trovo nel vuoto la luce ha velocità $c$, altrimenti
+ha velocità $v$ che dipende dalla frequenza. La frequenza nel mezzo e nel vuoto non varia.
+Studiamo cosa succede quando le onde incontrano un altro mezzo passando da $n_1$ a $n_2$.
+\begin{equation*}
+    \vb{E}_i= \vb{E}_{0i}\cos(\vb{k}\vdot\vb{r}-\omega t) \quad \vb{k}_i=\frac{2\pi}{\lambda_1}\vu{v}_i
+    \quad \vb{k}_r=\frac{2\pi}{\lambda_1}\vu{v}_r \quad \vb{k}_t=\frac{2\pi}{\lambda_2}\vu{v}_t
+\end{equation*}
+\begin{equation*}
+    \forall\,t, \forall\,\vb{r} \in \text{ Interfaccia }\implies \text{cond. neccessaria: } \vb{k}_i\vdot\vb{r}=\vb{k}_r\vdot\vb{r}= \vb{k}_t\vdot\vb{r}
+\end{equation*}
+Individuo il piano di inicidenza $\pi$ con $\vb{k}_i$ e $\vb{n}$.
+\begin{equation*}
+    \vb{k}_i \in \pi (y,z) \implies\vb{k}_i= k_{iy}\vu{y}+ k_{iz}\vu{z}
+\end{equation*}
+\begin{equation*}
+    \vb{r}\in(x,y)\implies \vb{r}= x\vu{x}+ y\vu{y} \qquad x,y \in \mathbb{R}
+\end{equation*}
+\begin{equation*}
+    \vb{k}_r= k_{rx}\vu{x}+ k_{ry}\vu{y}+ k_{rz}\vu{z} \qquad\qquad \vb{k}_i\vdot\vb{r}= k_{iy}y 
+    \quad \vb{k}_r\vdot\vb{r}= k_{rx}x+ k_{ry}y
+\end{equation*}
+\begin{equation*}
+    \forall\,x,y \in \mathbb{R} \qquad k_{iy}y = k_{rx} x + k_{ry} y\implies k_{rx}= 0 \quad k_{ry}= k_{iy}
+\end{equation*}
+Per conti analoghi: $k_{iy}= k_{ty}\qquad k_{tx}= 0$
+\begin{equation*}
+    k_{ry}= k_{iy}\implies \abs{\vb{k_i}}\sin(\theta_i)=\abs{\vb{k_r}}\sin(\theta_r)
+    \implies \frac{\sin(\theta_i)}{\lambda_1}= \frac{\sin(\theta_r)}{\lambda_1}  \implies \theta_i=\theta_r
+\end{equation*}
+\begin{equation*}
+    k_{iy}=k_{ty} \implies\frac{\sin(\theta_i)}{\lambda_1}= \frac{\sin(\theta_t)}{\lambda_2} \implies n_1\sin(\theta_1)= n_2\sin(\theta_t) 
+\end{equation*}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
