@@ -1172,6 +1172,67 @@ Per conti analoghi: $k_{iy}= k_{ty}\qquad k_{tx}= 0$
     k_{iy}=k_{ty} \implies\frac{\sin(\theta_i)}{\lambda_1}= \frac{\sin(\theta_t)}{\lambda_2} \implies n_1\sin(\theta_1)= n_2\sin(\theta_t) 
 \end{equation*}
 
+\subsubsection{Energia della riflessione e della rifrazione}
+Per ogni punto dell'interfaccia abbiamo:
+\begin{equation*}
+    \vb{E}_i = \vb{E}_r+\vb{E}_t \qquad \vb{E}_1= \vb{E}_i+\vb{E}_r \quad \vb{E}_2 = \vb{E}_t
+\end{equation*}
+Unite alle condizioni di contorno dei campi elettromagnetici:
+\begin{equation*}
+    E_{1\parallel}= E_{2\parallel}\quad \kappa_{e1}E_{1\perp} = \kappa_{e2}E_{2\perp}\quad B_{1\perp}= B_{2\perp}\quad 
+    \frac{B_{1\parallel}}{\kappa_{m1}}= \frac{B_{2\parallel}}{\kappa_{m2}}
+\end{equation*}
+Se ci limitiamo solamente alle sostanze non ferromagnetiche: $k_{m1}\simeq k_{m2}\simeq1\implies\vb{B}_1=\vb{B_2}$.
+Consideriamo il primo caso in cui $\vb{E}_i \in\pi$ piano di incidenza e supponiamo che nella riflessione venga aggiunta una componente 
+$\vb{B}^*$ al campo magnetico $\vb{B}_{r, tot}= \vb{B}_r+\vb{B}^*$, ciò implicherebbe una componente $\vb{B}^*$ anche all'interno di $\vb{B}_t$,
+ma in tal caso non sarebbe più perpendicolare a $\vb{k}_t$, dunque è da concludere che $\vb{B}^*=0$.
+Definiamo i \textit{coefficienti di riflessione e di trasmissione} come:
+\begin{equation*}
+    r_\pi= \frac{E_{0,\pi}^r}{E_{0,\pi}^i}= \frac{\tan(\theta_i-\theta_t)}{\tan(\theta_i+\theta_t)}\qquad 
+    t_\pi= \frac{E_{0,\pi}^t}{E_{0,\pi}^i}= \frac{2\sin(\theta_t)\cos(\theta_i)}{\sin(\theta_i+\theta_t)\cos(\theta_i-\theta_t)}
+\end{equation*}
+Studiamo invece l'intensità dell'emissione:
+\begin{equation*}
+    I_\pi^i= \frac{1}{2}\epsilon_1 v_1 (E_{0,\pi}^i)^2= \frac{1}{2}\kappa_1\epsilon_0\frac{1}{\sqrt{\kappa_1\epsilon_0\mu_0}} (E_{0,\pi}^i)^2=
+    \frac{1}{2}\frac{n_1}{z_0} (E_{0,\pi}^i)^2
+\end{equation*}
+Dove abbiamo definito \textit{l'impedenza del vuoto} $z_0= \sqrt{\frac{\mu_0}{\epsilon_0}}= 377\, \Omega$.
+\begin{equation*}
+    I_\pi^r=\frac{1}{2}\frac{n_1}{z_0} (E_{0,\pi}^r)^2\qquad I_\pi^t=\frac{1}{2}\frac{n_1}{z_0} (E_{0,\pi}^t)^2
+\end{equation*}
+Guardiamo ora le aree delle sezioni del fascio:
+\begin{equation*}
+    \Sigma_{ill}= \frac{\Sigma_i}{\cos(\theta_i)}\quad \Sigma_r= \Sigma_i \quad \Sigma_t= \Sigma_{ill}\cos(\theta_t)= \frac{\cos(\theta_t)}{\cos(\theta_t)}\Sigma_i 
+\end{equation*}
+Possiamo così definire:
+\begin{equation*}
+    R_\pi= \frac{P_\pi^r}{P_\pi^i}= \frac{I_\pi^r\Sigma_r}{I_\pi^i\Sigma_i}= \frac{I_\pi^r}{I_\pi^i}= r_pi^2 = \frac{\tan[2](\theta_i-\theta_t)}{\tan[2](\theta_i+\theta_t)}
+\end{equation*}
+\begin{equation*}
+    T_\pi= \frac{P_\pi^t}{P_\pi^r} = \frac{I_\pi^t}{I_\pi^t}\frac{\cos(\theta_t)}{\cos(\theta_i)}= \frac{n_2\cos(\theta_t)}{n_1\cos(\theta_i)}
+    \left( \frac{E_{0,\pi}^t}{E_{0,\pi}^i} \right)^2= \frac{\sin(2\theta_i)\sin(2\theta_t)}{\sin[2](\theta_i+\theta_t)\cos[2](\theta_i-\theta_t)}
+\end{equation*}
+Si nota che se $\theta_i+\theta_t= \frac{\pi}{2}$, otteniamo $R_\pi= 0$, tale angolo $\theta_i$ è detto \textit{angolo di Brewster}.
+\begin{equation*}
+    n_1\sin(\theta_B)= n_2\sin(\frac{\pi}{2}-\theta_B)\implies \theta_B=\frac{n_2}{n_1}
+\end{equation*}
+Consideriamo ora un secondo caso in cui $\vb{E}_i \in \sigma$ piano perperdincolare a $\pi$, in maniera analoga a prima si può dedurre che non esiste 
+alcuna componente aggiuntiva $\vb{E}^*$ e che $\vb{E}_r, \vb{E}_t \perp \pi$. Otteniamo:
+\begin{equation*}
+    R_\sigma=\frac{\sin[2](\theta_i-\theta_t)}{\sin[2](\theta_i+\theta_t)} \qquad T_\sigma= \frac{\sin(2\theta_i)\sin(2\theta_t)}{\sin[2](\theta_i+\theta_t)}
+\end{equation*}
+
+Un terzo caso particolare è quando $\theta_i= 0$:
+\begin{equation*}
+    E_i\pm E_r= E_t\qquad n_1E_i^2= n_1E_r^2+n_2E_t^2
+\end{equation*}
+\begin{equation*}
+    R=\left( \frac{n_1-n_2}{n_1+n_2} \right)^2 \qquad  T= \frac{4n_1n_2}{(n_1+n_2)^2} 
+\end{equation*}
+Da questo segue che se $n_1= n_2$ non ho riflessione, se $n_1<n_2$ l'onda riflessa ha fase opposta e se $n_1>n_2$ la fase non cambia.
+
+
+
 
 
 
