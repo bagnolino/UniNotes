@@ -14,7 +14,6 @@
 \newpage
 
 \section{Analisi vettoriale}
-\subsection{Note}
 \begin{proposition}
     \begin{equation*}
     \div(\curl \vb{A})= 0
@@ -80,7 +79,7 @@ se $\vb{A}$ è $\mathcal{C}^{2}$ le derivate si scambiano e si elidono con gli a
 
 \section{Elettrostatica}
 \subsection{Legge di Gauss }
-Poniamo una sfera con centro nell'origine insieme a una carica $q$:
+Consideriamo una sfera con centro nell'origine insieme a una carica $q$:
 \begin{equation*}
     \Phi(\vb{E})= \oint_\Sigma \vb{E}\vdot \vu{n} \; \dd{\Sigma} = \oint_\Sigma \frac{1}{4\pi\epsilon_0}\frac{q}{r_0^2}\vu{n}\vdot\vu{n}\dd{\Sigma}= 
     \frac{q}{4\pi\epsilon_0r_0^2}\oint_\Sigma \dd{\Sigma} = \frac{q}{\epsilon_0}
@@ -147,7 +146,7 @@ La forza di Coulomb è centrale.
     Un campo centrale è conservativo 
 \end{proposition}
 \begin{proof}
-    $\int_{A}^{B}\vb{C}(\vb{r})\vdot \dd{\vb{s}}=\int_{A}^{B}C(r)\vu{r}\vdot \dd{\vb{s}}\int_{r_A}^{r_B}C(r)\;dr= \Psi(r_B)-\Psi(r_A)$
+    $\int_{A}^{B}\vb{C}(\vb{r})\vdot \dd{\vb{s}}=\int_{A}^{B}C(r)\vu{r}\vdot \dd{\vb{s}}=\int_{r_A}^{r_B}C(r)\;dr= \Psi(r_B)-\Psi(r_A)$
 \end{proof}
 Per molteplici cariche il campo elettrico $\vb{E}(p)= \sum_{i=1}^{N} \vb{E}_i(p) $ non è centrale
 \begin{equation*}
@@ -186,6 +185,18 @@ Il campo elettrico in condizioni statiche è irrotazionale
     \end{equation*}
 \end{EP}
 
+Ad esempio una soluzione dell'equazione di Poisson è:
+\begin{equation*}
+    V(\vb{r})= \frac{1}{4\pi \epsilon_0}\int \frac{\rho(\vb{r}')}{\abs{\vb{r}-\vb{r'}}} \dd[3]{r'}
+\end{equation*}
+Controlliamo che sia soluzione:
+\begin{equation*}
+    \laplacian{V(\vb{r})}= \frac{1}{4\pi \epsilon_0}\int \rho(\vb{r}')\laplacian \frac{1}{\abs{\vb{r}-\vb{r'}}} \dd[3]{r'} \qquad \laplacian \frac{1}{\abs{\vb{r}-\vb{r'}}}= -4\pi\delta(\vb{r}-\vb{r'})
+\end{equation*}
+\begin{equation*}
+   \implies \laplacian{V}= \frac{1}{4\pi \epsilon_0}\int \rho(\vb{r}') (-4\pi\delta(\vb{r}-\vb{r'})) \dd[3]{r'}= \frac{1}{4\pi \epsilon_0}(-4\pi)\rho(\vb{r})= - \frac{\rho(\vb{r})}{\epsilon_0}
+\end{equation*}
+
 \newtheorem*{EL}{Equazione di Laplace}
 \begin{EL}
     \begin{equation*}
@@ -193,6 +204,24 @@ Il campo elettrico in condizioni statiche è irrotazionale
     \end{equation*}
 \end{EL}
 
+Per risolvere questa equazione uso in genere due tipi di condizioni di contorno: la \textit{condizione di Dirichlet} e la \textit{condizione di Neumann}.
+\begin{definition}
+    \textbf{Condizione di Dirichlet:} Si assegna il valore del potenziale $V$ su ogni punto della superficie di confine $S$:
+    \[
+        V(\vb{r}) = f(\vb{r}) \qquad \forall\,\vb{r} \in S
+    \]
+    dove $f(\vb{r})$ è una funzione nota.
+\end{definition}
+\textit{Significato fisico:} si fissa il potenziale dei conduttori che costituiscono la frontiera.
+
+\begin{definition}
+    \textbf{Condizione di Neumann:} Si assegna il valore della derivata normale del potenziale sulla superficie di confine $S$:
+    \[
+        \eval{\pdv{V}{n}}_{S} = \eval{\grad V \vdot \vu{n}}_{S} = g(\vb{r}) \qquad \forall\,\vb{r} \in S
+    \]
+    dove $g(\vb{r})$ è una funzione nota e $\vu{n}$ è il versore normale a $S$.
+\end{definition}
+\textit{Significato fisico:} poiché $\pdv{V}{n} = -E_n = -\frac{\sigma}{\epsilon_0}$, si fissa la componente normale del campo elettrico o, equivalentemente, la densità di carica superficiale $\sigma$ sui conduttori al confine.
 
 %condizioni di contorno e soluzioni separabili
 %da fare
@@ -255,15 +284,15 @@ Se immergo un dipolo in un campo elettrico uniforme:
     \vb{F}_{tot} = \vb{F}_+ +\vb{F}_-= q\vb{E}-q\vb{E}=0  \quad \quad \implies \text{Baricentro fisso}
 \end{equation*}
 \begin{equation*}
-    \vb{M}_{tot}= \vb{r}_+\cp\vb{F}_+ + \vb{r}_-\cp\vb{F}_-=\left( \vb{r}_++\vb{r}_- \right) \cp\vb{F}=
-     q\left( \vb{r}_++\vb{r}_- \right) \cp\vb{E}= \vb{p}\cp\vb{E}
+    \vb{M}_{tot}= \vb{r}_+\cp\vb{F}_+ + \vb{r}_-\cp\vb{F}_-=\left( \vb{r}_+-\vb{r}_- \right) \cp\vb{F}=
+     q\left( \vb{r}_+-\vb{r}_- \right) \cp\vb{E}= \vb{p}\cp\vb{E}
 \end{equation*}
 \begin{equation*}
     U_{el}= -\vb{p}\vdot\vb{E}
 \end{equation*}
 Se ho un campo dipendente da $x$:
 \begin{equation*}
-    \vb{F}_{tot} = \vb{E}_+ +\vb{E}_-\simeq q\left( \vb{E}_- + \pdv{E}{x}a\vu{x} \right)-q\vb{E}_-= \vb{p}\pdv{E}{x}
+    \vb{F}_{tot} = q\vb{E}_+ +q\vb{E}_-\simeq q\left( \vb{E}_- + \pdv{E}{x}a\vu{x} \right)-q\vb{E}_-= \vb{p}\pdv{E}{x}
 \end{equation*}
 \subsubsection{Espansione Multipolo}
 Possiamo immaginare un qualsiasi corpo come un insieme di cariche puntuali distribuite in una regione limitata di spazio.
@@ -284,6 +313,14 @@ Il potenziale attorno a questo corpo è approssimabile da:
     \end{equation*}
     \begin{equation*}
         \implies V(p)= \frac{1}{4\pi\epsilon_0}\sum_{i=1}^{N} \frac{q_i}{t_i}= \frac{1}{4\pi\epsilon_0} \left[ \frac{\sum q_i}{r}+\frac{\sum q_ir_i \cos \theta_i}{r^2} + o(\frac{1}{r^3})\right]
+    \end{equation*}
+\end{proof}
+
+Da notare che $ \vb{p}_{tot} $ è invariante per traslazioni.
+\begin{proof}
+    \begin{equation*}
+    \vb{p}'_{tot}= \sum_{i=1}^{N} q_i\vb{r}'_i= \sum_{i=1}^{N} q_i(\vb{r}_i-\vb{r}_0)= \sum_{i=1}^{N} q_i\vb{r}_i-\vb{r}_0\sum_{i=1}^{N}q_i
+    =\sum_{i=1}^{N}q_i\vb{r}_i= \vb{p}_{tot}
     \end{equation*}
 \end{proof}
 
@@ -349,7 +386,7 @@ Consideriamo due gusci sferici concentrici il primo con carica $+q$ e raggio $R_
     \int_{1}^{2}\frac{q}{4\pi\epsilon_0}\frac{\vu{r}}{r^2}\vdot\dd{\vb{s}} = \int_{R_1}^{R_2}\frac{q}{4\pi\epsilon_0}\frac{\dd{r}}{r^2}
 \end{equation*}
 \begin{equation*}
-    \implies V = \frac{q}{4\pi\epsilon_0}\eval{\frac{1}{r}}_{R_1}^{R_2}= \frac{q}{4\pi\epsilon_0}\left( \frac{1}{R_1}-\frac{1}{R_2} \right)
+    \implies V = \frac{q}{4\pi\epsilon_0}\eval{\frac{-1}{r}}_{R_1}^{R_2}= \frac{q}{4\pi\epsilon_0}\left( \frac{1}{R_1}-\frac{1}{R_2} \right)
     = \frac{q}{4\pi\epsilon_0}\frac{R_2-R_1}{R_1R_2}
 \end{equation*}
 \begin{equation*}
@@ -407,7 +444,7 @@ Abbiamo ricavato un'espressione della \textit{densità energetica del campo elet
         = \div \left( V \grad{V} \right)- \left( \grad{V} \right)\left( \grad{V} \right) 
     \end{equation*}
     \begin{equation*}
-       \implies U_E = \frac{1}{2} \epsilon_0\int_\tau(\grad{v})(\grad{V}) \dd{\tau}-\frac{1}{2}\epsilon_0\int_\tau\div(V\grad{V})\dd{\tau}
+       \implies U_E = \frac{1}{2} \epsilon_0\int_\tau(\grad{V})(\grad{V}) \dd{\tau}-\frac{1}{2}\epsilon_0\int_\tau\div(V\grad{V})\dd{\tau}
     \end{equation*}
     Concentriamoci sul secondo pezzo dell'equazione:
     \begin{equation*}
@@ -451,23 +488,49 @@ Il modulo di $\vb{P}$ è uguale alla densità di carica indotta sulle superfici 
 
 Quanto vale $\vb{E}$ all'interno del dielettrico?
 \begin{equation*}
-    E_0= \frac{\sigma_{free}}{\epsilon_0}\qquad E = \frac{\sigma_{free}-\sigma_{pol}}{\epsilon_0}=\frac{\sigma_{free}-\vb{P}}{\epsilon_0}
+    E_0= \frac{\sigma_{free}}{\epsilon_0}\qquad E = \frac{\sigma_{free}-\sigma_{pol}}{\epsilon_0}=\frac{\sigma_{free}-P}{\epsilon_0}
     = \frac{\sigma_{free}}{\epsilon_0}-\chi_EE 
 \end{equation*}
 \begin{equation*}
     \implies E(1+ \chi_E)= \frac{\sigma_{free}}{\epsilon_0}= E_0 \implies E = \frac{E_0}{1+ \chi_E}\qquad \kappa_E= 1+ \chi_E
 \end{equation*}
 
-Consideriamo il campo di polarizzazione $\vb{P}(\vb{r})$. La carica totale legata all'interno di un volume $\tau$ è data da:
 
+Consideriamo il potenziale elettrico generato da una distribuzione continua di dipoli descritta dal campo di polarizzazione $\vb{P}(\vb{r}')$:
 \begin{equation*}
-    Q_{pol} = -\oint_{\Sigma} \vb{P} \vdot \dd{\vb{\Sigma}} \overset{Gauss}{=} -\int_{\tau} \div \vb{P} \dd{\tau}
+    V(\vb{r}) = \frac{1}{4\pi\epsilon_0} \int_\tau \frac{ \vb{P}(\vb{r}') \vdot (\vb{r} - \vb{r}') }{ \abs{\vb{r} - \vb{r}'}^3 } \dd{\tau'}
 \end{equation*}
-Per definizione \( Q_{pol} = \int_{V} \rho_{\text{pol}} \dd{\tau} \), quindi:
+Riscriviamo l'integrando come derivata rispetto a $\vb{r}'$:
 \begin{equation*}
-    \int_{V} \rho_{pol} \dd{\tau} = -\int_{V} \div \vb{P} \dd{\tau}
-    \implies \rho_{pol} = -\div \vb{P}
+    V(\vb{r}) = -\frac{1}{4\pi\epsilon_0} \int_\tau \vb{P}(\vb{r}') \vdot \grad_{\vb{r}'} \left( \frac{1}{\abs{\vb{r} - \vb{r}'}} \right) \dd{\tau'}
 \end{equation*}
+Applichiamo ora il teorema della divergenza (integrazione per parti):
+\begin{equation*}
+    \int_\tau \vb{P} \vdot \grad_{\vb{r}'} \left( \frac{1}{\abs{\vb{r} - \vb{r}'}} \right) \dd{\tau'}
+    = \int_{\Sigma} \frac{ \vb{P} \vdot \vu{n} }{ \abs{\vb{r} - \vb{r}'} } \dd{\Sigma}
+    - \int_\tau \frac{ \div \vb{P} }{ \abs{\vb{r} - \vb{r}'} } \dd{\tau'}
+\end{equation*}
+Sostituendo nel potenziale otteniamo:
+\begin{equation*}
+    V(\vb{r}) = \frac{1}{4\pi\epsilon_0} \left[
+        \int_{\Sigma} \frac{ \vb{P} \vdot \vu{n} }{ \abs{\vb{r} - \vb{r}'} } \dd{\Sigma}
+        - \int_\tau \frac{ \div \vb{P} }{ \abs{\vb{r} - \vb{r}'} } \dd{\tau'}
+    \right]
+\end{equation*}
+Sappiamo che il potenziale generato da una distribuzione di carica superficiale $\sigma(\vb{r}')$ e volumica $\rho(\vb{r}')$ è:
+\begin{equation*}
+    V(\vb{r}) = \frac{1}{4\pi\epsilon_0} \left[
+        \int_{\Sigma} \frac{ \sigma(\vb{r}') }{ \abs{\vb{r} - \vb{r}'} } \dd{\Sigma}
+        + \int_\tau \frac{ \rho(\vb{r}') }{ \abs{\vb{r} - \vb{r}'} } \dd{\tau'}
+    \right]
+\end{equation*}
+Confrontando membro a membro otteniamo:
+\begin{equation*}
+    \sigma_{pol} = \vb{P} \vdot \vu{n} \qquad
+    \rho_{pol} = -\div \vb{P}
+\end{equation*}
+
+
 Notiamo che:
 \begin{equation*}
     \div\vb{E}=\frac{\rho}{\epsilon_0}= \left( \rho_{free} +\rho_{pol} \right) \frac{1}{\epsilon_0}\implies \div(\vb{E}+\frac{\vb{P}}{\epsilon_0})= \frac{\rho_{free}}{\epsilon_0}
@@ -499,7 +562,7 @@ Dove definiamo $\alpha_E$ \textit{polarizzabilità atomica} ed è legata alle ca
     \vb{P}= \frac{\dd{p}}{\dd{\tau}}= n\vb{p}= n\epsilon_0\alpha_E\vb{E}\implies \chi_E = n\alpha_E 
 \end{equation*}
 dove $n$ è il numero di atomi per unità di volume.
-gli effetti del campo locale, cioè il campo effettivamente sentito da ciascun atomo, che differisce dal campo macroscopico applicato. In questo caso si ottiene la relazione di Clausius-Mossotti.
+Se si considerano gli effetti del campo locale, cioè il campo effettivamente sentito da ciascun atomo, che può differire dal campo macroscopico applicato, si ottiene la relazione di Clausius-Mossotti.
 
 \begin{proposition}
 (Relazione di Clausius-Mossotti)
@@ -607,7 +670,7 @@ Studiamo ora i fenomeni di magnetismo. Le forze magnetiche apparentemente indipe
 Oersted scopre che la corrente produce un campo magnetico.
 Si nota che le linee del campo magnetico sono tutte chiuse:
 \begin{equation*}
-    \oint_\Sigma \vb{B}\vdot\dd{\Sigma} = 0 \overset{Gauss}{=} \int_\tau \div(\vb{B}) \dd{\tau} \overset{\forall \tau}{\implies} \div(\vb{B})= 0
+    \oint_\Sigma \vb{B}\vdot\dd{\vb{\Sigma}} = 0 \overset{Gauss}{=} \int_\tau \div(\vb{B}) \dd{\tau} \overset{\forall \tau}{\implies} \div(\vb{B})= 0
 \end{equation*}
 $\vb{B}$ è un campo solenoidale.
 
@@ -620,7 +683,7 @@ $\vb{B}$ è un campo solenoidale.
 
 Da questo si ricava:
 \begin{equation*}
-    \dd{W}= \vb{F}\vdot\dd{\vb{s}}= q\left( \vb{v}\cp \vb{B}\right) \vdot \dd{t} = 0
+    \dd{W}= \vb{F}\vdot\dd{\vb{s}}= q\left( \vb{v}\cp \vb{B}\right) \vdot\vb{v} \dd{t} = 0
 \end{equation*}
 La forza magnetica non compie lavoro, mantiene la velocità costante.
 Una velocità perpendicolare a $\vb{B}$ genera un moto circolare uniforme.
@@ -662,7 +725,7 @@ Se definiamo il momento magnetico $\vb{m}$:
 \begin{equation*}
     \vb{m}= Iab\vu{n}= I\Sigma\vu{n}\implies \vb{M}= \vb{m}\cp\vb{B}
 \end{equation*}
-La spira tenderà a disporsi con $\vb{m}$ e $\vb{B}$ paralleli e questo mi implica un'energia potenziale magnetica $U_{mag}= -\vb{m}\vdot\vb{B}$
+La spira tenderà a disporsi con $\vb{m}$ e $\vb{B}$ paralleli e questo implica un'energia potenziale magnetica $U_{mag}= -\vb{m}\vdot\vb{B}$
 % LEgge di biot savart e ampere da fare
 
 
@@ -765,7 +828,7 @@ Se considero un volumetto $\dd{\tau}$ ottengo:
 \end{equation*}
 Dove abbiamo definito la \textit{corrente di magnetizzazione} $I_m= M\dd{z}$, come la corrente che circola sulle pareti del cubo. 
 Possiamo inoltre definire la densità lineare della 
-corrente di magnetizzazione come $\vb{j}_{sm}= \vb{M}\cp\vu{n}$ e dunque $I_m= \vb{j}_{sm}\vdot\vu{n}$ 
+corrente di magnetizzazione come $\vb{j}_{sm}= \vb{M}\cp\vu{n}$.
 Nel caso $\vb{M}$ non sia uniforme bisonga considerare come varia $\vb{M}$ tra le pareti del cubetto:
 \begin{equation*}
     \dd{I_y}'= \dd{I_1}-\dd{I_2}= M_z(x)\dd{z}-M_z(x+\dd{x})\dd{z}\simeq-\pdv{M_z}{x}\dd{x}\dd{z}\qquad \quad 
@@ -831,12 +894,12 @@ Dove abbiamo definito \textit{l'autoinduttanza} $L$:
 
 Dallo studio del solenoide noto che l'energia contenuta in un solenoide è:
 \begin{equation*}
-    U_L = \frac{1}{2}LI^2= \frac{1}{2}\frac{B^2}{mu_0}\tau\implies \mu_M= \frac{B^2}{2\mu_0}
+    U_L = \frac{1}{2}LI^2= \frac{1}{2}\frac{B^2}{\mu_0}\tau\implies \mu_M= \frac{B^2}{2\mu_0}
 \end{equation*}
 Dimostriamo questo risultato formalmente:
 \begin{proof}
     \begin{equation*}
-        U_M = \frac{1}{2}LI^2= \frac{1}{2}\mathcal{E}I= \frac{1}{2}I\int_\Sigma\vb{B}\vdot\dd{\vb{\Sigma}}= 
+        U_M = \frac{1}{2}LI^2= \frac{1}{2}\Phi I= \frac{1}{2}I\int_\Sigma\vb{B}\vdot\dd{\vb{\Sigma}}= 
     \frac{1}{2}I\int_\Sigma\left( \curl{\vb{A}} \right)\vdot\dd{\vb{\Sigma}}\overset{Stokes}{=}\frac{1}{2}I\oint_\Gamma\vb{A}\vdot\dd{\vb{s}}
     \end{equation*}
     Ricordando che $I\dd{\vb{s}}= \vb{j}\dd{\tau'}$:
@@ -846,11 +909,11 @@ Dimostriamo questo risultato formalmente:
     \end{equation*}
     Data l'identità vettoriale $\div(\vb{A}\cp\vb{B})=\left( \curl{\vb{A}} \right)\vdot\vb{B}-\vb{A}\vdot\left( \curl{\vb{B}} \right)$:
     \begin{equation*}
-        =\frac{1}{2}\left[ \int_\tau \left( \curl{\vb{A}} \right)\vdot\vb{B}\dd{\tau}-\int_\tau\div(\vb{A}\vdot\vb{B})\dd{\tau} \right]
+        =\frac{1}{2\mu_0}\left[ \int_\tau \left( \curl{\vb{A}} \right)\vdot\vb{B}\dd{\tau}-\int_\tau\div(\vb{A}\cp\vb{B})\dd{\tau} \right]
     \end{equation*}
     Consideriamo prima il secondo termine:
     \begin{equation*}
-        \int_\tau\div(\vb{A}\vdot\vb{B})\dd{\tau}\overset{Gauss}{=} \oint_\Sigma\left(\vb{A}\cp\vb{B}\right)\vdot\dd{\vb{\Sigma}}
+        \int_\tau\div(\vb{A}\cp\vb{B})\dd{\tau}\overset{Gauss}{=} \oint_\Sigma\left(\vb{A}\cp\vb{B}\right)\vdot\dd{\vb{\Sigma}}
     \end{equation*}
     Se prendo una $\Sigma$ sufficientemente ampia considerando $\vb{m}\simeq I\Sigma_0$:
     \begin{equation*}
@@ -995,7 +1058,7 @@ Possiamo definire un'onda come una perturbazione che si propaga in un mezzo cont
 \\ Se ho il profilo $\Psi(x,t)$ all'istante $t$, avrò all'istante $0$ lo stesso profilo in $x-vt \implies \Psi(x,t)= \Psi(x-vt,0)$.
 Posso usare un solo argomento: $\Psi(x,t)= f(x-vt)$, dimostriamo l'equazione delle onde:
 \begin{equation*}
-    u= x-vt\qquad\pdv{\Psi}{x}= \pdv{f}{u}\pdv{u}{x}= \pdv{f}{u}\qquad\pdv[2]{\Psi}{x}= \pdv{}{x}\left( \pdv{f}{u} \right)\pdv[2]{f}{u}\pdv{u}{x}=\pdv[2]{f}{u}
+    u= x-vt\qquad\pdv{\Psi}{x}= \pdv{f}{u}\pdv{u}{x}= \pdv{f}{u}\qquad\pdv[2]{\Psi}{x}= \pdv{}{x}\left( \pdv{f}{u} \right)=\pdv[2]{f}{u}\pdv{u}{x}=\pdv[2]{f}{u}
 \end{equation*}
 \begin{equation*}
     \pdv{\Psi}{t}= \pdv{f}{u}\pdv{u}{t}= -v\pdv{f}{u}\qquad\pdv[2]{\Psi}{t}= -v\pdv{}{t}\left( \pdv{f}{u} \right)= v^2\pdv[2]{f}{u}\implies \pdv[2]{\Psi}{x}= \pdv[2]{f}{u}= \frac{1}{v^2}\pdv[2]{\Psi}{t}
@@ -1124,7 +1187,7 @@ Definiamo l'intensità media come $\expval{I}= c\epsilon_0\expval{E^2}= c \epsil
 
 
 
-\subsection{Esperimento di Mertz}
+\subsection{Esperimento di Hertz}
 \subsection{Emissione di Dipolo}
 Una carica produce un campo elettrico, se ha moto uniforme produce campo magnetico. Produce onde se il suo moto è accelerato.
 Un generatore $I = I_0 \cos(\omega t)$ collegato a un'antenna in questo modo produce delle onde elettromagnetiche.
