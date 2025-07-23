@@ -1,0 +1,34 @@
+\subsection{Meccanica Newtoniana}
+\begin{equation}
+    f = m a 
+\end{equation}
+Il secondo principio della dinamica di Newton è l'equazione del moto di una particella di massa $m$ 
+soggetta a una forza $f$, $a$ è l'accelerazione.\\ 
+\begin{equation}
+    m \ddot{x} = f( x(t),\dot{x}(t), t) \qquad \text{ ove } \quad v = \dot{x}(t) = \dv{x}{t}\quad a = \ddot{x}(t)= \dv[2]{x}{t}
+\end{equation}
+La forza $f$ è una funzione assegnata del tipo $f: \mathbb{R}^d\times \mathbb{R}^d \times \mathbb{R} \rightarrow \mathbb{R}^d$\\
+L'equazione di newton è un'equazione differenziale ordinaria ODE di secondo ordine con incognita $x(t)$. 
+In base ai dati iniziali e alla funzione $f$ possono valere o meno i teoremi di esistenza e unicità $\exists!$ locale e globale.\\ 
+$x(t)$ è una curva del tipo $I \subseteq \mathbb{R}\quad x: I \rightarrow \mathbb{R}^d $. L'equazione può essere 
+riscritta nella forma di sistema equivalente:
+\begin{equation}
+    \begin{cases}
+        \dot{x}(t) = v(t)\\ 
+        \dot{v}(t) =\frac{1}{m} f( x(t), v(t), t)
+    \end{cases}
+    \implies
+    \qquad
+    \dot{X}(t)= F(t)
+\end{equation}
+ove:
+\begin{equation*}
+    X (t) = \begin{pmatrix}
+        x (t) \\ 
+        v (t)
+    \end{pmatrix} \subseteq \mathbb{R}^d \times \mathbb{R}^d \simeq \mathbb{R}^{2d} \qquad
+    F (t) = \begin{pmatrix}
+        v(t) \\
+        f(x(t), v(t),t)
+    \end{pmatrix}
+\end{equation*}
