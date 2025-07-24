@@ -1,14 +1,15 @@
-\subsection{Meccanica Newtoniana}
+\section{Meccanica Newtoniana}
+\subsection{L'equazione di Newton}
 \begin{equation}
     f = m a 
 \end{equation}
-Il secondo principio della dinamica di Newton è l'equazione del moto di una particella di massa $m$ 
+Il \textit{secondo principio della dinamica} di Newton è l'equazione del moto di una particella di massa $m$ 
 soggetta a una forza $f$, $a$ è l'accelerazione.\\ 
 \begin{equation}
     m \ddot{x} = f( x(t),\dot{x}(t), t) \qquad \text{ ove } \quad v = \dot{x}(t) = \dv{x}{t}\quad a = \ddot{x}(t)= \dv[2]{x}{t}
 \end{equation}
 La forza $f$ è una funzione assegnata del tipo $f: \mathbb{R}^d\times \mathbb{R}^d \times \mathbb{R} \rightarrow \mathbb{R}^d$\\
-L'equazione di newton è un'equazione differenziale ordinaria ODE di secondo ordine con incognita $x(t)$. 
+L'equazione di newton è un'\textit{equazione differenziale ordinaria} ODE di secondo ordine con incognita $x(t)$. 
 In base ai dati iniziali e alla funzione $f$ possono valere o meno i teoremi di esistenza e unicità $\exists!$ locale e globale.\\ 
 $x(t)$ è una curva del tipo $I \subseteq \mathbb{R}\quad x: I \rightarrow \mathbb{R}^d $. L'equazione può essere 
 riscritta nella forma di sistema equivalente:
@@ -32,3 +33,139 @@ ove:
         f(x(t), v(t),t)
     \end{pmatrix}
 \end{equation*}
+
+Il moto può essere univocamente determinato se assegno il dato iniziale $x(t_0)=x_0,\;\dot{x}(t_0)= v(t_0)=v_0$.\\
+Conoscendo i dati iniziali, cerchiamo una soluzione locale tramite sviluppo di Taylor: 
+\begin{equation*}
+    x(t_0) \text{ noto}\implies x(t_0+h)= x(t_0)+\dot{x}(t_0) h +\frac{1}{2!}\ddot{x}(t_0) h^2 +\frac{1}{3!}\dddot{x}(t_0)h^3  + o(h^4)= 
+\end{equation*}
+\begin{equation*}
+   = x_0 +v_0 h + \frac{f}{2m}(x_0,v_0,t_0) h^2 + \dots
+\end{equation*}
+Si può scrivere:
+\begin{equation}
+    \begin{cases}
+        \dd{x}= v(t)\dd{t}\\
+        \dd{v}= \frac{1}{m}f(x(t),v(t),t)\dd{t} 
+    \end{cases}
+\end{equation}
+\begin{equation*}
+    (x,v) \text{ in } t \implies  \text{ in } t +\dd{t} \quad (x',v')= (x+\dd{x},v+\dd{v})= (x+v\dd{t},v+ \frac{f}{m}\dd{t})
+\end{equation*}
+
+\begin{definition}
+    \begin{equation*}
+        \begin{pmatrix}
+            x\\v  
+        \end{pmatrix}\in \mathbb{R}^{2d} 
+    \end{equation*}
+    è detto \textit{spazio delle fasi} del sistema. 
+\end{definition}
+
+\begin{definition}
+    La curva soluzione $t\rightarrow(x(t),v(t))$ si chiama \textit{curva di fase}, distinta da $t\rightarrow x(t)$ che si chiama 
+    \textit{traiettoria o orbita}.
+\end{definition}
+
+\begin{definition}
+    \begin{equation*}
+        F=\begin{pmatrix}
+            v\\\frac{1}{m}f 
+        \end{pmatrix}
+    \end{equation*}
+    si chiama \textit{campo vettoriale newtoniano} ed è geometricamente il vettore tangente alla curva di fase passante per $(x,v)$ al tempo $t$.
+\end{definition}
+
+\begin{definition}
+    La soluzione del sistema newtoniano corrispondente dal dato iniziale $(x_0, v_0)$ in $\mathbb{R}^{2d}$ si indica con 
+    $\Phi_N^t(x_0,v_0)$ e si chiama \textit{flusso del campo vettoriale newtoniano}
+    \begin{equation}
+        \Phi_N^t; \mathbb{R}^{2d}\rightarrow\mathbb{R}^{2d} ; \qquad \Phi_N^0 (x_0,v_0)= (x_0,v_0) 
+    \end{equation}
+\end{definition}
+
+%esercizio 1  iterativo
+
+% Reazione di radiazione di Lorentz
+\subsection{Modelli di forza}
+\subsubsection{Spazialmente uniformi}
+In cui la forza non dipende dalla posizione: $f = f(v,t)$.
+\begin{example}
+    $f = -\gamma v $ Attrito viscoso
+\end{example}
+\begin{example}
+    $f = q(E_0+ \frac{v}{c}\times B_0)$ Forza di Lorents in campi uniformi
+\end{example}
+\subsubsection{Puramente posizionali}
+Forze indipendenti dalla velocità: $f= f(x,t)$. Distinguiamo inoltre le \textit{forze potenziali} in cui esiste un potenziale scalare $U(x,t)$
+tale che:
+\begin{equation}
+    f= -\nabla_xU(x,t)= -\pdv{U}{x}(x,t)
+\end{equation}
+Le forze potenziali indipendenti dal tempo sono dette \textit{forze conservative}.
+\begin{theorem}
+    Per un sistema newtoniano conservativo, la funzione energia totale
+    \begin{equation}
+        H(x,\dot{x}):= K +U := \frac{1}{2}m\abs{\dot{x}}^2+U(x)
+    \end{equation}
+    è costante lungo le soluzioni della equazione del moto.
+\end{theorem}
+\begin{proof}
+    Per una forza conservativa: $m\ddot{x}= -\nabla_xU(x)$
+    \begin{equation*}
+        \implies \dot{x}\cdot (m\ddot{x})= -\dot{x} \cdot\nabla_xU \implies m\dv{}{t}\left( \frac{\abs{\dot{x}}^2}{2} \right)= -\dv{}{t}U(x(t))
+    \end{equation*}
+    \begin{equation}
+        \implies \dv{}{t}\left( \frac{m\abs{\dot{x}}^2}{2} +U(x) \right) = 0
+    \end{equation}
+\end{proof}
+
+Il moto avviene nell'insieme di livello $H^{-1}(E)$ dove $E = H(x_0,v_0)$, detta \textit{superficie equipotenziale}.
+\begin{equation}
+    \Sigma_E:= H^{-1}(E)=\left\{ (x,v) \in \mathbb{R}^{2d}:H(x,v)=E  \right\} 
+\end{equation}
+
+\begin{proposition}
+    Il moto è sempre tangente alla supericie equipotenziale.
+\end{proposition}
+\begin{proof}
+    \begin{equation*}
+        H(x,v)= m\frac{\abs{v}^2}{2}+U(x) \implies 
+        \nabla H(x,v)= 
+        \begin{pmatrix}
+            \nabla_xU\\mv 
+        \end{pmatrix}
+        \qquad \dot{X}= 
+        \begin{pmatrix}
+            v\\\frac{f}{m}
+        \end{pmatrix}
+    \end{equation*}
+    \begin{equation*}
+        \nabla H \cdot \dot{X}=  
+        \begin{pmatrix}
+            \nabla_xU\\mv 
+        \end{pmatrix} \cdot
+        \begin{pmatrix}
+            v\\\frac{f}{m}
+        \end{pmatrix}
+        = v\cdot\nabla_xU +v\cdot f = -v \cdot f +v\cdot f = 0 
+    \end{equation*}
+\end{proof}
+
+\begin{remark}
+    $\Sigma_E $ ha dimensione $2d-1$
+\end{remark}
+
+Suppongo di avere una forza genererica per cui $m\ddot{x}= f $, cerchiamo U(x) tale che $H(x,v)$ si conservi lungo i moti.
+\begin{equation*}
+    \dv{}{t}H(x(t),v(t))= \nabla_xH\cdot\dot{x}+\nabla_v\cdot\dot{v}= \nabla_xU\cdot + mv\cdot \frac{f}{m}\equiv0
+\end{equation*}
+\begin{equation}
+    \implies v \cdot \left( f + \nabla_xU \right)=0
+\end{equation}
+Questo implica che possono esserci componenti della forza perpendicolari alla velocità dette \textit{giroscopiche}.
+\begin{equation}
+    f= -\nabla_xU + v\times (\dots)
+\end{equation}
+
+\subsection{Forze centrali}
