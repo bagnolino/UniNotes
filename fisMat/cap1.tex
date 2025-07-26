@@ -1,4 +1,5 @@
 \section{Meccanica Newtoniana}
+
 \subsection{L'equazione di Newton}
 \begin{equation}
     f = m a 
@@ -8,6 +9,7 @@ soggetta a una forza $f$, $a$ è l'accelerazione.\\
 \begin{equation}
     m \ddot{x} = f( x(t),\dot{x}(t), t) \qquad \text{ ove } \quad v = \dot{x}(t) = \dv{x}{t}\quad a = \ddot{x}(t)= \dv[2]{x}{t}
 \end{equation}
+
 La forza $f$ è una funzione assegnata del tipo $f: \mathbb{R}^d\times \mathbb{R}^d \times \mathbb{R} \rightarrow \mathbb{R}^d$\\
 L'equazione di newton è un'\textit{equazione differenziale ordinaria} ODE di secondo ordine con incognita $x(t)$. 
 In base ai dati iniziali e alla funzione $f$ possono valere o meno i teoremi di esistenza e unicità $\exists!$ locale e globale.\\ 
@@ -42,6 +44,7 @@ Conoscendo i dati iniziali, cerchiamo una soluzione locale tramite sviluppo di T
 \begin{equation*}
    = x_0 +v_0 h + \frac{f}{2m}(x_0,v_0,t_0) h^2 + \dots
 \end{equation*}
+
 Si può scrivere:
 \begin{equation}
     \begin{cases}
@@ -87,7 +90,11 @@ Si può scrivere:
 %esercizio 1  iterativo
 
 % Reazione di radiazione di Lorentz
+
+
+
 \subsection{Modelli di forza}
+
 \subsubsection{Spazialmente uniformi}
 In cui la forza non dipende dalla posizione: $f = f(v,t)$.
 \begin{example}
@@ -96,12 +103,15 @@ In cui la forza non dipende dalla posizione: $f = f(v,t)$.
 \begin{example}
     $f = q(E_0+ \frac{v}{c}\times B_0)$ Forza di Lorents in campi uniformi
 \end{example}
+
+
 \subsubsection{Puramente posizionali}
 Forze indipendenti dalla velocità: $f= f(x,t)$. Distinguiamo inoltre le \textit{forze potenziali} in cui esiste un potenziale scalare $U(x,t)$
 tale che:
 \begin{equation}
     f= -\nabla_xU(x,t)= -\pdv{U}{x}(x,t)
 \end{equation}
+
 Le forze potenziali indipendenti dal tempo sono dette \textit{forze conservative}.
 \begin{theorem}
     Per un sistema newtoniano conservativo, la funzione energia totale
@@ -168,4 +178,430 @@ Questo implica che possono esserci componenti della forza perpendicolari alla ve
     f= -\nabla_xU + v\times (\dots)
 \end{equation}
 
-\subsection{Forze centrali}
+
+\subsubsection{Forze centrali}
+
+\begin{definition}
+    Una forza $f(x,v,t)$ si dice \textit{centrale} se è diretta come il vettore posizione $x$ a ogni istante, ossia:
+    \begin{equation}
+        f(x,v,t)= \Psi(x,v,t)x= \varphi(x,v,t)\hat{x}
+    \end{equation}
+    dove $\Psi,\varphi: \mathbb{R}^d\times \mathbb{R}^d \times \mathbb{R} \rightarrow \mathbb{R}$ e $\varphi=\Psi\abs{x}, \;\hat{x}=\frac{x}{\abs{x}}$.
+\end{definition}
+
+\begin{definition}
+    L'origine, in un campo di forze centrali, si chiama \textit{centro della forza}. $\varphi$ è lo \textit{scalare della forza}.
+\end{definition}
+
+\begin{proposition}
+    La quantità vettoriale $\ell(x,\dot{x}):= x\times m\dot{x}$, detta \textit{momento angolare}, si conserva lungo i moti newtoniani con forze centrali.
+\end{proposition}
+\begin{proof}
+    \begin{equation*}
+        m\ddot{x}= f= \varphi\hat{x};  \qquad \dv{\ell}{t}= \dv{t}\left( x(t)\times m\dot{x}(t)\right)= 
+        \dot{x}(t)\times m\dot{x}(t)+ x(t)\times m\ddot{x}(t)=
+    \end{equation*}
+    \begin{equation}
+        m(\dot{x}\times\dot{x})+x\times f= \varphi x \times \hat{x}=0
+    \end{equation}
+\end{proof}
+
+\begin{proposition}
+    Il moto della particella dunque si svolge sul piano ortogonale a $ell$ di equazione: $\ell\cdot x =0$
+\end{proposition}
+\begin{proof}
+    Dimostro che il piano $\pi:\ell\cdot x=0$ è invariante:
+    \begin{equation}
+        \ell\cdot x= (x(t)\times m\dot{x}(t))\cdot x(t)=0 \qquad\forall \, t
+    \end{equation}
+\end{proof}
+
+\begin{remark}
+    Dunque i moti centrali sono piano e si può ridurre di una dimensione
+\end{remark}
+\begin{definition}
+    La \textit{velocità areolare } è l'area spazzata dal raggio vettore $x(t)$ nell'unità di tempo.
+\end{definition}
+
+\begin{proposition}
+    La velocità areolare nei moti centrali è costante. Questa è anche detta \textit{seconda legge di Keplero}.
+\end{proposition}
+\begin{proof}
+    Considero la variazione di area $\Delta A$ spazzata dal raggio vettore $x(t)$ in un intervallo di tempo $\Delta t$:
+    \begin{equation*}
+        \Delta A \simeq \frac{1}{2} \abs{ x(t) \times (x(t+\Delta t) - x(t)) } = \frac{1}{2} \abs{ x(t) \times \dot{x}(t) } \Delta t
+    \end{equation*}
+    \begin{equation}
+        \dot{A}(t) = \lim_{\Delta t \to 0} \frac{\Delta A}{\Delta t} = \frac{1}{2} \abs{ x(t) \times \dot{x}(t) }
+    \end{equation}
+    \begin{equation}
+        \dot{A}(t) = \frac{1}{2m} \abs{ x(t) \times m\dot{x}(t) } = \frac{1}{2m} \abs{ \ell } \qquad \textit{Legge della vel. areolare}
+    \end{equation}
+    Poiché $\ell$ si conserva nei moti centrali, segue che $\dot{A}(t)$ è costante.
+\end{proof}
+
+\subsubsection{Forze centrali autonome, posizionali a simmetria sferica}
+Forze in cui la forza dipende solamente dal modulo del vettore posizione:
+\begin{equation}
+    f:= \varphi(\abs{x})\hat{x}
+\end{equation}
+
+Se $x= Rx'$ dove $R$ è una matrice di rotazione:
+\begin{equation}
+    \abs{x}= \abs{Rx'}= \sqrt{(Rx')\cdot(Rx')}= \sqrt{x'\cdot(R^\intercal R)x'}= \abs{x'}
+\end{equation}
+\begin{equation}
+    \hat{x}=\frac{x}{\abs{x}}= \frac{Rx'}{\abs{Rx'}}= \frac{Rx'}{\abs{x'}}=R\hat{x}'
+\end{equation}
+
+\begin{proposition}
+    $f= \varphi(\abs{x})\hat{x}$ è conservativa.    
+\end{proposition}
+\begin{proof}
+    Consideriamo un potenziale:
+    \begin{equation}
+        U(\abs{x}):=-\int^\abs{x}\varphi(r)\dd{r}
+    \end{equation}
+    \begin{equation*}
+        -\nabla_x U(\abs{x}) = -U'(\abs{x}) \nabla_x (\abs{x}) = -U'(\abs{x}) \nabla_x (\sqrt{x \cdot x}) 
+    \end{equation*}
+    \begin{equation*}
+        = -U'(\abs{x}) \frac{\nabla_x (x \cdot x)}{2 \sqrt{x \cdot x}} = -U'(\abs{x}) \frac{2x}{2 \abs{x}} = -U'(\abs{x}) \hat{x}
+\end{equation*}
+\end{proof}
+
+\begin{remark}
+    Si ricava che la forma più generale per cui una forza centrale $f= \varphi(x)\hat{x}$ sia conservativa è $\varphi(x)=\varphi(\abs{x})$.
+\end{remark}
+\begin{proof}
+    Usando le coordinate polari sferiche:     ($r = \abs{x}$)
+    \begin{equation}
+        \begin{cases}
+            x_1 = r \sin\theta \cos\phi \\
+            x_2 = r \sin\theta \sin\phi \\
+            x_3 = r \cos\theta 
+        \end{cases}
+    \end{equation}
+    Calcoliamo le derivate parziali di $U$:
+    \begin{equation*}
+        \pdv{U}{\theta}= \pdv{U}{x_1}\pdv{x_1}{\theta}+\pdv{U}{x_2}\pdv{x_2}{\theta}+\pdv{U}{x_3}\pdv{x_3}{\theta}=
+         \left( \nabla_xU \right)\cdot\pdv{x}{\theta}= -\frac{\varphi(x)}{\abs{x}}\frac{1}{2}\pdv{\theta}\left( x\cdot x \right)
+    \end{equation*}
+    \begin{equation}
+        =-\varphi(x)\frac{1}{\abs{x}}x\cdot \pdv{x}{\theta}= - \varphi(x)\frac{1}{2\abs{x}}\pdv{\theta}\abs{x}^2
+        =- \varphi(x)\frac{1}{2\abs{x}}\pdv{r^2}{\theta}\equiv0 
+    \end{equation}
+    Perché $r$ e $\theta$ sono linearmente indpendenti.\\
+    Analogamente si dimostra che $\pdv{U}{\phi}=0$.
+    \begin{equation*}
+        U = U(r) = U(\abs{x})\implies \nabla_xU= U'(\abs{x})\hat{x}
+    \end{equation*}
+    \begin{equation*}
+        \varphi(x)\hat{x}=-U'(\abs{x})\hat{x}\implies \varphi(x)= -U'(\abs{x})
+    \end{equation*}
+\end{proof}
+
+Le forza fondamentali di questo tipo sono la \textit{forza gravitazionale} e la \textit{forza elettrostatica} 
+con rispettivamente la \textit{legge di Hooke-Newton} e la \textit{legge di Coulomb}:
+\begin{equation}
+    \varphi_G(\abs{x})= -G\frac{Mm}{\abs{x}^2}\qquad \quad \varphi_{es}(\abs{x})=\frac{Qq}{\abs{x}^2}
+\end{equation}
+
+Un'altra forza importante è la \textit{forza elastica}, descritta dalla \textit{legge di Hooke}:
+\begin{equation}
+    \varphi_{el}(\abs{x})= -k\abs{x}
+\end{equation}
+
+%Accenno di Lagrange e Hamilton
+
+\subsection{Problemi}
+
+\subsubsection{Oscillatore armonico tridimensionale}
+\begin{equation}
+    m\ddot{x}= f \qquad f = \varphi(\abs{x})\hat{x}\qquad \varphi = -kr
+\end{equation}
+E' una forza centrale: $\ell= x\times m\dot{x}$ è costante.\\
+E' uno dei tipi di forze che produce orbite elittiche. 
+E' stato candidato per la forza gravitazionale, ma la forza non è centrata nei fuochi
+e il periodo non dipende dall'ampiezza.\\
+
+Per $\ell  \neq 0$, cambio le coordinate a un sistema in cui:
+\begin{equation}
+    x_3 \parallel \ell; \quad x_1,x_2 \in x\cdot\ell=0  \qquad (3D\rightarrow 2D)
+\end{equation}
+
+Risolviamo l'equazione del moto:
+\begin{equation*}
+    m\ddot{x}= -kx \implies \ddot{x}= -\omega^2 x \text{ con } \omega= \sqrt{\frac{k}{m}}
+\end{equation*}
+In componenti:
+\begin{equation}
+    \begin{cases}
+        \ddot{x}_1= -\omega^2 x_1\\
+        \ddot{x}_2= -\omega^2 x_2
+    \end{cases}\implies
+    x_1 = a \cos(\omega t +\phi)\quad x_2= b\cos(\omega t + \psi)
+\end{equation}
+\begin{remark}
+    Il periodo $T$ non dipende da $a$ e $b$:
+    \begin{equation}
+        T = \frac{2\pi}{\omega}= 2\pi\sqrt{\frac{m}{k}}
+    \end{equation} 
+\end{remark}
+
+Definiamo: $\theta:=\omega t + \phi, \quad\delta:=\psi-\phi$.
+\begin{equation}
+    \implies \begin{cases}
+        x_1 = a\cos(\theta)\\
+        x_2 = b\cos(\theta+\delta)
+    \end{cases}
+\end{equation}
+
+Se $\delta=0\implies x_1= a\cos(\theta),\;x_2=b\cos(\theta)\implies x_1=\frac{a}{b}x_2$ è il caso lineare in cui $\ell = 0$.
+Se $\delta= \pi$ è uguale al caso precedente.\\
+Se $\delta\neq 0$:
+\begin{equation*}
+    \begin{cases}
+        x_1 = a\cos(\theta)\\
+        x_2 = b(\cos(\theta)\cos(\delta)-\sin(\theta)\sin(\delta))
+    \end{cases}
+\end{equation*}
+\begin{equation}
+    \cos(\theta)=\frac{x_1}{a} \quad \frac{x_2}{b}= \frac{x_1}{a}\cos(\delta)-\sin(\theta)\sin(\delta)\implies
+    \sin(\theta)= \frac{1}{\sin(\delta)}\left(  \frac{x_1}{a}\cos(\delta)-\frac{x_2}{b}\right)
+\end{equation}
+
+Applico l'ugualianza:
+\begin{equation*}
+    \frac{x_1^2}{a^2} + \frac{1}{\sin^2\delta}
+      \left( \frac{x_1}{a}\cos\delta - \frac{x_2}{b} \right)^2= 1
+\end{equation*}
+\begin{equation*}
+    \frac{x_1^2}{a^2} + \frac{1}{\sin^2\delta}
+    \left( \frac{x_1^2}{a^2}\cos^2\delta - 2\frac{x_1 x_2}{a b}\cos\delta + \frac{x_2^2}{b^2} \right) = 1
+\end{equation*}
+\begin{equation}
+    \left( 1 + \frac{\cos^2\delta}{\sin^2\delta} \right) \frac{x_1^2}{a^2}
+    + \frac{1}{\sin^2\delta}\frac{x_2^2}{b^2}- 2\frac{\cos\delta}{\sin^2\delta}\frac{x_1 x_2}{a b} = 1
+\end{equation}
+Riscriviamola nella forma $x\cdot Mx = 1$:
+\begin{equation}
+    M = 
+    \begin{pmatrix}
+        \dfrac{1}{a^2 \sin^2 \delta} & -\dfrac{\cos \delta}{a b \sin^2 \delta} \\[1.2ex]
+        -\dfrac{\cos \delta}{a b \sin^2 \delta} & \dfrac{1}{b^2 \sin^2 \delta}
+    \end{pmatrix}
+\end{equation}
+$M$ è matrice simmetrica e reale, dunque si può applicare il teorema spettrale:
+\begin{equation}
+    \implies \exists\,R, \;R^\intercal R = 1 \quad t.c. \quad R^\intercal MR = \operatorname{diag} (m_1,m_2)
+\end{equation}
+Dove $m_1$ e $m_2$ sono gli autovalori reali di $M$. Esiste dunque un vettore $y:= R^\intercal x$ per cui:
+\begin{equation}
+    x\cdot Mx= (Ry)\cdot M(Ry)= y\cdot(R^\intercal MR)y= y\cdot \left( \operatorname{diag} (m_1,m_2) y\right)= m_1 y_1^2+m_2y_2^2=1
+\end{equation}
+Che è l'equazione per un elisse.
+\begin{remark}
+    Possiamo riscriverla come: $m_1 y_1^2+m_2y_2^2=\frac{y_1^2}{A^2}+\frac{y_2^2}{B^2}= 1$
+\end{remark}
+\begin{proof}
+    \begin{equation*}
+       \tr(M )>0, \det(M ) = \frac{1}{a^2b^2\sin[2](\delta)}>0\implies m_1+m_2>0, \quad m_1m_2>0 
+    \end{equation*}
+\end{proof}
+
+\paragraph{RECAP Elisse}
+La definizione geometetrica di un elisse è il luogo dei punti tale che $d_1+d_2= 2a$.
+La definizione cartesiana è:
+\begin{equation}
+    \frac{x_1^2}{a^2}+ \frac{x_2^2}{b^2}=1 \quad \text{ con } a,b \in \mathbb{R}
+\end{equation}
+La definizione in coordinate polari:
+\begin{equation}
+    r = \frac{P}{1+\varepsilon\cos(\theta)} \quad \text{ con } P,\varepsilon \in \mathbb{R}
+\end{equation}
+Nella definizione in coordinate polari il centro è uno dei due fuochi, $\varepsilon \in [0,1)$ è detta eccentricità
+e il parametro $P=r(\frac{\pi}{2})$.
+Dimostriamo che queste tre definizioni siano equivalenti.
+\begin{proof}
+    1) $\leftrightarrow$ 2)\\
+    Consideriamo le distanze di un punto generico $(x, y)$ dai due fuochi $F_1, F_2$. Sappiamo che:
+    \begin{equation}
+        \begin{cases}
+            d_1^2 = (x - f)^2 + y^2 \\
+            d_2^2 = (x + f)^2 + y^2
+        \end{cases}
+        \qquad
+        (d_1 + d_2)^2 = 4a^2
+    \end{equation}
+    \begin{equation}
+        d_1^2 + d_2^2 + 2 d_1 d_2 = 4a^2 \implies 4 d_1^2 d_2^2 = \left[ 4a^2 - (d_1^2 + d_2^2) \right]^2
+    \end{equation}
+    Sviluppando i conti si ottiene:
+    \begin{equation}
+        (a^2 - f^2)x^2 + a^2 y^2 = a^2(a^2 - f^2) \implies \frac{x^2}{a^2} + \frac{y^2}{a^2 - f^2} = 1
+    \end{equation}
+
+    2) $\leftrightarrow$ 3)\\
+    Usando il cambio di coordinate polari:
+    \begin{equation}
+        \begin{cases}
+            x = f + r \cos\theta \\
+            y = r \sin\theta
+        \end{cases}
+    \end{equation}
+    Sostituendo nell'equazione cartesiana:
+    \begin{equation*}
+        (a^2 - f^2)(f + r\cos\theta)^2 + a^2 r^2 \sin^2\theta = a^2(a^2 - f^2)
+    \end{equation*}
+    \begin{equation*}
+        (a^2 - f^2)f^2 + 2f(a^2 - f^2)r\cos\theta + \left[(a^2 - f^2)\cos^2\theta + a^2\sin^2\theta\right] r^2 = a^2(a^2 - f^2)
+    \end{equation*}
+    \begin{equation*}
+        \left[(a^2 - f^2)\cos^2\theta + a^2\sin^2\theta\right] r^2 + 2f(a^2 - f^2) r\cos\theta + (a^2 - f^2)f^2 - a^2(a^2 - f^2) = 0
+    \end{equation*}
+    \begin{equation}
+        \left(a^2 - f^2\cos^2\theta\right) r^2 + 2f(a^2 - f^2) r\cos\theta - (a^2 - f^2)^2 = 0
+    \end{equation}
+    Risolvendo come equazione di secondo grado in $r$:
+    \begin{equation*}
+        r = \frac{-(a^2 - f^2)f\cos\theta + \sqrt{(a^2 - f^2)^2 a^2}}{a^2 - f^2\cos^2\theta}
+    \end{equation*}
+    Considerando solo la soluzione positiva:
+    \begin{equation}
+        r = \frac{a^2 - f^2}{a + f\cos\theta}=\frac{b^2}{a + f\cos\theta}
+        = \frac{P}{1 + \varepsilon\cos\theta} \quad \text{con } P:= \frac{b^2}{a}, \varepsilon:= \frac{f}{a}
+    \end{equation}
+\end{proof}
+\begin{remark}
+    Per $\varepsilon \notin [0,1)$, ottengo le altre sezioni coniche: parabola ($\varepsilon=1$) e iperbole ($\varepsilon>1$).
+\end{remark}
+
+
+\subsubsection{Problema di Keplero}
+Si studi il moto del corpo soggetto alla forza gravitazionale:
+\begin{equation}
+    m\ddot{x}=-\frac{k}{\abs{x}^2}\hat{x} \quad \text{ con } k>0
+\end{equation}
+
+E' una forza centrale quindi: $\dot{\ell}=0$ e ho un moto piano in $\ell\cdot x=0$.
+\begin{equation}
+    \begin{cases}
+        m\ddot{x}_1= -k\frac{x_1}{\abs{x}^3}\\
+        m\ddot{x}_2= -k\frac{x_2}{\abs{x}^3}
+    \end{cases}
+\end{equation}
+
+E' opportuno considerare il problema in coordinate polari piane: $x_1= r\cos(\theta), \quad x_2=r\sin(\theta)$. 
+\begin{equation}
+    \pdv{x}{r}= \pdv{}{r}\begin{pmatrix}
+        x_1\\x_2
+    \end{pmatrix}=\begin{pmatrix}
+        \cos(\theta)\\\sin(\theta)
+    \end{pmatrix}=:\hat{e}_r 
+\end{equation}
+\begin{equation}
+    \pdv{x}{\theta}= r \begin{pmatrix}
+        -\sin(\theta)\\\cos(\theta)
+    \end{pmatrix}\implies 
+    \hat{e}_\theta:=\frac{1}{r}\pdv{x}{\theta}= \begin{pmatrix}
+        -\sin(\theta)\\\cos(\theta)
+    \end{pmatrix}
+\end{equation}
+\begin{equation}
+    \dv{\hat{e}_r(\theta)}{\theta} = \hat{e}_\theta(\theta) ; \qquad
+    \dv{\hat{e}_\theta(\theta)}{\theta} = -\hat{e}_r(\theta) ; \qquad
+    \dv{\hat{e}_r(\theta)}{r} = 0 ; \qquad
+    \dv{\hat{e}_\theta(\theta)}{r} = 0\quad
+\end{equation}
+
+Chiamiamo semplicemente $\hat{e}_r= \hat{r},\;\hat{e}_\theta=\hat{\theta}$.
+\begin{equation}
+    x = x_1\hat{e}_1+x_2\hat{e}_2= r\hat{r} \quad 
+    \dot{x}= \dot{r}\hat{r} + r\dv{\hat{r}}{t}=  \dot{r}\hat{r} + r \dot{\theta}\hat{\theta}
+\end{equation}
+\begin{equation}
+    \ddot{x}=\ddot{r}\hat{r}+\dot{r}\dot{\theta}\hat{\theta} + \dot{r}\dot{\theta}\hat{\theta}  + r\ddot{\theta}\hat{\theta}-r(\dot{\theta})^2\hat{r}
+    =\begin{pmatrix}
+        \ddot{r}-r\dot{\theta}^2\\
+        r\ddot{\theta}+2\dot{r}\dot{\theta}
+    \end{pmatrix}
+\end{equation}
+
+Quindi l'equazione del moto in coordinate polari diventa:
+\begin{equation}
+    m\left[(\ddot{r}-r\dot{\theta}^2)\hat{r}+(2\dot{r}\dot{\theta}+r\ddot{\theta})\hat{\theta}\right]= -\frac{k}{r^2}\hat{r}
+    \quad\leftrightarrow \quad
+    \begin{cases}
+        m(\ddot{r}-r\dot{\theta}^2)=-\frac{k}{r^2}\\
+        2\dot{r}\dot{\theta}+r\ddot{\theta}=0
+    \end{cases}
+\end{equation}
+
+\begin{remark}
+    L'equazione lungo $\hat{\theta}$ corrisponde alla legge di conservazione di $\ell$.
+\end{remark}
+\begin{proof}
+    Moltiplicando per $r$:
+    \begin{equation*}
+        2r\dot{r}\dot{\theta}m + r^2\ddot{\theta}= m \dv{t}(r^2)\dot{\theta}+mr^2\dv{t}(\dot{\theta})
+    \end{equation*}
+    \begin{equation}
+        \implies \dv{t}\left( mr^2\dot{\theta} \right)=0\implies mr^2\dot{\theta}= \text{ costante}
+    \end{equation}
+    \begin{equation}
+        \ell= x \times m\dot{x}= r\hat{r}\times m \left( \dot{r}\hat{r}+r\dot{\theta} \hat{\theta}\right)= mr^2\dot{\theta}\hat{z}   
+    \end{equation}
+\end{proof}
+Possiamo riscrivere le nostre equazioni come:
+\begin{equation}
+    \begin{cases}
+        m\ddot{r}= mr\dot{\theta^2}-\frac{k}{r^2}= \frac{\ell^2}{mr^3}-\frac{k}{r^2}\\
+        \dot(\theta)= \frac{\ell}{mr^2}
+    \end{cases}
+\end{equation}
+
+Cerchiamo ora la forma dell'orbita: $\theta\rightarrow r(\theta)$. Senza perdità di generalità abbiamo $l>0$, 
+quindi esiste una funzione $t\rightarrow\theta(t)$ monotona e crescente e dunque esiste anche la sua inversa $\theta\rightarrow t(\theta)$.
+Per cui $\exists \,r(t(\theta))= r(\theta)$. 
+\begin{equation}
+    \dv{r}{\theta}=\dv{r}{t}\dv{t}{\theta}= \frac{\dot{r}}{\dot{\theta}}\implies \dot{r}= \dot{\theta}\dv{r}{\theta}= \frac{\ell}{mr^2}\dv{r}{\theta}
+\end{equation}
+Potrei calcolare anche $\ddot{r}$ e risolvere l'equazione differenziale, ma è più comodo lavorare considerando l'equazione di conservazione dell'energia:
+\begin{equation*}
+    E= \frac{m}{2}\abs{\dot{x}}^2 + U(\abs{x})= \frac{m}{2}\abs{\dot{r}\hat{r}+ r\dot{\theta}\hat{\theta}}^2-\frac{k}{r}=
+\end{equation*}
+\begin{equation*}
+    \frac{m}{2}\left( \dot{r}^2 + r^2\dot{\theta}^2  \right)-\frac{k}{r}= \frac{m}{2}\left( \dot{r}^2 + \frac{\ell^2}{m^2r^2}\right)-\frac{k}{r}=
+\end{equation*}
+\begin{equation*}
+    \frac{m}{2}\left( \frac{\ell^2}{mr^2}\dv{r}{\theta} \right)^2+ \frac{\ell^2}{2mr^2}-\frac{k}{r}= 
+    \frac{\ell^2}{2mr^4}\left( \dv{r}{\theta} \right)^2+\frac{\ell^2}{2mr^2}-\frac{k}{r}
+\end{equation*}
+Introduciamo il cambio di variabile:
+\begin{equation}
+    u(\theta):= \frac{1}{r(\theta)}\implies \dv{r}{\theta}= -\frac{1}{u^2}\dv{u}{\theta}
+\end{equation}
+\begin{equation}
+    E=\frac{\ell^2u^4}{2m}\left( +\frac{1}{u^4} \right)\left( \dv{u}{\theta} \right)^2+\frac{\ell^2}{2m}u^2-ku=
+    \frac{\ell^2}{2m}\left( \dv{u}{\theta} \right)^2+\frac{\ell^2}{2m}u^2-ku
+\end{equation}
+Deriviamo il tutto rispetto a $\theta$:
+\begin{equation}
+    0 = \frac{\ell^2} 2\dv{u}{\theta}\dv[2]{u}{\theta}+\frac{\ell^2}{2m}2u\dv{u}{\theta} -k\dv{u}{\theta}
+\end{equation}
+Considerando $\dv{u}{\theta}\neq 0$ in ogni punto, otteniamo l'\textit{equazione di Binet:}
+\begin{equation}
+    u''(\theta)+u(\theta)- \frac{km}{\ell^2}=0
+\end{equation}
+Che si risolve facilmente:
+\begin{equation}
+    \frac{1}{r(\theta)}=u(\theta)= \frac{km}{\ell^2}+A\cos(\theta-\theta_0)\implies r(\theta)= 
+    \frac{\frac{\ell^2}{km}}{1+\frac{A\ell^2}{km}\cos(\theta)}= \frac{P}{1+\varepsilon\cos(\theta)}
+\end{equation}
+
+
+
+
+
+
