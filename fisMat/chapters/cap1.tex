@@ -600,8 +600,538 @@ Che si risolve facilmente:
     \frac{\frac{\ell^2}{km}}{1+\frac{A\ell^2}{km}\cos(\theta)}= \frac{P}{1+\varepsilon\cos(\theta)}
 \end{equation}
 
+Sostituiamo $u(\theta)$ nell'espressione dell'energia:
+\begin{equation*}
+    E = \frac{\ell^2}{2m}\left[ \left( -A\sin(\theta-\theta_0) \right)^2+\left( \frac{km}{\ell^2}+A\cos(\theta-\theta_0) \right)^2 \right]
+    -\frac{k^2m}{\ell^2}-kA\cos(\theta-\theta_0)
+\end{equation*}
+\begin{equation*}
+    =\frac{\ell^2}{2m}\left[\frac{k^2m^2}{\ell^4}+2\frac{km}{\ell^2}A\cos(\theta-\theta_0) +A^2\right]
+    -\frac{k^2m}{\ell^2}-kA\cos(\theta-\theta_0)
+\end{equation*}
+\begin{equation}
+    =\frac{\ell^2A^2}{2m}-\frac{k^2m}{2\ell^2}\implies A = \pm \sqrt{\frac{2mE}{\ell^2}+\frac{K^2m^2}{\ell^4}}
+\end{equation}
+\begin{equation}
+    \varepsilon= A\frac{\ell^2}{km}= \sqrt{1+\frac{2\ell^2E}{k^2m}}\implies 
+    r(\theta)= \frac{\frac{\ell^2}{km}}{1+\sqrt{1+\frac{2\ell^2E}{k^2m}}\cos(\theta)}
+\end{equation}
+
+\begin{definition}
+    Usualmente si considera $\theta=0$ al punto di minima distanza dal centro, tale punto è detto \textit{pericentro}.
+    Il punto di massima distanza a $\theta= \pi$ è detto \textit{apocentro}.
+\end{definition}
+
+\begin{theorem}
+    3 Legge di Keplero\\
+    Il perido $T$ di rivoluzione di un pianeta intorno a una particolare stella e il semiasse maggiore $a$ dell'orbita
+    sono legati da:
+    \begin{equation}
+        \frac{T^2}{a^3}=K_{stella}
+    \end{equation}
+    Dove $K_{stella}$ è una costante indipendente dal pianeta.
+\end{theorem}
+\begin{proof}
+    La legge si può dedurre dalla costanza della velocità areolare:
+    \begin{equation*}
+        \dot{A}= \frac{\ell}{2m}\implies A(t)= \frac{\ell}{2m}t \implies    A(T)= \frac{\ell}{2m}T
+    \end{equation*}
+    \begin{equation*}
+        T = \frac{2m}{\ell}A= \frac{2m}{\ell}\pi ab\quad ; \quad b^2 = aP
+    \end{equation*}
+    \begin{equation*}
+        T = \frac{2m\pi}{\ell}a\sqrt{aP}= \frac{2m\pi}{\ell}a\sqrt{a\frac{\ell^2}{km}}
+        \implies T^2 = \frac{4\pi^2m}{k}a^3
+    \end{equation*}
+    \begin{equation*}
+        k = GMm \implies \frac{T^2}{a^3}= \frac{4\pi^2}{GM}= K_{stella}
+    \end{equation*}
+\end{proof}
+
+
+\subsubsection{Vettore eccentricità}
+\begin{definition}
+    Definiamo il \textit{vettore di Laplace-Runge-Lenz} oppure \textit{vettore eccentricità} come:
+    \begin{equation}
+        \varepsilon:= \frac{1}{k}\dot{v}\times\ell - \hat{x}
+    \end{equation}
+\end{definition}
+\begin{proposition}
+    E' importante la proprietà $\dv{\varepsilon}{t}=0$
+\end{proposition}
+\begin{proof}
+    \begin{equation*}
+        \dv{\varepsilon}{t} = \frac{1}{k} \dot{v} \times \ell - \dot{\theta} \, \hat{\theta} =
+        \frac{1}{k} \left( -\frac{k}{m} \frac{1}{r^2} \, \hat{r} \right) \times \ell - \dot{\theta} \, \hat{\theta}
+    \end{equation*}
+    \begin{equation*}
+        = -\frac{1}{m r^2} \, \hat{r} \times \ell_z \hat{z} - \dot{\theta} \, \hat{\theta} = 
+        \left( \frac{\ell_z}{m r^2} - \dot{\theta} \right) \hat{\theta} =
+        (\dot{\theta} - \dot{\theta}) \hat{\theta} = 0
+    \end{equation*}
+\end{proof}
+
+Calcoliamo $\abs{\varepsilon}^2$:
+\begin{equation*}
+    \varepsilon = \frac{1}{k} \left( \dot{r} \hat{r} + r \dot{\theta} \hat{\theta} \right) \times \ell_z \hat{z} - \hat{r} 
+    = - \frac{\dot{r} \ell_z}{k} \hat{\theta} + \frac{r \dot{\theta} \ell_z}{k} \hat{r} - \hat{r}
+\end{equation*}
+\begin{equation*}
+    = \left( \frac{r \dot{\theta} \ell_z}{k} - 1 \right) \hat{r} - \frac{\dot{r} \ell_z}{k} \hat{\theta}
+\end{equation*}
+\begin{equation*}
+    \abs{\varepsilon}^2 = 1 - \frac{2r \dot{\theta} \ell_z }{k} + \dot{r}^2 \frac{\ell_z^2}{k^2} + r^2 \dot{\theta}^2 \frac{\ell_z^2}{k^2}
+    = 1 + \frac{\ell_z^2}{k^2} \left( \dot{r}^2 + r^2 \dot{\theta}^2 \right) - \frac{2\ell_z^2}{k m r}
+\end{equation*}
+\begin{equation}
+    = 1 + \frac{2\ell_z^2}{m k^2} \left( \frac{m}{2} \left( \dot{r}^2 + r^2 \dot{\theta}^2 \right) - \frac{k}{r} \right)
+    = 1 + \frac{2\ell_z^2 E}{m k^2}
+\end{equation}
+Come atteso, $\varepsilon$ ha il modulo dell'eccentricità orbitale.\\
+Calcolando $\varepsilon\cdot x$ otteniamo la forma dell'orbita:
+\begin{equation*}
+    \varepsilon \cdot x = \abs{\varepsilon} r \cos\theta = x \cdot \left( \frac{1}{k} (v \times \ell) \right) - \abs{x} 
+    = \frac{1}{k}\ell\cdot\left( x\times v \right)-\abs{x}= \frac{\abs{\ell^2}}{km}-\abs{x}
+\end{equation*}
+\begin{equation*}
+    \rightarrow \abs{\varepsilon} r \cos\theta = \frac{\abs{\ell}^2}{km} - r 
+    \qquad \rightarrow \qquad r = \frac{p}{1 + \abs{\varepsilon} \cos\theta}
+\end{equation*}
 
 
 
+%Repulsore armonico
 
 
+\subsubsection{Regolarizzazione di Levi-Civita}
+\begin{equation}
+    m\ddot{x}= -\frac{k}{\abs{x}^3}x \implies \ddot{x}= \frac{c}{\abs{x}^3}x \;;\quad
+    \begin{cases}
+        \ddot{x}_1=-\frac{c}{\abs{x}^3}x_1\\
+        \ddot{x}_2=-\frac{c}{\abs{x}^3}
+    \end{cases}
+\end{equation}
+
+Definisco $z(t):=x_1(t)+ix_2(t)$, per cui vale $\abs{x}= \abs{z}, \;\abs{v}= \abs{\dot{z}}$, e $\mathcal{E}=\frac{E}{m}$.
+\begin{equation}
+    \implies \ddot{z}= -\frac{c}{\abs{z}^3}z \qquad \mathcal{E}= \frac{\abs{\dot{z}}^2}{2}-\frac{c}{z}
+\end{equation}
+
+Introduciamo ora la \textit{mappa di Levi-Civita}: $z\rightarrow w$ ,con $z = w^2$, e $t\rightarrow \tau$, con $\dd{t}= \abs{w}^2\dd{\tau}$.
+La mappa porta dai moti keplerani a quelli armonici.
+\begin{equation}
+    \dot{z}= \dv{z}{t}= \dv{z}{w}\dv{w}{t}= \dv{z}{w}\dv{w}{\tau}\dv{\tau}{t}= 2 w w' \frac{1}{\abs{w}^2}
+\end{equation}
+La legge di conservazione dell'energia diventa:
+\begin{equation}
+    2\abs{w'}^2-\mathcal{E}\abs{w}^2-c=0
+\end{equation}
+Derivando in $\tau$, otteniamo:
+\begin{equation}
+    \left( 2w'' - \mathcal{E}w \right)\overline{w}' + \left( 2\overline{w}'' - \mathcal{E}\overline{w} \right)w' = 0
+\end{equation}
+Questa è uguale a $0, \;\forall\,\tau$ se e solo se:
+\begin{equation}
+    w''=\frac{\mathcal{E}}{2}w
+\end{equation}
+Che corrisponde all'equazione differenziale di un oscillatore armonico (se $\mathcal{E}<0$) oppure di un repulsore iperbolico (se $\mathcal{E}$>0).\\
+E' notevole la peculiarità dei potenziali kepleriani e degli oscillatori armonici, che si riscontra da:
+\begin{theorem}
+    \textbf{Di Bertrand}\\
+    Gli unici potenziali centrali $U(r)$ che hanno tutte le orbite limitate e chiuse su aperti di dati iniziali sono:
+    \begin{equation}
+        U(r)= \frac{k}{2}r^2 \qquad U(r)= -\frac{k'}{r} \qquad \text{con } k,k'>0
+    \end{equation}
+\end{theorem}
+
+
+\subsubsection{Sistemi newtoniani conservativi 1D}
+\begin{equation}
+    m\ddot{x}= f(x); \qquad U(x)= -\int_{x_0}^{x}f(t)\dd{t}; \qquad E(x,v)=E(x_0,v_0)= E_0
+\end{equation}
+D'ora in avanti, rinomino $H := E; \; E:=E_0$.\\
+I moti possibili avvengono sull'insieme i livello $H^{-1}(E)$.
+\begin{example}
+    Oscillatore armonico
+    \begin{equation}
+        m\ddot{x}= -kx; \quad U(x)= k\frac{x^2}{2}
+        \iff
+        \begin{cases}
+            \dot{x}= v\\
+            \dot{v}= -\frac{k}{m}x
+        \end{cases}
+    \end{equation}
+    \begin{equation}
+        \implies
+        H(x,v)= \frac{m}{2}v^2+\frac{k}{2}x^2= E>0
+    \end{equation}
+    Se $E\neq0$:
+    \begin{equation}
+        \frac{mv^2}{2E}+\frac{kx^2}{2E}= 1 \implies \frac{x^2}{a^2}+\frac{v^2}{b^2}= 1 \qquad a = \sqrt{\frac{2E}{k}};\; b= \sqrt{\frac{2E}{m}}
+    \end{equation}
+    Se $E= 0 \implies (x,v)= (0,0)$.
+
+    \begin{figure}[h]
+        \centering
+        \begin{tikzpicture}[scale=1.2]
+            \draw[->] (-3.2, 0) -- (3.2, 0) node[anchor=west] {$x$};
+            \draw[->] (0, -2) -- (0, 2) node[anchor=south] {$v$};
+
+            \draw[thick, green!70!black, ->] plot[smooth, domain=0:360, samples=200] 
+                ({1.3*cos(\x)}, {0.6*sin(\x)});
+            \draw[thick, blue, ->] plot[smooth, domain=0:360, samples=200] 
+                ({2*cos(\x)}, {1.1*sin(\x)});
+            \draw[thick, red, ->] plot[smooth, domain=0:360, samples=200] 
+                ({2.7*cos(\x)}, {1.5*sin(\x)});
+
+            \node[green!50!black] at (2.9, -1.1) {\small $E'' < E$};
+            \node[blue!60!black] at (2.3, 0.4) {\small $E$};
+            \node[red!70!black] at (2.9, 1.6) {\small $E' > E$};
+        \end{tikzpicture}
+        \caption{Orbita per diversi insiemi di livello $E''<E<E'$}
+    \end{figure}
+
+\end{example}
+
+\begin{remark}
+    Da $H=E$, ottengo $E-U(x)= \frac{mv^2}{2}>0\implies U(x)\leq E $.
+\end{remark}
+Dunque $x$ fa sempre parte dell'\textit{insieme di sottolivello} $E $ di $U \,: \left\{ x\in \mathbb{R}:U(x)\leq E  \right\}$.
+\begin{definition}
+    I punti in cui $v= 0 \;(U(x)= E )$ sono detti \textit{punti di inversione}.
+\end{definition}
+\begin{definition}
+    $(x_0,0)$ è \textit{punto di equilibrio}, dato un punto di equilibrio come dato iniziale, $(x,v)\equiv(x_0,0)$ è soluzione.
+\end{definition}
+
+\begin{example}
+    Oscillatore iperbolico 
+    \begin{equation}
+        m\ddot{x}= kx \iff \begin{cases}
+            \dot{x}=v\\
+            \dot{v}= \frac{k}{m}x
+        \end{cases}\implies
+        E = \frac{m}{2}v^2  -\frac{k}{2}x^2
+    \end{equation}
+    Consideriamo prima il caso in cui $E=0:$
+    \begin{equation}
+        mv^2  -kx^2=0 \quad \omega^2=\frac{k}{m}\implies v = \pm \omega x 
+    \end{equation}
+    Le soluzioni sono due linee rette che si incrociano nell'origine, ma per il teorema dell'unicità le orbite non si possono incrociare, 
+    quindi in realtà sono 5 orbite separate: due semirette entranti nell'origine, due semirette uscenti dall'origine e l'origine stessa che è punto di equilibrio.
+    \begin{figure}[ht]
+        \centering
+        \begin{tikzpicture}[scale=1.4, >=stealth]
+            \draw[->, thick] (-2, 0) -- (2, 0) node[anchor=west] {$x$};
+            \draw[->, thick] (0, -2) -- (0, 2) node[anchor=south] {$v$};
+
+            \draw[thick, blue!70!black] ({1.8*cos(135)}, {1.8*sin(135)}) -- (0, 0);
+            \draw[thick, blue!70!black] ({1.8*cos(315)}, {1.8*sin(315)}) -- (0, 0);
+
+            \draw[->, thick, blue!70!black] 
+                ({1.2*cos(135)}, {1.2*sin(135)}) -- ({0.75*cos(135)}, {0.75*sin(135)});
+            \draw[->, thick, blue!70!black] 
+                ({1.2*cos(315)}, {1.2*sin(315)}) -- ({0.75*cos(315)}, {0.75*sin(315)});
+
+            \draw[thick, red!70!black] (0, 0) -- ({1.8*cos(45)}, {1.8*sin(45)});
+            \draw[thick, red!70!black] (0, 0) -- ({1.8*cos(225)}, {1.8*sin(225)});
+
+            \draw[->, thick, red!70!black] 
+                ({0.75*cos(45)}, {0.75*sin(45)}) -- ({1.2*cos(45)}, {1.2*sin(45)});
+            \draw[->, thick, red!70!black] 
+                ({0.75*cos(225)}, {0.75*sin(225)}) -- ({1.2*cos(225)}, {1.2*sin(225)});
+
+            \filldraw[violet, thick] (0, 0) circle (2.5pt);
+        \end{tikzpicture}
+        \caption{Le 5 orbite per $E=0$}
+    \end{figure}
+
+    Per $E \neq 0$, si ottengono delle iperboli:
+    \begin{equation}
+        \frac{mv^2}{2E} - \frac{kx^2}{2E} = 1
+    \end{equation}
+    \begin{equation}
+        v^2 = \frac{2E}{m} \left( 1 + \frac{kx^2}{2E} \right) \qquad
+        v = \pm \sqrt{\frac{2E}{m} \left( 1 + \frac{kx^2}{2E} \right)}
+    \end{equation}
+    
+    \begin{figure}[ht]
+        \centering
+        \begin{tikzpicture}[scale=0.9, >=stealth]
+            % Parametri
+            \def\a{1.5}  % ampiezza
+            \def\omega{1} % coefficiente lineare degli asintoti
+
+            % Assi
+            \draw[->, thick] (-3.2, 0) -- (3.2, 0) node[anchor=west] {$x$};
+            \draw[->, thick] (0, -3.2) -- (0, 3.2) node[anchor=south] {$v$};
+
+            % Asintoti: v = ± omega x
+            \draw[dashed, thick, gray] (-3.2,-\omega*3.2) -- (3.2,\omega*3.2);
+            \draw[dashed, thick, gray] (-3.2,\omega*3.2) -- (3.2,-\omega*3.2);
+
+            % Iperboli E>0
+            \draw[thick, red]
+                plot[domain=-3:3, samples=200] (\x, {sqrt(\omega^2*\x*\x + \a*\a)});
+            \draw[thick, red]
+                plot[domain=-3:3, samples=200] (\x, {-sqrt(\omega^2*\x*\x + \a*\a)});
+
+            % Iperboli E<0 (x in funzione di v)
+            \draw[thick, green!50!black]
+                plot[domain=-3:3, samples=200, variable=\y] ({-sqrt((\y*\y + \a*\a)/\omega^2)}, \y);
+            \draw[thick, green!50!black]
+                plot[domain=-3:3, samples=200, variable=\y] ({sqrt((\y*\y + \a*\a)/\omega^2)}, \y);
+
+            % Frecce direzione moto
+            \draw[->, thick, red] (1.46,2.09) -- (1.5,2.13);
+            \draw[->, thick, red] (-1.46,-2.09) -- (-1.5,-2.13);
+            % \draw[-, thick, green!50!black] (-2.4,1) -- (-2.7,1.5);
+            \draw[->, thick, green!50!black] (-2.09,1.46) -- (-2.13,1.5);
+
+            % \draw[-, thick, green!50!black] (2.4,-1) -- (2.7,-1.5);
+            \draw[->, thick, green!50!black] (2.09,-1.46) -- (2.13,-1.5);
+
+            % Etichette energia
+            \node[red!70!black] at (0.8,2.5) {\small $E>0$};
+            \node[green!50!black] at (0.8,-2.5) {\small $E<0$};
+        \end{tikzpicture}
+        \caption{Curve di livello dell'energia per l'oscillatore iperbolico: iperboli con asintoti $v=\pm\omega x$}
+    \end{figure}
+
+\end{example}
+
+
+\subsubsection{Ritratti in fase}
+
+\begin{definition}
+    Un \textit{punto critico} $x_\star$ è un punto per cui $U'(x_\star)=0$.
+\end{definition}
+\begin{definition}
+    Se $U''(x_\star)\neq 0 $ si dice \textit{non degenere}.
+\end{definition}
+\begin{definition}
+    Se $U''(x_\star)>0$ (minimo locale), il punto critico si dice \textit{elittico}, se $U''(x_\star)<0$ si dice \textit{iperbolico}.   
+\end{definition}
+
+Sviluppiamo di $H(x,v)$ attorno a $(x_\star,0)$
+\begin{equation*}
+    H(x,v) = \frac{mv^2}{2} + U(x) = U(x_\star) + U'(x_\star)(x - x_\star) + 
+\end{equation*}
+\begin{equation*}
+    + \frac{1}{2} \left( m(v-0)^2 +U''(x_\star)(x - x_\star)^2 \right) + o(\norm{(x - x_\star, v)}^2)=
+\end{equation*}
+\begin{equation}
+    = \frac{mv^2}{2} + \frac{1}{2} U''(x_\star)(x - x_\star)^2 + U(x_\star) + o(\norm{(x - x_\star, v)}^2)
+\end{equation}
+
+Guardiamo $H^{-1}(E)$ per $E = U(x_\star) + \Delta E$
+\begin{equation}
+    \Delta E = \frac{mv^2}{2} + \frac{1}{2} U''(x_\star)(x - x_\star)^2 + o(\norm{(x - x_\star, v)}^2)
+\end{equation}
+\begin{equation}
+    o(\norm{(x - x_\star, v)}^2) \sim o(\Delta E)
+\end{equation}
+\begin{equation*}
+    \frac{mv^2}{2} + \frac{1}{2} U''(x_\star)(x - x_\star)^2 = \Delta E + o(\Delta E)
+\end{equation*}
+\begin{equation}
+    \Delta E \to 0\implies \;\frac{mv^2}{2} + \frac{1}{2} U''(x_\star)(x - x_\star)^2 \simeq \Delta E
+\end{equation}
+
+Se $U''(x_\star)= k>0$:
+\begin{equation}
+    \frac{m}{2\Delta E}v^2 + \frac{k}{2\Delta E}(x - x_\star)^2 \simeq 1
+\end{equation}
+Sono piccole ellissi centrate in $(x_\star, 0)$. Se invece $U''(x_\star) = -k$, otteniamo delle iperboli:
+\begin{equation}
+    \frac{m}{2\Delta E}v^2 - \frac{k}{2\Delta E}(x - x_\star)^2 \simeq 1
+\end{equation}
+
+
+Mettiamoci ora vicino a $(x_\star,0)$, ponendo $x(t)= x_\star + \xi(t)$:
+
+\begin{equation}
+    m \ddot{x} = m \ddot{\xi} = -U'(x_\star + \xi) = -U'(x_\star) - U''(x_\star)\xi + o(\norm{\xi})
+\end{equation}
+\begin{equation}
+    \implies m \ddot{\xi} = - U''(x_\star)\xi
+    \qquad U''(x_\star) > 0 \implies \ddot{\xi} = - \omega^2 \xi \qquad \omega = \sqrt{\frac{U''(x_\star)}{m}}
+\end{equation}
+\begin{equation}
+    U''(x_\star) < 0 \implies \ddot{\xi} = \omega^2 \xi \qquad \omega = \sqrt{\frac{-U''(x_\star)}{m}}
+\end{equation}
+Nel secondo caso l'approsimazione si rompe, perché la particella si allontana dall'equilibrio.
+
+\paragraph{Proprietà delle curve di livello $H(x,v)=E$}
+
+\begin{enumerate}
+    \item \textbf{Simmetria in $v$:} l'Hamiltoniana è pari in $v$, ossia $H(x,-v)=H(x,v)$. Questo implica che ogni curva di livello è simmetrica rispetto all'asse $x$.
+    \begin{equation}
+        v_\pm(x) = \pm \sqrt{ \frac{2}{m}(E - U(x)) }
+    \end{equation}
+
+    \item \textbf{Derivata della soluzione $v_+(x)$:} derivando rispetto a $x$, si ottiene:
+    \begin{equation}
+        v_+'(x) = \frac{-U'(x)}{ \sqrt{2m(E - U(x))} }
+    \end{equation}
+    
+    \item \textbf{Punti di inversione:} sono i punti $\hat{x}$ per cui $E = U(\hat{x})$ e $U'(\hat{x}) \neq 0$ (zeri semplici). In tali punti:
+    \begin{equation}
+        \lim_{x \to \hat{x}^-} v_+'(x) = -\infty \qquad \lim_{x \to \hat{x}^+} v_+'(x) = +\infty
+    \end{equation}
+    La curva di fase in corrispondenza del punto $(\hat{x}, 0)$ ha tangente verticale. Si ha un'inversione elastica del moto: la particella si ferma e inverte la direzione.
+    \item \textbf{Connessioni:} 
+    \begin{itemize}
+        \item \textit{Connessione omoclina:} è una curva chiusa nel piano delle fasi che parte e ritorna allo stesso punto di equilibrio iperbolico $(\bar{x}, 0)$.
+         Rappresenta un'orbita di energia esattamente uguale al valore massimo locale del potenziale.
+        \item \textit{Connessione eteroclina:} è una curva che collega due punti di equilibrio iperbolici distinti $(\bar{x}_1,0)$ e $(\bar{x}_2,0)$,
+         corrispondenti a due massimi locali del potenziale.
+    \end{itemize}
+    In entrambi i casi, il tempo necessario per raggiungere l'equilibrio lungo la curva è infinito.
+
+\end{enumerate}
+
+\subsubsection{Moti limitati e periodo}
+Consideriamo orbite chiuse corrispondenti a moti periodici, limitati tra due punti di inversione $x_-(E)$ e $x_+(E)$, 
+ovvero le soluzioni dell'equazione $E = U(x)$.
+
+\begin{figure}[h]
+    \centering
+    \begin{tikzpicture}[scale=1.2, >=stealth]
+        % Assi
+        \draw[->] (-3.5, 0) -- (3.5, 0) node[below right] {$x$};
+        \draw[->] (0, -2.2) -- (0, 2.2) node[left] {$v$};
+
+        % Ellisse chiusa
+        \draw[thick, blue] 
+            plot[domain=0:360, samples=200] 
+            ({2*cos(\x)}, {1.2*sin(\x)});
+
+        % Frecce direzione del moto
+        \draw[->, thick, blue] (0.1, 1.2) -- (0.2, 1.2);
+        \draw[->, thick, blue] (-0.1, -1.2) -- (-0.2, -1.2);
+
+        % Etichette
+        \node[blue] at (1.4, 1.3) {\small $v_+(x)$};
+        \node[blue] at (-1.4, -1.3) {\small $v_-(x)$};
+        \node[blue] at (3, 0.5) {$\mathcal{C}_E=H^{-1}(E)$};
+
+        \node[below] at (-2.5, 0) {\small $x_-(E)$};
+        \node[below] at (2.5, 0) {\small $x_+(E)$};
+
+        \filldraw[black] (-2, 0) circle (1pt);
+        \filldraw[black] (2, 0) circle (1pt);
+    \end{tikzpicture}
+    \caption{Ritratto di fase per un moto periodico tra due punti di inversione $x_\pm(E)$}
+\end{figure}
+
+L'energia meccanica si conserva lungo il moto:
+\begin{equation}
+    H(x,v) = E = \frac{1}{2}mv^2 + U(x) \implies v_\pm(x) = \pm\sqrt{\frac{2}{m}(E - U(x))}
+\end{equation}
+Il periodo del moto è dato dall'integrale lungo il ciclo chiuso:
+\begin{equation}
+    T(E) = \oint_{\mathcal{C}_E} \dd{t} = \int_{x_-(E)}^{x_+(E)} \frac{1}{v_+(x)} \dd{x} + \int_{x_+(E)}^{x_-(E)} \frac{1}{v_-(x)} \dd{x}
+\end{equation}
+Per simmetria:
+\begin{equation}
+    T(E) = 2 \int_{x_-(E)}^{x_+(E)} \frac{1}{v_+(x)} \dd{x} = 2 \int_{x_-(E)}^{x_+(E)} \left( \frac{2}{m} (E - U(x)) \right)^{-1/2} \dd{x}
+\end{equation}
+\begin{figure}[h]
+    \centering
+    \begin{tikzpicture}[scale=1.2, >=stealth]
+
+        % Assi
+        \draw[->] (-3.5, 0) -- (3.5, 0) node[below right] {$x$};
+        \draw[->] (0, -2.2) -- (0, 2.2) node[right] {$p = mv$};
+
+        % Ellisse riempita tratteggiata
+        \fill[pattern=north east lines, pattern color=blue!60]
+            (2, 0) arc[start angle=0, end angle=180, x radius=2, y radius=1.2]
+            arc[start angle=180, end angle=360, x radius=2, y radius=1.2];
+
+        % Bordo ellisse
+        \draw[thick, blue]
+            (2, 0) arc[start angle=0, end angle=360, x radius=2, y radius=1.2];
+
+    \end{tikzpicture}
+    \caption{Orbita chiusa nel piano delle fasi $(x, p)$}
+\end{figure}
+
+Calcoliamo l'area nello spazio delle fasi $(x, p)$:
+\begin{equation}
+    A(E )= 2\int_{x_-(E)}^{x_+(E )}m v_+(x)\dd{x}= 2\int_{x_-(E)}^{x_+(E )} \sqrt{2m\left( E-U(x) \right)}\dd{x}
+\end{equation}
+\begin{proposition}
+    \begin{equation}
+        T(E )= \dv{A}{E}(E )    
+    \end{equation}
+\end{proposition}
+\begin{proof}
+    Sia $F(x) = \int_{\alpha}^{x} f(s)\,\dd{s}$, allora $F'(x) = f(x)$. Se $x = x(\theta)$,
+    \begin{equation*}
+        \dv{F}{\theta} = \dv{F}{x} \dv{x}{\theta} = f(x(\theta)) \dv{x}{\theta}
+    \end{equation*}
+    Analogamente, se $G(x) = \int_{x}^{\alpha} f(s)\,\dd{s}$,
+    \begin{equation*}
+        \dv{G}{\theta} = -f(x(\theta)) \dv{x}{\theta}
+    \end{equation*}
+    Dunque:
+    \begin{equation*}
+        \dv{A}{E} = 
+        2 \int_{x_-(E)}^{x_+(E)} \frac{ m}{\sqrt{2m(E - U(x))}} \dd{x} + 
+    \end{equation*}
+    \begin{equation*}
+        + 2 \sqrt{2m(E - U(x_+(E)))} \, \dv{x_+}{E}
+        - 2 \sqrt{2m(E - U(x_-(E)))} \, \dv{x_-}{E}
+    \end{equation*}
+    Ma $E - U(x_+(E))$ e $E - U(x_-(E))$ sono uguali a $0$ perché punti di inversione.
+    \begin{equation*}
+        \dv{A}{E} = 
+         \int_{x_-(E)}^{x_+(E)} \frac{ \sqrt{2m}}{\sqrt{(E - U(x))}} \dd{x}= T(E)
+    \end{equation*}
+\end{proof}
+
+
+\subsubsection{Moti illimitati e tempo di volo}
+
+\begin{figure}[ht]
+\centering
+\begin{tikzpicture}[scale=1.4, >=stealth]
+
+    % Assi
+    \draw[->] (-0.5,0) -- (4.2,0) node[below right] {$x$};
+    \draw[->] (0,-0.5) -- (0,3) node[left] {$v$};
+
+
+    % Parabola x(v)
+    \draw[thick, blue, domain=-1:1.6, samples=200]
+        plot({(\x)^2+0.5}, \x);
+
+    % Area integranda sotto la curva da v=1 a v=2.3
+    \begin{scope}
+        %\clip (0,1) rectangle (3.5,2.3);
+        \fill[pattern=north east lines, pattern color=yellow!60!black]
+            ({(1)^2+0.5}, 0)
+            -- plot[domain=1:1.6, samples=200]
+               ({(\x)^2+0.5}, \x)
+            -- ({(1.6)^2+0.5}, 0) -- cycle;
+    \end{scope}
+
+    % Contorno area
+    \draw[thick, yellow!60!black, domain=1:1.6, samples=200]
+        plot({(\x)^2+0.5}, \x);
+
+    % Freccia di moto
+    \draw[->, blue,thick ] (1.2, 0.85) -- (1.3, 0.9);
+
+    % Linea tratteggiata rossa da v=1 a parabola
+    \draw[red, thick,dashed] ({1^2 + 0.5}, 0) -- ({1^2 + 0.5}, 1);
+    \draw[green, thick,dashed] ({1.6^2 + 0.5}, 0) -- ({1.6^2 + 0.5}, 1.6);
+
+    \node[below,red] at (1.5, 0) {\small $\xi$};
+    \node[below,green] at ({1.6^2+0.5}, 0) {\small $x$};
+
+\end{tikzpicture}
+\caption{Parabola $x(v)$ con area integranda sotto la curva}
+\end{figure}
