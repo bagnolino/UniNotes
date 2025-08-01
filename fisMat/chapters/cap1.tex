@@ -1,5 +1,6 @@
 \section{Meccanica Newtoniana}
 
+
 \subsection{L'equazione di Newton}
 \begin{equation}
     f = m a 
@@ -105,6 +106,7 @@ In cui la forza non dipende dalla posizione: $f = f(v,t)$.
 \end{example}
 
 
+
 \subsubsection{Puramente posizionali}
 Forze indipendenti dalla velocità: $f= f(x,t)$. Distinguiamo inoltre le \textit{forze potenziali} in cui esiste un potenziale scalare $U(x,t)$
 tale che:
@@ -179,6 +181,7 @@ Questo implica che possono esserci componenti della forza perpendicolari alla ve
 \end{equation}
 
 
+
 \subsubsection{Forze centrali}
 
 \begin{definition}
@@ -239,6 +242,8 @@ Questo implica che possono esserci componenti della forza perpendicolari alla ve
     \end{equation}
     Poiché $\ell$ si conserva nei moti centrali, segue che $\dot{A}(t)$ è costante.
 \end{proof}
+
+
 
 \subsubsection{Forze centrali autonome, posizionali a simmetria sferica}
 Forze in cui la forza dipende solamente dal modulo del vettore posizione:
@@ -314,7 +319,9 @@ Un'altra forza importante è la \textit{forza elastica}, descritta dalla \textit
 
 %Accenno di Lagrange e Hamilton
 
+
 \subsection{Problemi}
+
 
 \subsubsection{Oscillatore armonico tridimensionale}
 \begin{equation}
@@ -476,6 +483,7 @@ Dimostriamo che queste tre definizioni siano equivalenti.
 \begin{remark}
     Per $\varepsilon \notin [0,1)$, ottengo le altre sezioni coniche: parabola ($\varepsilon=1$) e iperbole ($\varepsilon>1$).
 \end{remark}
+
 
 
 \subsubsection{Problema di Keplero}
@@ -649,6 +657,7 @@ Sostituiamo $u(\theta)$ nell'espressione dell'energia:
 \end{proof}
 
 
+
 \subsubsection{Vettore eccentricità}
 \begin{definition}
     Definiamo il \textit{vettore di Laplace-Runge-Lenz} oppure \textit{vettore eccentricità} come:
@@ -703,6 +712,7 @@ Calcolando $\varepsilon\cdot x$ otteniamo la forma dell'orbita:
 %Repulsore armonico
 
 
+
 \subsubsection{Regolarizzazione di Levi-Civita}
 \begin{equation}
     m\ddot{x}= -\frac{k}{\abs{x}^3}x \implies \ddot{x}= \frac{c}{\abs{x}^3}x \;;\quad
@@ -743,6 +753,7 @@ E' notevole la peculiarità dei potenziali kepleriani e degli oscillatori armoni
         U(r)= \frac{k}{2}r^2 \qquad U(r)= -\frac{k'}{r} \qquad \text{con } k,k'>0
     \end{equation}
 \end{theorem}
+
 
 
 \subsubsection{Sistemi newtoniani conservativi 1D}
@@ -901,6 +912,7 @@ Dunque $x$ fa sempre parte dell'\textit{insieme di sottolivello} $E $ di $U \,: 
 \end{example}
 
 
+
 \subsubsection{Ritratti in fase}
 
 \begin{definition}
@@ -991,7 +1003,11 @@ Nel secondo caso l'approsimazione si rompe, perché la particella si allontana d
 
 \end{enumerate}
 
-\subsubsection{Moti limitati e periodo}
+
+
+\subsubsection{Periodo e tempo di volo}
+
+\paragraph{Moti limitati e periodo}\mbox{}\\
 Consideriamo orbite chiuse corrispondenti a moti periodici, limitati tra due punti di inversione $x_-(E)$ e $x_+(E)$, 
 ovvero le soluzioni dell'equazione $E = U(x)$.
 
@@ -1093,19 +1109,22 @@ Calcoliamo l'area nello spazio delle fasi $(x, p)$:
 \end{proof}
 
 
-\subsubsection{Moti illimitati e tempo di volo}
-
+\paragraph{Moti illimitati e tempo di volo}\mbox{}\\
+Consideriamo ora moti illimitati, in cui $U(x)\rightarrow -\infty\quad x \rightarrow\infty$.
 \begin{figure}[ht]
 \centering
 \begin{tikzpicture}[scale=1.4, >=stealth]
 
     % Assi
     \draw[->] (-0.5,0) -- (4.2,0) node[below right] {$x$};
-    \draw[->] (0,-0.5) -- (0,3) node[left] {$v$};
+    \draw[->] (0,-1.5) -- (0,2) node[left] {$v$};
 
+    %parabola dashed
+    \draw[thick, blue,dashed, domain=-1.5:2, samples=200]
+        plot({(\x)^2+0.5}, \x);
 
     % Parabola x(v)
-    \draw[thick, blue, domain=-1:1.6, samples=200]
+    \draw[thick, blue, domain=-1:1, samples=200]
         plot({(\x)^2+0.5}, \x);
 
     % Area integranda sotto la curva da v=1 a v=2.3
@@ -1133,5 +1152,363 @@ Calcoliamo l'area nello spazio delle fasi $(x, p)$:
     \node[below,green] at ({1.6^2+0.5}, 0) {\small $x$};
 
 \end{tikzpicture}
-\caption{Parabola $x(v)$ con area integranda sotto la curva}
+\caption{Moto illimitato}   
 \end{figure}
+
+Calcoliamo il \textit{tempo di volo all'infinito} da un punto $x = \xi$ con $v > 0$:
+\begin{equation}
+    T_\xi(E) = \int_{\xi}^{+\infty} \frac{1}{v(x)}\, \dd{x} 
+    = \int_{\xi}^{+\infty} \left( \frac{2}{m} (E - U(x)) \right)^{-1/2} \dd{x}
+\end{equation}
+Se $U(x) \to -\infty$ più velocemente di $-x^2$, allora avrò $T_\xi(E) < +\infty$,
+ ovvero avrò un \textit{blow-up} a infinito in $t = T_\xi(E)$.
+
+\begin{example}
+    \begin{equation*}
+        m\ddot{x}=+kx^3;\quad U(x) = -\frac{k}{4}x^4
+    \end{equation*}
+    Calcolare $T_\xi(E = 0)$:
+    \begin{equation*}
+        \frac{1}{2}mv^2 - \frac{k}{4}x^4 = E \qquad 
+        v = \sqrt{\frac{2E}{m} + \frac{k}{2m}x^4} = \sqrt{\frac{4E + kx^4}{2m}}
+    \end{equation*}
+    \begin{equation*}
+        T_\xi(E=0) = \dv{A}{E} = \dv{E} \left( \int_{x_-}^{x_+} mv \, \dd{x} \right) 
+        = \dv{E} \left( \int_{x_-}^{x_+} \frac{\sqrt{m(4E - kx^4)}}{\sqrt{2}} \, \dd{x} \right)
+    \end{equation*}
+    \begin{equation*}
+        = \left. -\int_{x_-}^{x_+} \frac{\sqrt{2k} \, x^3}{\left( m(4E - kx^4) \right)^{1/2}} \dd{x} \right|_{E=0}
+        = - \int_{x_-}^{x_+} \sqrt{\frac{2}{m k}} \, x^{3/2} \dd{x}
+        = \eval{\sqrt{\frac{2k}{m}} \, \frac{2}{5} x^{5/2}}_{x_-}^{x_+}
+    \end{equation*}
+
+\end{example}
+
+
+
+\subsubsection{La prima teoria quantistica}
+\begin{proposition}
+    Il \textit{primo principio di quantizzazione} dice che gli unici valori consentiti per $A(E)$ sono 
+    multipli interi della costante di Planck $h $
+    \begin{equation}
+        A(E )= n h \qquad \text{ per } n = 1,2,3,\dots
+    \end{equation}
+\end{proposition}
+\begin{remark}
+    $A(E )$ ha le dimensioni dell'azione. $[A]= [p][x]=[J][s]$
+\end{remark}
+E' l'azione a essere quantizzata che implica una quantizzazione dell'energia.
+\begin{definition}
+    Definiamo la \textit{variabile d'azione}:
+    \begin{equation}
+        I (E )=  \frac{A(E)}{2\pi}= \frac{nh}{2\pi}=n \hbar  ; \qquad I(E ) = \frac{1}{2\pi}\oint_{\mathcal{C}_E }p \dd{x}
+    \end{equation}
+\end{definition}
+
+Invertendo $I(E )$ si ottiene $E(I )\implies E_n=E(n\hbar)$. Quando possiamo invertire? 
+\begin{equation}
+    \dv{A}{E}= T(E )\implies \dv{I}{E}= \frac{T}{2\pi}>0 \implies I(E ) \text{ è monotona crescente}
+\end{equation}
+Per cui $I(E )$ è invertibile per moti limitati.
+
+\begin{example}
+    \textbf{Oscillatore armonico}
+
+    \begin{equation*}
+        \frac{1}{2}mv^2 + \frac{k}{2}x^2 = E \quad \iff \quad \frac{p^2}{2m} + \frac{k}{2}x^2 = E
+    \end{equation*}
+
+    \begin{equation*}
+        \iff \quad \frac{x^2}{\left( \frac{2E}{k} \right)} + \frac{p^2}{2mE} = 1
+    \end{equation*}
+
+    \begin{equation*}
+        A(E) = \pi a b = \pi \sqrt{\frac{2E}{k}} \sqrt{2mE} = 2\pi E \sqrt{\frac{m}{k}} = \frac{2\pi E}{\omega}
+    \end{equation*}
+
+    \begin{equation*}
+        \implies I(E) = \frac{E}{\omega} \quad \implies \quad E = \omega n \hbar, \quad n = 0,1,2,\dots
+    \end{equation*}
+\end{example}
+
+\begin{example}
+    \textbf{Keplero} \quad (per l'idrogeno, $k = e^2$)
+    \begin{equation*}
+        E_n = -\frac{m e^4}{2 \hbar^2 n^2}, \qquad n = 1,2,3,\dots
+    \end{equation*}
+\end{example}
+
+\begin{proposition}
+    Se ne ricava il \textit{secondo principio di quantizzazione}:
+    \begin{equation*}
+        \omega_{n,m} = \frac{E_m - E_n}{\hbar} = \frac{m e^4}{2 \hbar^3} \left( \frac{1}{n^2} - \frac{1}{m^2} \right) \qquad \text{con } m > n
+    \end{equation*}
+    dove $\omega_{n,m}$ è la \textit{pulsazione della radiazione emessa} dall'idrogeno al passaggio tra un livello $E_m$ e $E_n$ di energia.
+\end{proposition}
+
+
+
+\subsubsection{Problemi moti centrali conservativi}
+Consideriamo ora i problemi di moto centrale conservativo con energia potenziale $U(r )$ data.
+
+\begin{equation*}
+    H = \frac{m \abs{\dot{x}}^2}{2} + U(x) = \frac{m}{2} \left( \dot{r}^2 + r^2 \dot{\theta}^2 \right) + U(r)
+\end{equation*}
+
+\begin{equation*}
+    \ell = m r^2 \dot{\theta} \, \hat{z} = \ell_z \, \hat{z} \Rightarrow \dot{\theta} = \frac{\ell_z}{m r^2}
+\end{equation*}
+
+\begin{equation*}
+    \Rightarrow H = \frac{m \dot{r}^2}{2} + \frac{\ell_z^2}{2 m r^2} + U(r) \equiv E
+\end{equation*}
+
+Derivando rispetto a $t$:
+\begin{equation*}
+    \dot{r} \left( m \ddot{r} + U'(r) - \frac{\ell_z^2}{m r^3} \right) = 0 \quad \forall\, t \in I
+    \iff m\ddot{r}= \frac{l_z^2}{mr^3}-U'(r  )
+\end{equation*}
+Il primo pezzo rappresenta la forza centrifuga.
+
+\begin{definition}
+    Definiamo il \textit{potenziale efficace } del moto radiale:
+    \begin{equation}
+        U_e(r)= U(r ) + \frac{\ell_z^2}{2mr^2}
+    \end{equation}
+\end{definition}
+Considerando il potenziale efficace torniamo a un sistema newtoniano a una dimensione:
+\begin{equation}
+    m\ddot{r}= - U'_e   (r )    
+\end{equation}
+
+\begin{example}
+    \begin{equation}
+        U(r )= -\frac{k}{r}\implies U_e(r )= -\frac{k}{r}+\frac{\ell_z^2}{2mr^2}
+    \end{equation}
+
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=0.6\textwidth]{images/orbitaKeplero.png}
+        \caption{Energia efficace e ritratti in fase per il problema di Keplero}
+    \end{figure}
+    
+    Sappiamo l'andamento di $U_e (r )$:
+    \begin{itemize}
+        \item Per $r\rightarrow \infty, \; U_e(r )\sim -\frac{k}{r}$.
+        \item Per $r\rightarrow 0,\; U_e (r ) \sim \frac{\ell_z^2}{2mr^2}$.
+        \item Per $r = \frac{\ell_z^2}{2mk},\;  U_e = 0$.
+        \item Per $r^*= \frac{\ell_z^2}{mk},\; U'_e(r^*)=0, U_e(r^*)= U_{min}=-\frac{mk^2}{2\ell_z^2}$.
+    \end{itemize}
+
+    A seconda della sua energia $E$, l'orbita avrà diversa forma:
+    \begin{itemize}
+        \item Se $E<U_{min}$ non ci sarà nessuna orbita.
+        \item Se $E= U_{min}$ ho un equilibrio, che corrisponde a un moto circolare uniforme: $\dot{\theta}=\frac{\ell_z^2}{mr^*}$.
+        \item Se $E\in (U_{min},0)$ ho moti oscillanti radialmente.
+        \item Se $E=0 $ il moto è illimitato, $\dot{r}_\pm= \sqrt{-\frac{2U_e(r )}{m }}$ che all'infinito tende a $0$, quindi il moto è una parabola.
+        \item Se $E>0$ avrò moti iperbolici in cui $\dot{r}\rightarrow k \neq 0$.
+    \end{itemize}
+
+\end{example}
+
+
+% Prova di grafico
+% \begin{tikzpicture}[scale=1.1]
+%     % Assi grafico sopra
+%     \begin{scope}
+%         \draw[->] (0,0) -- (6,0) node[right] {$r$};
+%         \draw[->] (0,0) -- (0,4) node[above] {$U_c$};
+
+%         \pgfmathsetmacro{\a}{5}
+%         \pgfmathsetmacro{\b}{2/3*\a}
+
+%         % Potenziale efficace (stilizzato)
+%         \draw[thick, blue, domain=0.5:5.5, samples=100] 
+%             plot (\x, {\a/(\x*\x+20) - \b/(\x+20)}) node[right] {};
+
+%         % Livelli di energia (orizzontali)
+%         \foreach \y/\col in {1.2/green, 1.8/red, 2.7/purple} {
+%             \draw[\col, dashed] (0.5,\y) -- (5.8,\y);
+%         }
+
+%         % Linee guida verso grafico sotto
+%         \foreach \x in {1.2,3.7,0.85,5.2} {
+%             \draw[gray!50, very thin] (\x,0) -- ++(0,-3.5);
+%         }
+%     \end{scope}
+
+%     % Grafico sotto: piano fase (r, \dot{r})
+%     \begin{scope}[yshift=-5.5cm]
+%         \draw[->] (0,0) -- (6,0) node[right] {$r$};
+%         \draw[->] (0,-2.2) -- (0,2.2) node[above] {$\dot{r}$};
+
+%         % Traiettoria chiusa (orbita ellittica)
+%         \draw[thick, blue] plot [smooth cycle, tension=1] coordinates {(1.2,0) (1.8,1.2) (3.7,0) (1.8,-1.2)};
+%         \node[blue] at (1.8,0.2) {$\circlearrowleft$};
+
+%         % Traiettoria aperta (iperbolica)
+%         \draw[thick, red, ->] plot [smooth] coordinates {(0.85,0) (1.6,1) (3,0.2) (5.2,0)};
+%         \draw[thick, red, ->] plot [smooth] coordinates {(0.85,0) (1.6,-1) (3,-0.2) (5.2,0)};
+
+%         % Traiettoria asintotica (parabolica)
+%         \draw[thick, green, ->] plot [smooth] coordinates {(1.3,0) (2.3,0.9) (4,0)};
+%         \draw[thick, green, ->] plot [smooth] coordinates {(1.3,0) (2.3,-0.9) (4,0)};
+%     \end{scope}
+% \end{tikzpicture}
+\begin{example}
+    Consideriamo il caso di potenziale centrale armonico:
+    \begin{equation}
+        U_e(r) = \frac{K r^2}{2} + \frac{\ell_z^2}{2 m r^2}
+    \end{equation}
+    Analizziamo i limiti:
+    \begin{align*}
+        r \to \infty &\implies U_e(r) \sim \frac{K r^2}{2} \\
+        r \to 0 &\implies U_e(r) \sim \frac{\ell_z^2}{2 m r^2}
+    \end{align*}
+    Quindi $U_e(r) > 0$ per ogni $r > 0$.\\
+    Il punto di minimo si trova risolvendo $U_e'(r) = 0$:
+    \begin{equation*}
+        U_e'(r) = K r - \frac{\ell_z^2}{m r^3} = 0 \implies r^* = \sqrt{ \frac{\ell_z^2}{mK} }
+    \end{equation*}
+    Il moto radiale è sempre limitato e non ci sono orbite illimitate.
+\end{example}
+
+
+
+\subsubsection{Problemi vincolati}
+Il moto è soggetto a una forza, ma imponiamo anche una restrizione geometrica, 
+vincoliamo il moto su una curva $\gamma$ o una superficie $\Sigma$.\\
+Ovviamente, sono necessarie le reazioni vincolari per il moto sul vincolo, ma queste sono difficili da trattare
+e generalmente incognite.
+\begin{example}
+    \textbf{Pendolo rigido} \\
+    Fisso una massa $m $ su una guida rigida.
+    \begin{equation}
+        m\ddot{x}= -mg\hat{e }_2 +R\,;\qquad x_1^2+x_2^2 = l^2
+    \end{equation}
+
+    Passiamo a cordinate polari:
+    \begin{equation*}
+        \begin{cases}
+            x_1 = \ell \sin \theta\\
+            x_2 = -\ell \cos \theta
+        \end{cases}
+        \qquad
+        \hat{r} = \begin{pmatrix} \sin \theta \\ -\cos \theta \end{pmatrix}, \qquad
+        \hat{\theta} = \begin{pmatrix} \cos \theta \\ \sin \theta \end{pmatrix}
+    \end{equation*}
+    Considerando che:
+    \begin{equation*}
+        \ddot{x}= \left( \ddot{r}-r\dot{\theta}^2 \right)\hat{r}+ \left( 2\dot{r}\dot{\theta}+ r\ddot{\theta} \right)\hat{\theta}
+        ;\quad R = R_r \hat{r}+R_\theta\hat{\theta};\quad  \hat{e}_1\cdot\hat{r}= -\cos(\theta);\quad \hat{e}_2\cdot\hat{\theta}=\sin(\theta)
+    \end{equation*}
+    Otteniamo:
+    \begin{equation*}
+        m\left( \ddot{r}-r\dot{\theta}^2 \right)\hat{r}+ m\left( 2\dot{r}\dot{\theta}+ r\ddot{\theta} \right)\hat{\theta}=
+        mg\cos(\theta)\hat{r}-mg\sin(\theta)\hat{\theta}+ R_r \hat{r}+ R_\theta\hat{\theta}
+    \end{equation*}
+    Considerando che per il vincolo $\dot{r}=0,\ddot{r}=0$:
+    \begin{equation*}
+        \begin{cases}
+            -mr\dot{\theta}^2=mg\cos(\theta)+ R_r\\
+            mr\ddot{\theta}= -mg\sin(\theta)+ R_\theta
+        \end{cases}
+    \end{equation*}
+    Considerando attrito nullo e quindi $R_\theta=0$, otteniamo infine il \textit{pendolo matematico}
+    \begin{equation}
+        \begin{cases}
+            R_r  = -mg\cos(\theta)-mr\dot{\theta}^2\\
+            \ddot{\theta}= -\omega^2\sin(\theta)
+        \end{cases}
+        \quad \text{ con } \omega = \sqrt{\frac{g}{r}}
+    \end{equation}
+    
+    Defininendo il potenziale con una costante arbitraria $\omega^2$:
+    \begin{equation}
+        U(\theta)= -\omega^2\cos(\theta)+\omega^2 \implies H(\theta,\dot{\theta})= \frac{\dot{\theta}^2}{2}+ \omega^2\left( 1-\cos(\theta) \right)= E 
+    \end{equation}
+    Da cui possiamo ricavare le forme dell'orbite al variare di $E$:
+    \begin{itemize}
+        \item Per $E<0$ è impossibile e non abbiamo alcuna orbita.
+        \item Per $E=0$ siamo in condizioni di equilibrio.  
+        \item Per $E \in (0,2\omega^2)$ abbiamo dei moti periodici.
+        \item Per $E = 2\omega^2$ abbiamo una connessione eteroclina.
+        \item Per $E > \omega^2$ il pendolo continua a ruotare attorno al cerchio
+    \end{itemize}
+
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=0.6\textwidth]{images/orbitaPendoloRigido.png}
+        \caption{Energia e ritratti in fase per il pendolo rigido}
+    \end{figure}
+
+    \paragraph{Piccole oscillazioni}
+    Consideriamo il caso delle piccole oscillazioni: 
+    \begin{equation*}
+        \abs{\theta} \ll 1, \implies \ddot{\theta} = -\omega^2 \sin \theta \simeq -\omega^2 \theta + o(\theta^2)
+    \end{equation*}
+    \begin{equation*}
+        H(\theta, \dot{\theta}) = \frac{\dot{\theta}^2}{2} + \frac{\omega^2 \theta^2}{2} + o(\theta^3) = E 
+    \end{equation*}
+
+    \begin{equation}
+        \implies \theta(t) = \theta(0)\cos(\omega t) + \frac{\dot{\theta}(0)}{\omega} \sin(\omega t) \quad \text{ per } \abs{\theta}\ll 1
+    \end{equation}
+
+    \begin{equation}
+        \implies R_r(t) \simeq m\left[ g\left( \frac{\theta(t)^2}{2} - 1 \right) - \ell \dot{\theta}^2(t) \right]
+    \end{equation}
+
+    \paragraph{Rotazioni veloci}
+    Consideriamo ora il caso delle rotazioni veloci, in cui $\abs{\dot{\theta}}\gg1$:
+    \begin{equation*}
+        E = \frac{\dot{\theta}^2}{2} + \omega^2 (1 - \cos \theta) \simeq \frac{\dot{\theta}^2}{2}
+        \implies \dot{\theta} \simeq \sqrt{2E}
+    \end{equation*}
+    \begin{equation}
+        R_r(t) = -m \left( g \sin \theta + r \dot{\theta}^2 \right) \simeq -m r \dot{\theta}^2 = -2Emr
+    \end{equation}
+
+    \paragraph{Calcolo del Periodo}
+    E' possibile calcolarci il periodo con la formula precedentemente ricavata:
+    \begin{equation}
+        T(E) = 2 \int_{\theta_-(E )}^{\theta_+(E)} \frac{1}{\sqrt{2\left( E - \omega^2(1 - \cos \theta) \right)}} \dd{\theta}
+    \end{equation}
+    Considerando la conservazione dell'energia:
+    \begin{equation*}
+        \dot{\theta}^2 = 2\left( E - \omega^2 (1 - \cos \theta) \right)
+    \end{equation*}
+    definiamo i punti di inversione $\theta_\pm(E)$ tali che $\dot{\theta} = 0$, ossia:
+    \begin{equation}
+        E = \omega^2(1 - \cos \theta_\pm)
+    \end{equation}
+
+    Usiamo l'identità trigonometrica $1 - \cos \theta = 2 \sin^2(\theta/2)$ per semplificare:
+    \begin{equation*}
+        E = \omega^2(1 - \cos \theta) = 2 \omega^2 \sin^2\left( \frac{\theta}{2} \right)
+        \implies \sin^2\left( \frac{\theta}{2} \right) = \frac{E}{2\omega^2}
+    \end{equation*}
+    \begin{equation}
+        \implies \theta_+(E) = 2 \arcsin\left( \sqrt{\frac{E}{2\omega^2}} \right)
+    \end{equation}
+
+\end{example}
+
+\begin{example}
+    \textbf{Particella sulla sfera in assenza di forze attive}\\
+
+    La particella si muove soggetta alla reazione vincolare $R $, perciò:
+    \begin{equation*}
+        m \ddot{x} = R, \qquad \abs{x}^2 = r^2
+    \end{equation*}
+
+    La reazione vincolare è sempre perpendicolare alla superficie sferica, quindi è una forza centrale. 
+    Di conseguenza, il momento angolare $\ell = x \times m\dot{x}$ si conserva.\\
+    Il moto avviene nel piano $\ell \cdot x = 0$, che interseca la sfera in un equatore. \\
+    Dalla conservazione del momento angolare segue che la velocità è costante:
+    \begin{equation*}
+        \abs{\ell} = m r \abs{\dot{x}} = \text{costante} \implies \abs{\dot{x}} = \text{costante}
+    \end{equation*}
+    Quindi la particella si muove di moto uniforme lungo una circonferenza massima della sfera.
+\end{example}
+
