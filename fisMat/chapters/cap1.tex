@@ -84,7 +84,7 @@ Si può scrivere:
     La soluzione del sistema newtoniano corrispondente dal dato iniziale $(x_0, v_0)$ in $\mathbb{R}^{2d}$ si indica con 
     $\Phi_N^t(x_0,v_0)$ e si chiama \textit{flusso del campo vettoriale newtoniano}
     \begin{equation}
-        \Phi_N^t; \mathbb{R}^{2d}\rightarrow\mathbb{R}^{2d} ; \qquad \Phi_N^0 (x_0,v_0)= (x_0,v_0) 
+        \Phi_N^t: \mathbb{R}^{2d}\rightarrow\mathbb{R}^{2d} ; \qquad \Phi_N^0 (x_0,v_0)= (x_0,v_0) 
     \end{equation}
 \end{definition}
 
@@ -102,13 +102,13 @@ In cui la forza non dipende dalla posizione: $f = f(v,t)$.
     $f = -\gamma v $ Attrito viscoso
 \end{example}
 \begin{example}
-    $f = q(E_0+ \frac{v}{c}\times B_0)$ Forza di Lorents in campi uniformi
+    $f = q(E_0+ \frac{v}{c}\times B_0)$ Forza di Lorentz in campi uniformi
 \end{example}
 
 
 
 \subsubsection{Puramente posizionali}
-Forze indipendenti dalla velocità: $f= f(x,t)$. Distinguiamo inoltre le \textit{forze potenziali} in cui esiste un potenziale scalare $U(x,t)$
+Cioè, forze indipendenti dalla velocità: $f= f(x,t)$, dalle quali distinguiamo inoltre le \textit{forze potenziali} in cui esiste un potenziale scalare $U(x,t)$
 tale che:
 \begin{equation}
     f= -\nabla_xU(x,t)= -\pdv{U}{x}(x,t)
@@ -210,7 +210,7 @@ Questo implica che possono esserci componenti della forza perpendicolari alla ve
 \end{proof}
 
 \begin{proposition}
-    Il moto della particella dunque si svolge sul piano ortogonale a $ell$ di equazione: $\ell\cdot x =0$
+    Il moto della particella dunque si svolge sul piano ortogonale a $\ell$ di equazione: $\ell\cdot x =0$
 \end{proposition}
 \begin{proof}
     Dimostro che il piano $\pi:\ell\cdot x=0$ è invariante:
@@ -220,7 +220,7 @@ Questo implica che possono esserci componenti della forza perpendicolari alla ve
 \end{proof}
 
 \begin{remark}
-    Dunque i moti centrali sono piano e si può ridurre di una dimensione
+    Dunque i moti centrali sono piani e si può ridurre di una dimensione
 \end{remark}
 \begin{definition}
     La \textit{velocità areolare } è l'area spazzata dal raggio vettore $x(t)$ nell'unità di tempo.
@@ -290,7 +290,7 @@ Se $x= Rx'$ dove $R$ è una matrice di rotazione:
     Calcoliamo le derivate parziali di $U$:
     \begin{equation*}
         \pdv{U}{\theta}= \pdv{U}{x_1}\pdv{x_1}{\theta}+\pdv{U}{x_2}\pdv{x_2}{\theta}+\pdv{U}{x_3}\pdv{x_3}{\theta}=
-         \left( \nabla_xU \right)\cdot\pdv{x}{\theta}= -\frac{\varphi(x)}{\abs{x}}\frac{1}{2}\pdv{\theta}\left( x\cdot x \right)
+         \left( \nabla_xU \right)\cdot\pdv{x}{\theta}= -\varphi(x)\hat{x}\pdv{x}{\theta}
     \end{equation*}
     \begin{equation}
         =-\varphi(x)\frac{1}{\abs{x}}x\cdot \pdv{x}{\theta}= - \varphi(x)\frac{1}{2\abs{x}}\pdv{\theta}\abs{x}^2
@@ -744,7 +744,7 @@ Questa è uguale a $0, \;\forall\,\tau$ se e solo se:
 \begin{equation}
     w''=\frac{\mathcal{E}}{2}w
 \end{equation}
-Che corrisponde all'equazione differenziale di un oscillatore armonico (se $\mathcal{E}<0$) oppure di un repulsore iperbolico (se $\mathcal{E}$>0).\\
+Che corrisponde all'equazione differenziale di un oscillatore armonico (se $\mathcal{E}<0$) oppure di un repulsore iperbolico (se $\mathcal{E}>0$).\\
 E' notevole la peculiarità dei potenziali kepleriani e degli oscillatori armonici, che si riscontra da:
 \begin{theorem}
     \textbf{Di Bertrand}\\
@@ -782,7 +782,7 @@ I moti possibili avvengono sull'insieme i livello $H^{-1}(E)$.
     \end{equation}
     Se $E= 0 \implies (x,v)= (0,0)$.
 
-    \begin{figure}[h]
+    \begin{figure}[ht]
         \centering
         \begin{tikzpicture}[scale=1.2]
             \draw[->] (-3.2, 0) -- (3.2, 0) node[anchor=west] {$x$};
@@ -1011,7 +1011,7 @@ Nel secondo caso l'approsimazione si rompe, perché la particella si allontana d
 Consideriamo orbite chiuse corrispondenti a moti periodici, limitati tra due punti di inversione $x_-(E)$ e $x_+(E)$, 
 ovvero le soluzioni dell'equazione $E = U(x)$.
 
-\begin{figure}[h]
+\begin{figure}[ht]
     \centering
     \begin{tikzpicture}[scale=1.2, >=stealth]
         % Assi
@@ -1053,7 +1053,7 @@ Per simmetria:
 \begin{equation}
     T(E) = 2 \int_{x_-(E)}^{x_+(E)} \frac{1}{v_+(x)} \dd{x} = 2 \int_{x_-(E)}^{x_+(E)} \left( \frac{2}{m} (E - U(x)) \right)^{-1/2} \dd{x}
 \end{equation}
-\begin{figure}[h]
+\begin{figure}[ht]
     \centering
     \begin{tikzpicture}[scale=1.2, >=stealth]
 
@@ -1286,7 +1286,7 @@ Considerando il potenziale efficace torniamo a un sistema newtoniano a una dimen
         U(r )= -\frac{k}{r}\implies U_e(r )= -\frac{k}{r}+\frac{\ell_z^2}{2mr^2}
     \end{equation}
 
-    \begin{figure}[h]
+    \begin{figure}[ht]
         \centering
         \includegraphics[width=0.6\textwidth]{images/orbitaKeplero.png}
         \caption{Energia efficace e ritratti in fase per il problema di Keplero}
@@ -1436,7 +1436,7 @@ e generalmente incognite.
         \item Per $E > \omega^2$ il pendolo continua a ruotare attorno al cerchio
     \end{itemize}
 
-    \begin{figure}[h]
+    \begin{figure}[ht]
         \centering
         \includegraphics[width=0.6\textwidth]{images/orbitaPendoloRigido.png}
         \caption{Energia e ritratti in fase per il pendolo rigido}
