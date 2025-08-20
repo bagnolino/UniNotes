@@ -1,0 +1,523 @@
+\section{Meccanica Hamiltoniana}
+
+Partiamo dalla nostra descrizione della meccanica lagrangiana:
+\begin{equation}
+    \mathcal{L}(q,\dot{q}) \quad q \in \mathbb{R}^L \;;\quad p_i= \pdv{\mathcal{L}}{\dot{q}_i}\;;\quad \dot{p}_i= \pdv{\mathcal{L}}{q}
+\end{equation}
+Le equazioni di Lagrange determinano i punti critici del funzionale d'azione:
+\begin{equation}
+    S_\mathcal{L}[q].= \int_{t_1}^{t_2}\mathcal{L}(q(t),\dot{q}(t),t)\dd{t};
+\end{equation}
+dato che:
+\begin{equation}
+    \frac{\delta S_\mathcal{L}}{\delta q }= \pdv{\mathcal{L}}{q}-\dv{t}\pdv{\mathcal{L}}{\dot{q}}=0
+\end{equation}
+Si conserva: $H(q,\dot{q},t)=p\cdot \dot{q}- \mathcal{L}$ o meglio soddisfa $\dot{H}= -\pdv{\mathcal{L}}{t}$ e quindi si conserva quando $\pdv{\mathcal{L}}{t}=0$.
+
+\begin{remark}
+    $p = \pdv{\mathcal{L}}{\dot{q}}\left(q,\dot{q},t\right)$ è invertibile, cioè permette di ricavare
+     $\dot{q}(q,p,t)$ se $\pdv[2]{\mathcal{L}}{\dot{q}}$ è non singolare localmente, cioè $\exists\,f:\mathbb{R}^L \times \mathbb{R}^L \times \mathbb{R}\rightarrow \mathbb{R}$ tale che $\dot{q}= f(q, p,t)$
+\end{remark}
+
+\begin{theorem}
+    \textbf{Hamilton}\\
+    Se $\det(\pdv[2]{\mathcal{L}}{\dot{q}})\neq 0 $ localmente allora le equazioni di Lagrange sono 
+    equivalenti alle equazioni di Hamilton:
+    \begin{equation}
+        \left\{
+            \begin{aligned}
+                \dot{q}&= \pdv{\mathcal{H}}{p}\\
+                \dot{p}&= -\pdv{\mathcal{H}}{q}
+            \end{aligned}
+        \right.
+    \end{equation}
+    dove $\mathcal{H}= H(q,f(q,p,t),t)$ e vale $\dot{\mathcal{H}}= -\pdv{\mathcal{L}}{t}$.
+
+    $\mathcal{H}(q,p,t)$ si dice \textit{hamiltoniana} del sistema.
+\end{theorem}
+
+\begin{proof}
+    L'esistenza di $f$ e l'unicità è data dal teorema del Dini: $p:= \pdv{\mathcal{L}}{\dot{q}}(q,\dot{q},t)$ si può invertire
+    cioé $\dot{q}= f(q,p,t)$ se $J_{\dot{q}}\left( \pdv{\mathcal{L}}{\dot{q}} \right)$ è non singolare, ovvero $\det(\pdv[2]{\mathcal{L}}{\dot{q}})\neq 0$.
+
+    Calcoliamo:
+    \begin{equation*}
+        \dd{\mathcal{H}}(q,p,t)= \pdv{\mathcal{H}}{q}\cdot\dd{q}+\pdv{\mathcal{H}}{p}\cdot\dd{p}+\pdv{\mathcal{H}}{t}\dd{t}
+    \end{equation*}
+    Inoltre:
+    \begin{equation*}
+        \dd{\mathcal{H}}= \dd{\left( p\cdot f -\mathcal{L}(q,f,t) \right)}= 
+        f\cdot\dd{p}+ p\cdot\dd{f}-\pdv{\mathcal{L}}{q}\cdot\dd{q}-\pdv{\mathcal{L}}{\dot{q}}\cdot\dd{f}-\pdv{\mathcal{L}}{t}\dd{t}=
+    \end{equation*}
+    \begin{equation*}
+        = -\pdv{\mathcal{L}}{q}\cdot\dd{q}+f\cdot\dd{p}-\pdv{\mathcal{L}}{t}\dd{t}
+    \end{equation*}
+    \begin{equation}
+        \implies \pdv{\mathcal{H}}{q}= -\pdv{\mathcal{L}}{q}\;;\quad \pdv{\mathcal{H}}{p}= f \;;\quad \pdv{\mathcal{H}}{t}= -\pdv{\mathcal{L}}{t}
+    \end{equation}
+    \begin{equation*}
+        \pdv{\mathcal{L}}{q}= \dv{t}\pdv{\mathcal{L}}{\dot{q}} = \dot{p}\;;\; f = \dot{q}
+    \end{equation*}
+    Per finire:
+    \begin{equation*}
+        \dot{\mathcal{H}}= \dv{t}\mathcal{H}(q(t),p(t),t)= \pdv{\mathcal{H}}{q}\cdot \dot{q}+\pdv{\mathcal{H}}{p}\cdot\dot{p}+\pdv{\mathcal{H}}{t}= -\pdv{\mathcal{L}}{t}
+    \end{equation*}
+\end{proof}
+
+\begin{remark}
+    \begin{equation*}
+        \pdv{\mathcal{L}}{t}=0 \iff \mathcal{H} \text{  costante}
+    \end{equation*}
+\end{remark}
+
+\begin{remark}
+    Se $q_i$ è ciclica in senso lagrangiano lo è anche in senso hamiltoniano:
+    \begin{equation*}
+        \pdv{\mathcal{H}}{q_i}= -\pdv{\mathcal{L}}{q_i}= 0 \implies p_i \text{  costante}
+    \end{equation*}
+\end{remark}
+\begin{remark}
+    Per sistemai meccanici $\pdv[2]{\mathcal{L}}{\dot{q}}= \pdv[2]{K_2}{\dot{q}}= A(q,t)$ è matrice definita positiva $\forall\,(q,t)$
+\end{remark}
+
+
+\begin{example}
+    \textbf{Moto newtoniano potenziale monodimensionale} 
+    \begin{equation}
+        \mathcal{L}(x,\dot{x},t)= \frac{m}{2}\dot{x}^2 - U(x,t)
+        \dv{t}\pdv{\mathcal{L}}{\dot{x}}= \pdv{\mathcal{L}}{x} 
+        \iff m\ddot{x}= -\pdv{U}{x}
+    \end{equation}
+    \begin{equation}
+        \mathcal{H}(x,\dot{x},t)= p\dot{x}-\mathcal{L}= \frac{m}{2}\dot{x}^2+ U(x,t)
+    \end{equation}
+    \begin{equation}
+        p=m\dot{x} \implies \mathcal{H}(x,p,t)= \frac{p^2}{2m}+ U(x,t)
+    \end{equation}
+    \begin{equation}
+        \begin{cases}
+            \dot{x}= \pdv{\mathcal{H}}{p}= \frac{p}{m}\\
+            \dot{p}= -\pdv{\mathcal{H}}{x}= -\pdv{U}{x}
+        \end{cases}
+        \implies m\ddot{x}= -\pdv{U}{x}
+    \end{equation}
+\end{example}\begin{example}
+    \begin{equation}
+        \mathcal{L}(q,\dot{q},t)= \frac{1}{2}\dot{q}\cdot A(q)\dot{q}-U(q,t), 
+        \quad q\in\mathbb{R}^L
+    \end{equation}
+    \begin{equation}
+        p= \pdv{\mathcal{L}}{\dot{q}}= A(q)\dot{q} 
+        \implies \dot{q}= A^{-1}(q)p \quad (=:f)
+    \end{equation}
+    \begin{equation}
+        H(q,\dot{q},t)= \frac{1}{2}\dot{q}\cdot A(q)\dot{q}+ U(q,t) 
+        \implies \mathcal{H}(q,p,t)= \frac{1}{2}p\cdot A^{-1}(q)p+ U(q,t)
+    \end{equation}
+    \begin{equation}
+        \dot{q}= \pdv{\mathcal{H}}{p}= A^{-1}(q)p
+    \end{equation}
+    \begin{equation}
+        \dot{p}= -\pdv{q}\left[\frac{1}{2}p\cdot A^{-1}(q)p+ U(q,t)\right]
+    \end{equation}
+    \begin{equation}
+        \dot{p}_j= -\pdv{q_j}\left[\frac{1}{2}\sum_{l,k=1}^L p_l (A^{-1}(q))_{lk}p_k+ U(q,t)\right]
+    \end{equation}
+    \begin{equation*}
+        = -\frac{1}{2}\sum_{l,k=1}^L p_l p_k \pdv{(A^{-1}(q))_{lk}}{q_j} - \pdv{U}{q_j}(q,t)
+    \end{equation*}
+\end{example}
+\begin{example}
+    \begin{equation}
+        \mathcal{L}(x,\dot{x},t)= \frac{m}{2}\abs{\dot{x}}^2 + \frac{q}{c}A(x,t)\cdot \dot{x} - q\phi(x,t)
+    \end{equation}
+    \begin{equation}
+        p= \pdv{\mathcal{L}}{\dot{x}}= m\dot{x}+ \frac{q}{c}A(x,t) 
+        \implies \dot{x}= \frac{1}{m}\left(p- \frac{q}{c}A(x,t)\right)= f(x,p,t)
+    \end{equation}
+    \begin{equation}
+        H(x,\dot{x},t)= \frac{m}{2}\abs{\dot{x}}^2 + q\phi(x,t)
+    \end{equation}
+    \begin{equation}
+        \mathcal{H}(x,p,t)= H(x,f,t)= \frac{m}{2}\cdot \frac{1}{m^2}\abs{p- \frac{q}{c}A(x,t)}^2 + q\phi(x,t)
+    \end{equation}
+    \begin{equation*}
+        = \frac{1}{2m}\abs{p- \frac{q}{c}A(x,t)}^2 + q\phi(x,t)
+    \end{equation*}
+\end{example}
+\begin{example}
+    \textbf{Moti centrali}
+    \begin{equation}
+        \mathcal{L}(x,\dot{x})= \frac{m}{2}\abs{\dot{x}}^2 - U(\abs{x}), \quad p= m\dot{x}
+    \end{equation}
+    \begin{equation}
+        m\ddot{x}= -\nabla U(\abs{x}), \qquad 
+        H(x,\dot{x})= \frac{m}{2}\abs{\dot{x}}^2 + U(\abs{x})
+    \end{equation}
+    \begin{equation}
+        \mathcal{H}(x,p)= \frac{\abs{p}^2}{2m}+ U(\abs{x})
+    \end{equation}
+    Passiamo in coordinate polari sferiche:
+    \begin{equation}
+        ds^2= dx\cdot dx= dr^2+ r^2 d\theta^2+ r^2\sin^2\theta\, d\varphi^2
+    \end{equation}
+    \begin{equation}
+        \abs{\dot{x}}^2= \dot{r}^2+ r^2\dot{\theta}^2+ r^2\sin^2\theta\, \dot{\varphi}^2
+    \end{equation}
+    \begin{equation}
+        \mathcal{L}(r,\theta,\varphi,\dot{r},\dot{\theta},\dot{\varphi})= 
+        \frac{m}{2}\left(\dot{r}^2+ r^2\dot{\theta}^2+ r^2\sin^2\theta\,\dot{\varphi}^2\right)- U(r)
+    \end{equation}
+    La coordinata $\varphi$ è ciclica:
+    \begin{equation}
+        p_\varphi= \pdv{\mathcal{L}}{\dot{\varphi}}= mr^2\sin^2\theta\,\dot{\varphi} \quad \text{costante}
+    \end{equation}
+    \begin{equation}
+        p_r= m\dot{r}, \qquad p_\theta= mr^2\dot{\theta}
+    \end{equation}
+    \begin{equation}
+        \dot{r}= \frac{p_r}{m}, \quad 
+        \dot{\theta}= \frac{p_\theta}{mr^2}, \quad 
+        \dot{\varphi}= \frac{p_\varphi}{mr^2\sin^2\theta}
+    \end{equation}
+    \begin{equation}
+        \mathcal{H}(r,\theta,\varphi,p_r,p_\theta,p_\varphi)= 
+        \frac{p_r^2}{2m}+ \frac{p_\theta^2}{2mr^2}+ \frac{p_\varphi^2}{2mr^2\sin^2\theta}+ U(r)
+    \end{equation}
+    con $p_\varphi \equiv \ell_3$ costante.
+
+    Dall’hamiltoniana trovata:
+    \begin{equation}
+        \mathcal{H}= \frac{p_r^2}{2m}+ \frac{1}{2mr^2}\left(p_\theta^2+ \frac{p_\varphi^2}{\sin^2\theta}\right)+ U(r)
+    \end{equation}
+    definiamo il momento angolare
+    \begin{equation}
+        \ell^2= \abs{x\times p}^2= (x\times p)\cdot(x\times p)
+    \end{equation}
+    Usando l’identità vettoriale:
+    \begin{equation}
+        (a\times b)\cdot(a\times b)= (a\cdot a)(b\cdot b)- (a\cdot b)^2
+    \end{equation}
+    \begin{equation}
+       \implies \ell^2= r^2\abs{p}^2-(\hat{r}\cdot p)^2 r^2= r^2\abs{p}^2- (rp_r)^2
+    \end{equation}
+    \begin{equation}
+        \implies\abs{p}^2= p_r^2+ \frac{\ell^2}{r^2}
+    \end{equation}
+    Allora
+    \begin{equation}
+        \frac{1}{2mr^2}\left(p_\theta^2+ \frac{p_\varphi^2}{\sin^2\theta}\right)= \frac{\ell^2}{2mr^2}
+    \end{equation}
+    \begin{equation}
+        \implies \mathcal{H}= \frac{p_r^2}{2m}+ \frac{\ell^2}{2mr^2}+ U(r)=E
+    \end{equation}
+    che definisce il potenziale efficace
+    \begin{equation}
+        U_\text{eff}(r)= U(r)+ \frac{\ell^2}{2mr^2}
+    \end{equation}
+    Le equazioni del moto radiale sono:
+    \begin{equation}
+        \dot{r}= \frac{p_r}{m}, \qquad \dot{p}_r= -U_\text{eff}'(r)
+    \end{equation}
+\end{example}
+
+
+\subsection{Struttura algebrica della meccanica hamiltoniana}
+
+\begin{equation}
+    \left\{
+        \begin{aligned}
+            \dot{q}&= \pdv{\mathcal{H}}{p}\\
+            \dot{p}&= -\pdv{\mathcal{H}}{q}
+        \end{aligned}
+    \right.
+\end{equation}
+con $\mathcal{H}(q,p,t)$ hamiltoniana del sistema.
+
+Lo \textit{spazio delle fasi} del sistema è $\Gamma\subseteq \mathbb{R}^L\times \mathbb{R}^L,\quad (q,p)\in \Gamma$.\\
+Il \textit{flusso} del sistema hamiltoniano si indica con $\Phi_\mathcal{H}^t$, $\Phi_\mathcal{H}^t(q(0),p(0))$
+è la soluzione delle equazioni di Hamilton al tempo t con dato iniziale $(q(0),p(0))$.
+
+\begin{definition}
+    Le funzioni regolari ($\mathcal{C}^\infty$) su $\Gamma$ sono dette \textit{osservabili}, si stratta di $\mathcal{F}: \Gamma\times \mathbb{R}\rightarrow \mathbb{R}$.
+\end{definition}
+
+\begin{definition}
+    Le osservabili su $\Gamma $ formano un'\textit{algebra}:
+    \begin{itemize}
+        \item[(i)] Possono essere combinate linearmente:
+        \begin{equation}
+            \mathcal{F}, \,\mathcal{G} \in \text{oss}_\Gamma\implies (\alpha\mathcal{F}+\beta\mathcal{G})(q,p,t)= 
+            \alpha\mathcal{F}(q,p,t)+\beta\mathcal{G}(q,p,t)
+        \end{equation}
+        \item[(ii)]Si possono moltiplicare:
+        \begin{equation}
+            \mathcal{F}, \,\mathcal{G} \in \text{oss}_\Gamma\implies \left( \mathcal{F}\mathcal{G} \right)(q,p,t)= \mathcal{F}(q,p,t)\mathcal{G}(q,p,t)
+        \end{equation}
+    \end{itemize}
+\end{definition}   
+
+\begin{remark}
+    $\mathcal{H}$ è una particolare osservabile.
+\end{remark}
+
+Come evolve una osservabile $\mathcal{F}\in \text{oss}_\Gamma$ lungo il flusso $\Phi_\mathcal{H}^t$?
+\begin{equation}
+    \dv{t}\mathcal{F}(q(t),p(t),t) 
+    = \sum_{i=1}^L \left( \pdv{\mathcal{F}}{q_i}\dot{q}_i+ \pdv{\mathcal{F}}{p_i}\dot{p}_i \right)+ \pdv{\mathcal{F}}{t}
+\end{equation}
+\begin{equation}
+    = \sum_{i=1}^L \left( \pdv{\mathcal{F}}{q_i}\pdv{\mathcal{H}}{p_i}- \pdv{\mathcal{F}}{p_i}\pdv{\mathcal{H}}{q_i}\right)+ \pdv{\mathcal{F}}{t}
+\end{equation}
+cioè
+\begin{equation}
+    \dot{\mathcal{F}}= \{\mathcal{F},\mathcal{H}\}+ \pdv{\mathcal{F}}{t}
+\end{equation}
+\begin{definition}
+    \begin{equation}
+        \{\mathcal{F},\mathcal{H}\}=
+        \pdv{\mathcal{F}}{q}\cdot\pdv{\mathcal{H}}{p}- \pdv{\mathcal{F}}{p}\cdot\pdv{\mathcal{H}}{q}
+    \end{equation}
+    Questa operazione si chiama \textit{parentesi di Poisson} tra le osservabili $\mathcal{F}$ e $\mathcal{H}$.
+\end{definition}
+
+\begin{remark}
+    La parentesi di Poisson $\{\cdot,\cdot\}$ è un'operazione binaria chiusa sulle osservabili, cioè se 
+    $\mathcal{F},\mathcal{G}\in\text{oss}_\Gamma$ allora anche $\{\mathcal{F},\mathcal{G}\}\in\text{oss}_\Gamma$.
+\end{remark}
+
+\begin{proposition}[Proprietà delle parentesi di Poisson]
+Siano $\mathcal{F},\mathcal{G},\mathcal{K}\in \text{oss}_\Gamma$ e $\alpha,\beta\in\mathbb{R}$. Allora:
+\begin{enumerate}[label=(\roman*)]
+    \item \textbf{Antisimmetria:} $\{\mathcal{F},\mathcal{G}\}= -\{\mathcal{G},\mathcal{F}\}$.
+    \item \textbf{Bilinearità:} $\{\alpha \mathcal{F}+\beta \mathcal{G},\mathcal{K}\}= \alpha\{\mathcal{F},\mathcal{K}\}+\beta\{\mathcal{G},\mathcal{K}\}$.
+    \item \textbf{Identità di Jacobi:} 
+    \[
+        \{\{\mathcal{F},\mathcal{G}\},\mathcal{K}\}+ \{\{\mathcal{G},\mathcal{K}\},\mathcal{F}\}+ \{\{\mathcal{K},\mathcal{F}\},\mathcal{G}\}=0.
+    \]
+    \item \textbf{Regola di Leibniz:} 
+    \[
+        \{\mathcal{F},\mathcal{G}\mathcal{K}\}=\{\mathcal{F},\mathcal{G}\}\mathcal{K}+\mathcal{G}\{\mathcal{F},\mathcal{K}\}.
+    \]
+\end{enumerate}
+\end{proposition}
+
+\begin{definition}
+    L'algebra delle osservabili $\text{oss}_\Gamma$ dotata della parentesi di Poisson si chiama \textit{algebra di Poisson}.
+\end{definition}
+
+\begin{remark}
+    Le equazioni di Hamilton si possono riscrivere come:
+    \begin{equation}
+        \begin{cases}
+            \dot{q}_i = \left\{ q_i,\mathcal{H} \right\}\\
+            \dot{p}_i = \left\{ p_i,\mathcal{H} \right\}
+        \end{cases}
+    \end{equation}
+\end{remark}
+
+Consideriamo ora solo le osservabili autonome, ovvero senza dipendenza esplicita
+ da $t$: per cui vale $\dot{\mathcal{F}}= \left\{ \mathcal{F},\mathcal{H} \right\}$.
+
+\begin{enumerate}
+    \item $\dot{\mathcal{F}}=0 \iff \{\mathcal{F},\mathcal{H}\}=0$, cioè    
+    gli \textit{integrali primi} (quantità conservate) sono tutte e sole le osservabili
+    che Poisson-commutano con $\mathcal{H}$.
+
+    \item $\mathcal{H}(t)\equiv\mathcal{H}(0)$ è costante $\implies \dot{\mathcal{F}}(t)=\{\mathcal{F}(t),\mathcal{H}\}\equiv
+    L_\mathcal{H}\mathcal{F}(t)= \left\{ \mathcal{F}, \mathcal{H} \right\}$
+\end{enumerate}
+\begin{definition}
+    Si definisce l'operatore derivata di Lie lungo $\mathcal{H}$:
+    \begin{equation}
+        L_\mathcal{H}\vdot := \{\vdot,\mathcal{H}\}
+    \end{equation}
+\end{definition}
+\begin{remark}
+    La soluzione di $\dot{\mathcal{F}}(t)=L_\mathcal{H}\mathcal{F}(t)$ è
+    \begin{equation}
+        \mathcal{F}(t)=e^{tL_\mathcal{H}}\mathcal{F}(0)
+    \end{equation}
+    dove
+    \begin{equation}
+        e^{tL_\mathcal{H}} = \mathbb{I} + \sum_{n=1}^{\infty}\frac{1}{n!}(tL_\mathcal{H})^n
+    \end{equation}
+\end{remark}    
+
+    Ma $\mathcal{F}(t)=\mathcal{F}(q(t),p(t))=\mathcal{F}(\Phi_\mathcal{H}^t(q(0),p(0)))$, con $\mathcal{F}(0)=\mathcal{F}(q(0),p(0))$.  
+    Quindi
+    \begin{equation}
+        \mathcal{F}\circ \Phi_\mathcal{H}^t = e^{tL_\mathcal{H}}\mathcal{F} \textit{   Lemma di scambio}
+    \end{equation}
+
+\begin{remark}
+    \begin{equation}
+        L_\mathcal{H}\mathcal{F}=\{\mathcal{F},\mathcal{H}\}
+        = \pdv{\mathcal{F}}{q}\cdot \pdv{\mathcal{H}}{p}
+        - \pdv{\mathcal{F}}{p}\cdot \pdv{\mathcal{H}}{q}
+    \end{equation}
+    \begin{equation}
+        \implies L_\mathcal{H}=
+        \pdv{\mathcal{H}}{p}\cdot \pdv{}{q}
+        - \pdv{\mathcal{H}}{q}\cdot \pdv{}{p}
+    \end{equation}
+\end{remark}
+
+\begin{proposition}
+    Supponiamo che una data $\mathcal{H}$ dipenda dalla coppia di variabili coniugate $(q_1,p_1)$ nella forma:
+    \begin{equation}
+        \mathcal{H}(q_1,q_2,\dots,q_L,p_1,p_2,\dots,p_L)= H (g(q_1,p_1),q_2,\dots,q_L,p_2,\dots,p_L)
+    \end{equation}
+    allora $g(q_1,p_1)$ è una costante del moto.
+\end{proposition}
+
+\begin{proof}
+    \begin{equation}
+        \left\{ g,\mathcal{H} \right\}=\sum_{i=1}^{L}\left( \pdv{g}{q_i}\pdv{\mathcal{H}}{p_i}-\pdv{g}{p_i}\pdv{\mathcal{H}}{q_i} \right)
+        =\pdv{g}{q_1}\pdv{H}{g}\pdv{g}{p_1}-\pdv{g}{p_1}\pdv{H}{g}\pdv{g}{q_1}=0\implies \dot{g}=0
+    \end{equation}
+\end{proof}
+
+\begin{remark}
+    Nella $\mathcal{H}$ del moto centrale:
+    \begin{equation}
+        \mathcal{H}= \frac{p_r^2}{2m}+ \frac{1}{2mr^2}\left( p_\theta^2 + \frac{p_\phi^2}{\sin[2](\theta)}\right)+ U_r
+        \qquad p_\phi \text{ costante}   
+    \end{equation}
+    \begin{equation}
+        \implies g(\theta, p_\theta)= \left( p_\theta^2+\frac{p_\phi^2}{\sin(\theta)} \right) \text{  costante}
+    \end{equation}
+\end{remark}
+
+\begin{definition}
+    Un insieme di osservabili $\mathcal{F}_1,\dots, \mathcal{F}_n $ è deto \textit{involuzione} se 
+    \begin{equation}
+        \left\{ \mathcal{F}_i,\mathcal{F}_j \right\}  = 0\quad  \forall\,i,j= 1,\dots, n  
+    \end{equation}
+\end{definition}
+
+\begin{remark}
+    $p_\phi, \left( p_\theta^2+\frac{p_\phi^2}{\sin(\theta)} \right)$ sono in involuzione tra loro.
+\end{remark}
+
+\begin{proposition}
+    \textbf{Parentesi fondamentali}
+    \begin{equation}
+        \left\{ q_i,q_j \right\}=0  \quad \left\{ p_i,p_j \right\}=0  \quad \left\{ q_i,p_j \right\}= \delta^i_j \quad \forall \,i,j= 1,\cdot, L 
+    \end{equation}
+\end{proposition}
+\begin{proof}
+    \begin{equation*}
+        \left\{ q_i,q_j \right\}= \sum_{l=1}^{L}\left( \pdv{q_i}{q_l}\pdv{q_j}{p_l }-\pdv{q_i}{p_l}\pdv{q_j}{q_l} \right)=\delta^i_l-\delta^j_l=0
+    \end{equation*}
+    \begin{equation*}
+        \left\{ q_i,p_j \right\}= \sum_{l=1}^{L}\left( \pdv{q_i}{q_l}\pdv{p_j}{p_l}-\pdv{q_i}{p_l}\pdv{p_j}{q_l} \right)= \delta^i_l \delta^j_l=\delta^i_j
+    \end{equation*}
+\end{proof}
+
+\begin{definition}
+    Si dice che una trasformazione è \textit{canonica} se mantiene le parentesi di Poisson fondamentali.
+\end{definition}
+
+\begin{proposition}
+    Se $\mathcal{F}= \mathcal{F}(q_1,\dots,q_r,p_1,\dots,p_r ),\; 
+    \mathcal{G}= \mathcal{G}(q_{r+1},\dots,q_L,p_{r+1},\dots,p_L)$ allora $\{\mathcal{F},\mathcal{G}\}=0$
+\end{proposition}
+\begin{proof}
+    \begin{equation*}
+        \{\mathcal{F},\mathcal{G}\}=
+        \sum_{l=1}^r \left( 
+            \pdv{\mathcal{F}}{q_l}\pdv{\mathcal{G}}{p_l}
+            - \pdv{\mathcal{F}}{p_l}\pdv{\mathcal{G}}{q_l}
+        \right)
+        + \sum_{l=r+1}^L \left(
+            \pdv{\mathcal{F}}{q_l}\pdv{\mathcal{G}}{p_l}
+            - \pdv{\mathcal{F}}{p_l}\pdv{\mathcal{G}}{q_l}
+        \right)=0
+    \end{equation*}
+\end{proof}
+
+
+\begin{example}
+    \textbf{Sistema integrabile}. Il moto centrale è integrabile:
+
+    \begin{equation}
+        \mathcal{H} = \frac{p_r^2}{2m} + \frac{p_\theta^2}{2mr^2} + \frac{p_\varphi^2}{2mr^2\sin^2\theta} + U(r), 
+        \qquad p_\varphi = c_1, \quad p_\theta^2 + \frac{p_\varphi^2}{\sin^2\theta} = c_2
+    \end{equation}
+
+    \begin{equation}
+        \implies \frac{p_r^2}{2m} + \frac{c_2}{2mr^2} + U(r) = \frac{p_r^2}{2m} + U_\text{eff}(r)
+        \implies m\ddot{r} = -U_\text{eff}'(r)
+    \end{equation}
+    Riotteniamo anceh le altre due dimensioni:
+    \begin{equation}
+        \dot{\theta} = \pdv{\mathcal{H}}{p_\theta} = \frac{p_\theta}{mr^2}, 
+        \qquad 
+        \dot{\varphi} = \pdv{\mathcal{H}}{p_\varphi} = \frac{p_\varphi}{mr^2\sin^2\theta}
+    \end{equation}
+    
+    Vogliamo ricondurre anche altri sistemi al moto centrale. Consideriamo il potenziale separabile
+    \begin{equation}
+        U(r,\theta,\varphi)=u(r)+\frac{v(\theta)}{2r^2}+\frac{w(\varphi)}{2r^2\sin^2\theta}.
+    \end{equation}
+    Allora
+    \begin{equation}
+        \mathcal{H}=\frac{p_r^2}{2m}+\frac{p_\theta^2}{2mr^2}+\frac{p_\varphi^2}{2mr^2\sin^2\theta}+U(r,\theta,\varphi)
+    \end{equation}
+    \begin{equation}
+        =\frac{p_r^2}{2m}+u(r)+\frac{1}{2mr^2}\left[\,p_\theta^2+m v(\theta)+\frac{p_\varphi^2+m w(\varphi)}{\sin^2\theta}\,\right]
+    \end{equation}
+    Definiamo
+    \begin{equation}
+        g_1(\varphi,p_\varphi):=p_\varphi^2+m w(\varphi)\equiv c_1 \text{  costante}
+    \end{equation}
+    \begin{equation}
+        \implies \mathcal{H}=\frac{p_r^2}{2m}+u(r)+\frac{1}{2mr^2} \left[\,p_\theta^2+m v(\theta)+\frac{c_1}{\sin^2\theta}\,\right]
+    \end{equation}
+    Definendo inoltre:
+    \begin{equation*}
+        g_2(\theta,p_\theta)= p_\theta^2+m v(\theta)+\frac{c_1}{\sin^2\theta} \equiv c_2 \text{  costante}
+    \end{equation*}
+    \begin{equation}
+        \implies \mathcal{H}=\frac{p_r^2}{2m}+u(r)+\frac{c_2}{2mr^2}\equiv\frac{p_r^2}{2m}+U_{\text{eff}}(r),
+    \end{equation}
+    Mostriamo che $g_1,g_2$ sono in involuzione:
+    \begin{equation}
+        \{g_i,\mathcal{H}\}=0 \qquad (i=1,2),
+    \end{equation}
+    \begin{equation*}
+        \{g_1,g_2\}=\{p_\varphi^2+m w(\varphi),p_\theta^2+m v(\theta)+ \frac{p_\varphi^2+m w(\varphi)}{\sin[2](\theta)}\}=
+    \end{equation*}
+    \begin{equation*}
+        =\{p_\varphi^2+m w(\varphi), p_\theta^2+m v(\theta)\}+ \{p_\varphi^2+m w(\varphi),\frac{p_\varphi^2+m w(\varphi)}{\sin[2](\theta)}\}=
+    \end{equation*}
+    \begin{equation}
+        = \frac{1}{\sin[2](\theta)}\{p_\varphi^2+m w(\varphi),p_\varphi^2+m w(\varphi)\}+ (p_\varphi^2+m w(\varphi))\{p_\varphi^2+m w(\varphi), \frac{1}{\sin[2](\theta)}\}=0
+    \end{equation}
+\end{example}
+
+Supponiamo esista una trasformazione canonica
+\begin{equation}
+    (r,\theta,\varphi,p_r,p_\theta,p_\varphi)\longmapsto (Q_1,Q_2,Q_3,P_1,P_2,P_3)
+\end{equation}
+e una funzione generatrice dell’evoluzione $\;K(Q,P)\;$ tale che le equazioni di Hamilton siano
+\begin{equation}
+    \dot{Q}_i=\pdv{K}{P_i},\qquad \dot{P}_i=-\pdv{K}{Q_i}\qquad (i=1,2,3).
+\end{equation}
+Se scegliamo
+\begin{equation}
+    P_1=g_1,\qquad P_2=g_2,\qquad P_3=\mathcal{H} \quad \text{(costanti del moto)},
+\end{equation}
+allora
+\begin{equation}
+    \dot{P}_i=0 \implies \pdv{K}{Q_i}=0 \implies K=K(P_1,P_2,P_3).
+\end{equation}
+Il flusso risulta quindi \textit{rettificato}:
+\begin{equation}
+    \dot{Q}_i=\Omega_i(P):=\pdv{K}{P_i},\qquad \dot{P}_i=0.
+\end{equation}
+Le soluzioni sono
+\begin{equation}
+    Q_i(t)=\Omega_i(P(0))\,t+Q_i(0),\qquad P_i(t)=P_i(0).
+\end{equation}

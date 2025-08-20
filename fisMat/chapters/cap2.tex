@@ -1999,3 +1999,421 @@ Dunque se $\bar{q}$ è punto critico non degenere, con $B=\pdv[2]{U}{q}(\bar{q})
 \end{itemize}
 
 \end{proposition}
+
+
+
+\subsection{Pendolo doppio}
+
+
+% con float, caption e label
+\begin{figure}[ht]
+\centering
+\begin{tikzpicture}[scale=1.2]
+    % Assi
+    \draw[->] (-0.5,3) -- (2.5,3) node[right] {$x$};
+    \draw[->] (0,0.5) -- (0,3.5) node[above] {$y$};
+
+    % Primo braccio (lunghezza \ell, angolo 45°)
+    \coordinate (O) at (0,3);
+    \coordinate (A) at (1,2); % metà di (2,-2)
+    \draw[thick] (O) -- (A) node[midway, above right] {$\ell$};
+    \fill (A) circle (2pt) node[right] {$m$};
+
+    % Secondo braccio (stessa lunghezza, angolo 30° sullo stesso lato)
+    \coordinate (B) at (1.707,0.775); % metà del vettore precedente
+    \draw[thick] (A) -- (B) node[midway, above right] {$\ell$};
+    \fill (B) circle (2pt) node[right] {$m$};
+
+    \draw[dashed] (A) -- ++(0,-0.8);
+    % Angoli
+    \draw (0,2.7) arc[start angle=-90,end angle=-45,radius=0.3] node[midway,left] {$\theta_1$};
+    \draw (1,1.7) arc[start angle=-90,end angle=-60,radius=0.3] node[midway,left] {$\theta_2$};
+\end{tikzpicture}
+\caption{Doppio pendolo con angoli $\theta_1,\theta_2$.}
+\label{fig:doppio-pendolo}
+\end{figure}
+
+
+\begin{align}
+    &\begin{cases}
+        x_1 = \ell\sin(\theta_1)\\
+        y_1 = -\ell\cos(\theta_1)
+    \end{cases}&
+    \begin{cases}
+        x_2= x_1+\ell\sin(\theta_2)= \ell(\sin(\theta_1)+\sin(\theta_2))\\
+        y_2 = -\ell(\cos(\theta_1)+\cos(\theta_2))
+    \end{cases}
+\\[1ex]
+    &\begin{cases}
+        \dot{x}_1= + \ell\dot{\theta_1}\cos(\theta_1)\\
+        \dot{y}_1= + \ell\dot{\theta_1}\sin(\theta_1)
+    \end{cases}&
+    \begin{cases}
+        \dot{x}_2 = \ell(\dot{\theta_1}\cos(\theta_1)+\dot{\theta_2}\cos(\theta_2))\\
+        \dot{y}_2 = \ell(\dot{\theta_1}\sin(\theta_1)+\dot{\theta_2}\sin(\theta_2))
+    \end{cases}\qquad\qquad\ \:\,
+\end{align}
+
+\begin{equation}
+    K = \frac{m}{2}\left( \dot{x}_1^2+\dot{y}_1^2+\dot{x}_2^2+\dot{y}_2^2 \right)= \frac{m}{2}
+    \left( 2\ell^2\dot{\theta}_1^2  +\ell^2\dot{\theta}_2^2+2\ell^2\dot{\theta}_1\dot{\theta}_2\cos(\theta_1-\theta_2) \right)
+\end{equation}
+
+\begin{equation}
+    U = mgy_1+mgy_2= mg\ell\left( -2\cos(\theta_1)-\cos(\theta_2) \right)
+\end{equation}
+
+\begin{equation}
+\mathcal{L}=K-U
+=\frac{m\ell^{2}}{2}
+\begin{pmatrix}\dot{\theta}_1&\dot{\theta}_2\end{pmatrix}
+\begin{pmatrix}
+2 & \cos(\theta_1-\theta_2)\\
+\cos(\theta_1-\theta_2) & 1
+\end{pmatrix}
+\begin{pmatrix}\dot{\theta}_1\\ \dot{\theta}_2\end{pmatrix}
++ m g \ell \big(2\cos\theta_1+\cos\theta_2\big).
+\end{equation}
+
+\begin{equation}
+A(\theta_1,\theta_2):=
+\begin{pmatrix}
+2 & \cos(\theta_1-\theta_2)\\
+\cos(\theta_1-\theta_2) & 1
+\end{pmatrix};\qquad
+\dot{\theta}:=
+\begin{pmatrix}\dot{\theta}_1\\ \dot{\theta}_2\end{pmatrix};\qquad
+\omega_0^2:=\frac{g}{\ell}
+\end{equation}
+
+\begin{equation}
+\implies\mathcal{L}
+= m\ell^{2}\!\left[
+\frac{1}{2}\,\dot{\theta}^{\intercal}A(\theta_1,\theta_2)\dot{\theta}
++ \omega_0^2\big(2\cos\theta_1+\cos\theta_2\big)
+\right]
+\end{equation}
+
+Studiamo ora i punti critici: 
+\begin{equation}
+U(\theta_1,\theta_2)= -\,m\,\ell^{2}\,\omega_0^{2}\,\big(2\cos\theta_1+\cos\theta_2\big)
+\end{equation}
+
+\begin{equation}
+\pdv{U}{\theta_1}=2m\ell^{2}\omega_0^{2}\sin\theta_1\,,\qquad
+\pdv{U}{\theta_2}=m\ell^{2}\omega_0^{2}\sin\theta_2
+\end{equation}
+
+\begin{equation}
+\pdv{U}{\theta_1}=\pdv{U}{\theta_2}=0
+\iff (\bar{\theta}_1,\bar{\theta}_2)\in\{(k\pi,h\pi):\ k,h\in\mathbb{Z}\}
+\end{equation}
+
+\begin{equation}
+\pdv[2]{U}{\theta}(\theta_1,\theta_2)
+= m\ell^{2}\omega_0^{2}
+\begin{pmatrix}
+2\cos\theta_1 & 0\\
+0 & \cos\theta_2
+\end{pmatrix}
+\end{equation}
+
+\begin{itemize}
+    \item $\pdv[2]{U}{\theta}\left(0,0\right) = m\ell^2\omega_0^2 \, \operatorname{diag}(2,1) \implies \text{min. loc. non degenere, stabile}$
+    \item $\pdv[2]{U}{\theta}\left(0,\pi\right) = m\ell^2\omega_0^2 \, \operatorname{diag}(2,-1) \implies \text{sella, instabile}$
+    \item $\pdv[2]{U}{\theta}\left(\pi,0\right) = m\ell^2\omega_0^2 \, \operatorname{diag}(-2,1) \implies \text{sella, instabile}$
+    \item $\pdv[2]{U}{\theta}\left(\pi,\pi\right) = m\ell^2\omega_0^2 \, \operatorname{diag}(-2,-1) \implies \text{max loc. non degenere, instabile}$
+\end{itemize}
+
+Studiamo ora le piccole oscillazioni intorno a $(\theta_1,\theta_2,\dot{\theta}_1,\dot{\theta}_2)= (0,0,0,0)$.\\
+Calcoliamo $\mathcal{L}_2$ (nella trattazione che segue usiamo una lagrangiana ridotta ignorando il termine $m\ell^2$):
+
+\begin{equation}
+A=\begin{pmatrix}
+2 & \cos(\theta_1+\theta_2)\\
+\cos(\theta_1-\theta_2) & 1
+\end{pmatrix}\bigg|_{\theta_1+\theta_2=0}
+=\begin{pmatrix}
+2 & 1\\
+1 & 1
+\end{pmatrix}
+\end{equation}
+
+\begin{equation}
+U(\theta_1,\theta_2)=U(0)+\frac{1}{2},(\theta_1\theta_2)
+\pdv[2]{U}{\theta}\bigg|_{0}
+\begin{pmatrix}\theta_1\\ \theta_2\end{pmatrix}+ \dots
+\simeq \frac{\omega_0^2}{2} (2\theta_1^2+\theta_2^2) - 3\omega_0^2
+\end{equation}
+
+\begin{equation}
+B=\begin{pmatrix}
+2\omega_0^2 & 0\\
+0 & \omega_0^2
+\end{pmatrix}
+\end{equation}
+
+\begin{equation}
+\mathcal{L}_2=\frac{1}{2},(\dot{\theta}_1\dot{\theta}_2)
+\begin{pmatrix}2&1\\1&1\end{pmatrix}
+\begin{pmatrix}\dot{\theta}_1\\ \dot{\theta}_2\end{pmatrix}
+-\frac{1}{2},(\theta_1 \theta_2)
+\begin{pmatrix}2\omega_0^2&0\\0&\omega_0^2\end{pmatrix}
+\begin{pmatrix}\theta_1\\ \theta_2\end{pmatrix}
+\end{equation}
+
+Risolviamo $
+(B - \omega^2 A)u = 0, \quad u \in \mathbb{R}^2, \; u \neq 0
+$
+
+\begin{equation*}
+\det(B - \omega^2 A) = 
+\det\left[\begin{pmatrix}
+2\omega_0^2 & 0 \\
+0 & \omega_0^2
+\end{pmatrix}
+- \omega^2 
+\begin{pmatrix}
+2 & 1 \\
+1 & 1
+\end{pmatrix}\right]
+\end{equation*}
+
+\begin{equation*}
+= \det\begin{bmatrix}
+2(\omega_0^2 - \omega^2) & -\omega^2 \\
+-\omega^2 & \omega_0^2 - \omega^2
+\end{bmatrix}
+= 2(\omega_0^2 - \omega^2)(\omega_0^2 - \omega^2) - \omega^4
+\end{equation*}
+
+\begin{equation*}
+= 2\omega_0^4 - 4\omega_0^2\omega^2 + \omega^4 = 0
+\end{equation*}
+
+\begin{equation*}
+\omega^2 = 2\omega_0^2 \pm \sqrt{4\omega_0^4 - 2\omega_0^4} = 2\omega_0^2 \pm \sqrt{2}\,\omega_0^2 
+= (2 \pm \sqrt{2}) \omega_0^2
+\end{equation*}
+
+\begin{equation}
+\implies \omega_+ = \omega_0 \sqrt{2 + \sqrt{2}}, \quad 
+\omega_- = \omega_0 \sqrt{2 - \sqrt{2}}
+\end{equation}
+
+Cerchiamo ora gli autovettori corrispondenti:
+
+\begin{equation*}
+(B - \omega^2 A)u^{(\pm)} = 0
+\end{equation*}
+
+\begin{equation*}
+\begin{pmatrix}
+2(\omega_0^2 - \omega^2) & -\omega^2 \\
+-\omega^2 & \omega_0^2 - \omega^2
+\end{pmatrix}
+\begin{pmatrix}
+u^{(\pm)}_1 \\ u^{(\pm)}_2
+\end{pmatrix}
+= 0
+\end{equation*}
+
+
+\begin{equation*}
+\omega = \omega_+ \implies 2(\omega_0^2 - (2+\sqrt{2})\omega_0^2)u^{(+)}_1 - (2+\sqrt{2})\omega_0^2 u^{(+)}_2 = 0
+\end{equation*}
+
+\begin{equation*}
+\implies 2(-1-\sqrt{2})u^{(+)}_1 - (2+\sqrt{2})u^{(+)}_2 = 0
+\end{equation*}
+
+\begin{equation*}
+\implies 2u^{(+)}_1 + \sqrt{2}\,u^{(+)}_2 = 0
+\quad \implies u^{(+)}_2 = -\sqrt{2}\,u^{(+)}_1
+\end{equation*}
+
+\begin{equation}
+\implies \text{Lo spazio proprio associato è } 
+A_+ = \operatorname{span}\left\{ \begin{pmatrix} 1 \\ -\sqrt{2} \end{pmatrix} \right\}
+\end{equation}
+
+
+\begin{equation*}
+\omega = \omega_- \implies 2(\omega_0^2 - (2-\sqrt{2})\omega_0^2)u^{(-)}_1 - (2-\sqrt{2})\omega_0^2 u^{(-)}_2 = 0
+\end{equation*}
+
+\begin{equation*}
+\implies 2u^{(-)}_1 - \sqrt{2}\,u^{(-)}_2 = 0
+\quad \implies u^{(-)}_2 = \sqrt{2}\,u^{(-)}_1
+\end{equation*}
+
+\begin{equation}
+\implies A_- = \operatorname{span}\left\{ \begin{pmatrix} 1 \\ \sqrt{2} \end{pmatrix} \right\}
+\end{equation}
+
+\begin{equation}
+    \implies \begin{pmatrix}
+        \theta_1(t)\\\theta_2   (t)
+    \end{pmatrix} = c_-(t)u^{(-)}+c_+(t)u^{(+)}
+\end{equation}
+
+Dove $c_{\pm}(t)$ sono soluzione di $\dot{c}_\pm= - \omega_\pm^2c_\pm$, poiché essendo coordinate normali vale:
+\begin{equation*}
+    \mathcal{L}_2(c,\dot{c})= \sum_{i = +,-}\frac{1}{2}\dot{c}_i^2- \frac{\omega_i^2}{2}c_i^2\implies
+    c_\pm(t)=a_\pm\cos(\omega_\pm t)+b_\pm\sin(\omega_\pm t)
+\end{equation*}
+
+\paragraph{Coreografia dei modi normali}
+Scegliamo $a_+,\;b_+=0\implies \theta(t)= \begin{pmatrix}
+    1\\ \sqrt{2}    
+\end{pmatrix}c_-(t)$ dunque i due pendoli oscillano in fase.\\
+Se invece  $a_-,\;b_-=0\implies \theta(t)= \begin{pmatrix}
+    1\\ -\sqrt{2}    
+\end{pmatrix}c_+(t)$i due pendoli oscillano in contro fase.
+
+
+\subsection{Pendoli accopiati}
+
+
+\begin{figure}[ht]
+    \centering
+    \usetikzlibrary{decorations.pathmorphing}
+    \usetikzlibrary{calc}
+    \begin{tikzpicture}[scale=1.1]
+    \draw[->] (-4.5,0) -- (4,0) node[below] {$x$};
+    \draw[->] (-4,-4) -- (-4,0.5) node[left] {$y$};
+
+    \coordinate (P1) at (-2,0);
+    \coordinate (P2) at ( 2,0);
+    \draw[thick] (P1) -- (P2);
+    \fill (P1) circle (1.2pt);
+    \fill (P2) circle (1.2pt);
+    \node[above] at (0,0.05) {$d$};
+
+    \def\L{3.0}
+    \def\a{25}
+    \def\b{40}
+
+    \path (P1) ++(-\a-90:\L) coordinate (M1);
+    \path (P2) ++(+\b-90:\L)  coordinate (M2);
+
+    \draw[thick] (P1) -- (M1);
+    \draw[thick] (P2) -- (M2);
+
+    \fill (M1) circle (2pt) node[below left] {$m$};
+    \fill (M2) circle (2pt) node[below right] {$m$};
+
+    \node[left]  at ($(P1)!0.5!(M1)$) {$\ell$};
+    \node[right] at ($(P2)!0.5!(M2)$) {$\ell$};
+
+    \draw (P1) ++(270:0.7) arc[start angle=270, end angle=270-\a, radius=0.7];
+    \node at ($(P1)+(270-\a/2:1.1)$) {$\theta_1$};
+
+    \draw (P2) ++(270:0.7) arc[start angle=270, end angle=270+\b, radius=0.7];
+    \node at ($(P2)+(270+\b/2:1.1)$) {$\theta_2$};
+
+    \draw[thick,decorate,decoration={coil,aspect=0.4,segment length=6pt,amplitude=4pt}]
+        ($(M1)+(0.2,0)$) -- ($(M2)+(-0.2,0)$);
+    \node[below] at ($(M1)!0.5!(M2)$) {$k$};
+    \end{tikzpicture}
+    \caption{Pendoli accopiati}
+\end{figure}
+
+Supponiamo $d$ come lunghezza di riposo della molla. Il sistema è descritto da:
+\begin{equation}
+    \mathcal{L}= \mathcal{L}_1  +\mathcal{L}_2+\mathcal{L}_i
+\end{equation}
+Dove $\mathcal{L}_i$ è la lagrangiana di interazione tra le due molle, 
+che in questo caso corrisponde all'energia potenziale elastica.
+\begin{equation}
+    \mathcal{L}= \frac{m}{2}\ell^2\dot{\theta}_1^2-mg\ell\cos(\theta_1)+\frac{m}{2}\ell^2\dot{\theta}_2^2-mg\ell\cos(\theta_2)- U (\theta_1,\theta_2)
+\end{equation}
+Siamo interessati alle piccole oscillazioni attorno alla configurazione di equilibrio stabile.
+Assumiamo che
+\begin{equation}
+    U (\theta_1,\theta_2)= \frac{k}{2}\ell^2(\theta_1-\theta_2)^2+ \text{cost}+ o\left( \theta_1^2 \right)+ o \left( \theta_2^2 \right)
+\end{equation}
+
+\begin{equation}
+    \mathcal{L}_2=\frac{m\ell^2}{2}\left(\dot{\theta}_1^2+\dot{\theta}_2^2\right)
+    -\frac{mg\ell}{2}\left(\theta_1^2+\theta_2^2\right)
+    -\frac{k\ell^2}{2}\left(\theta_1-\theta_2\right)^2,
+    \quad \omega_0:=\sqrt{\frac{g}{\ell}},\ \ \omega_e:=\sqrt{\frac{k}{m}}
+\end{equation}
+Effetuiamo un cambio di variabili: 
+\begin{equation}
+    \theta_+:=\frac{\theta_1+\theta_2}{\sqrt{2}},\quad
+    \theta_-:=\frac{\theta_1-\theta_2}{\sqrt{2}}
+    \implies
+    \theta_1=\frac{\theta_+ + \theta_-}{\sqrt{2}},\quad
+    \theta_2=\frac{\theta_+ - \theta_-}{\sqrt{2}}
+\end{equation}
+
+\begin{equation*}
+    \begin{pmatrix}\theta_-\\ \theta_+\end{pmatrix}
+    =\frac{1}{\sqrt{2}}
+    \begin{pmatrix}
+        1 & -1\\
+        1 & \phantom{-}1
+    \end{pmatrix}
+    \begin{pmatrix}\theta_1\\ \theta_2\end{pmatrix},
+    \qquad \det=1
+\end{equation*}
+Otteniamo:
+\begin{equation}
+    \mathcal{L}_2=\frac{m\ell^2}{2}\left(\dot{\theta}_+^2+\dot{\theta}_-^2\right)
+    -\frac{m\ell^2}{2}\left[\omega_0^2\,\theta_+^2+\left(\omega_0^2+2\omega_e^2\right)\theta_-^2\right]
+\end{equation}
+Spostando i termini e trascurando il termine $m\ell^2$:
+\begin{equation}
+    \mathcal{L}'_2= \frac{1}{2}\left(\dot{\theta}_+^2-\omega_0^2\theta_+^2\right)+ \frac{1}{2}\left(\dot{\theta}_-^2- (\omega_0^2+2\omega_e^2)\theta_-^2\right)
+\end{equation}
+Che è la somma di lagrangiane di oscilltori armonici.\\
+Dunque $\theta_-(t)$ è soluzione di $\ddot{\theta}_-= - (\omega_0^2+2\omega_e^2)\theta_- $
+e $\theta_+$ è soluzione  di $\ddot{\theta}_+=-\omega_0^2\theta_+$\\
+Risulta quindi che per i dati iniziali per cui $\theta_-(t)\equiv0$ i pendoli sono in fase, 
+invece per $\theta_+(t)\equiv0$ i pendoli sono in contro fase.
+
+Consideriamo ora il caso in cui $k$ sia molto piccola tale che $\omega_0>>\omega_e $:
+\begin{equation}
+    \omega_-= \omega_0\sqrt{1+2\frac{\omega_e^2}{\omega_0^2}}\simeq \omega_0\left( 1+\frac{\omega_e^2}{\omega_0^2} \right)\simeq \omega_0(1+\varepsilon)
+\end{equation}
+Consideriamo il dato iniziale $\theta_1(0)=\theta_2(0)=0;\;\dot{\theta}_1(0)=v;\,\dot{\theta}_2=0:$
+\begin{equation}
+    \ddot{\theta}_+ + \omega_0^2\,\theta_+ = 0,
+    \qquad
+    \ddot{\theta}_- + \omega_0^2(1+\varepsilon)^2\,\theta_- = 0
+\end{equation}
+
+\begin{equation}
+    \theta_\pm(0)=0,
+    \qquad
+    \dot{\theta}_\pm(0)=\frac{v}{\sqrt{2}}
+\end{equation}
+
+\begin{equation}
+    \theta_+(t)=\frac{v}{\sqrt{2}\,\omega_0}\sin(\omega_0 t),
+    \qquad
+    \theta_-(t)=\frac{v}{\sqrt{2}\,\omega_0(1+\varepsilon)}\sin\!\big(\omega_0(1+\varepsilon)t\big)
+\end{equation}
+
+\begin{equation*}
+    \theta_1(t)=\frac{\theta_+(t)+\theta_-(t)}{\sqrt{2}}
+    =\frac{v}{2\omega_0}\!\left[\sin(\omega_0 t)+\frac{1}{1+\varepsilon}\sin\!\big(\omega_0(1+\varepsilon)t\big)\right]
+\end{equation*}
+
+\begin{equation*}
+    \theta_2(t)=\frac{\theta_+(t)-\theta_-(t)}{\sqrt{2}}
+    =\frac{v}{2\omega_0}\!\left[\sin(\omega_0 t)-\frac{1}{1+\varepsilon}\sin\!\big(\omega_0(1+\varepsilon)t\big)\right]
+\end{equation*}
+
+\begin{equation*}
+    \theta_{1,2}(t)\simeq \frac{v}{2\omega_0}\!\left[\sin(\omega_0 t)\ \pm\ \sin\!\big(\omega_0(1+\varepsilon)t\big)\right]
+    \qquad ((1+\varepsilon)\simeq 1)
+\end{equation*}
+Utilizzando le identità trigonometriche e approssimando si ottiene:
+\begin{equation}
+    \theta_1(t)\simeq \frac{v}{\omega_0}\sin(\omega_0 t)\cos(\frac{\omega_0\varepsilon}{2}t)
+    \quad \theta_2(t)\simeq- \frac{v}{\omega_0}\cos(\omega_0 t )\sin(\frac{\omega_0\varepsilon}{2}t)
+\end{equation}
+La portante è come quella del pendolo normale, si crea però una modulante che cambia l'ampiezza di oscillazione su tempi lunghi.
